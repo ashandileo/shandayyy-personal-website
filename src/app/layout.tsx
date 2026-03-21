@@ -74,8 +74,8 @@ const jsonLd = {
   jobTitle: "Frontend Developer",
   email: "ashandileonadi@gmail.com",
   sameAs: [
-    "https://github.com/ashandileonadi",
-    "https://linkedin.com/in/ashandileonadi",
+    "https://www.github.com/ashandileo",
+    "https://www.linkedin.com/in/ashandi-leonadi",
   ],
 };
 
