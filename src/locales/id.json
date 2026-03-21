@@ -1,0 +1,80 @@
+{
+  "nav": {
+    "home": "Beranda",
+    "experience": "Pengalaman",
+    "projects": "Proyek",
+    "resume": "Resume",
+    "contact": "Kontak"
+  },
+  "hero": {
+    "available": "Tersedia untuk bekerja",
+    "greeting": "Hai, saya",
+    "role": "Frontend Developer",
+    "description": "Saya membuat pengalaman web modern, responsif, dan berkinerja tinggi dengan semangat untuk kode bersih dan antarmuka pengguna yang menyenangkan.",
+    "viewProjects": "Lihat Proyek",
+    "resume": "Resume",
+    "contactMe": "Hubungi Saya",
+    "techStack": "Tech Stack",
+    "scrollToExplore": "Gulir untuk Menjelajahi"
+  },
+  "experience": {
+    "badge": "Karir",
+    "title": "Pengalaman Kerja",
+    "subtitle": "Perjalanan profesional saya sebagai frontend developer.",
+    "jobs": [
+      {
+        "description": [
+          "Memimpin migrasi arsitektur frontend dari codebase legacy ke Next.js App Router, meningkatkan kecepatan loading halaman sebesar 40%.",
+          "Membimbing tim yang terdiri dari 4 developer junior melalui code review dan sesi pair programming.",
+          "Mengimplementasikan design system dengan komponen yang dapat digunakan kembali, mengurangi waktu pengembangan UI sebesar 30%."
+        ]
+      },
+      {
+        "description": [
+          "Membangun aplikasi web responsif untuk 10+ klien di sektor e-commerce, fintech, dan pendidikan.",
+          "Berkolaborasi erat dengan desainer UI/UX untuk menerjemahkan prototipe Figma menjadi antarmuka pixel-perfect.",
+          "Mengintegrasikan RESTful API dan endpoint GraphQL dengan penanganan error dan loading state yang robust."
+        ]
+      },
+      {
+        "description": [
+          "Mengembangkan dan memelihara beberapa aplikasi web untuk klien menggunakan React dan Vue.js.",
+          "Menulis unit test dan integration test, mencapai 80%+ code coverage pada modul-modul utama.",
+          "Berpartisipasi dalam kegiatan agile termasuk sprint planning, daily stand-up, dan retrospective."
+        ]
+      }
+    ]
+  },
+  "projects": {
+    "badge": "Portofolio",
+    "title": "Proyek Unggulan",
+    "subtitle": "Pilihan proyek yang telah saya kerjakan. Klik kartu untuk melihat detail.",
+    "sourceCode": "Kode Sumber",
+    "items": [
+      {
+        "summary": "Toko online lengkap dengan keranjang, checkout, dan integrasi pembayaran.",
+        "description": "Platform e-commerce modern yang dibangun dengan Next.js dan Tailwind CSS. Fitur meliputi katalog produk dengan filter & pencarian, keranjang belanja dengan state persisten, integrasi pembayaran Stripe, dashboard pelacakan pesanan, dan desain responsif untuk semua perangkat."
+      },
+      {
+        "summary": "Alat manajemen proyek kolaboratif dengan pembaruan real-time.",
+        "description": "Aplikasi manajemen tugas bergaya Kanban dengan fungsi drag-and-drop. Mendukung kolaborasi real-time via WebSocket, workspace tim, kontrol akses berbasis peran, dan pencatatan aktivitas. Dibangun dengan fokus pada performa dan kemudahan penggunaan."
+      },
+      {
+        "summary": "Alat CLI untuk menghasilkan situs portfolio developer dari file konfigurasi.",
+        "description": "Alat CLI open-source yang memungkinkan developer membuat situs portfolio yang indah dari file konfigurasi YAML sederhana. Mendukung berbagai tema, mode gelap, integrasi blog, dan deployment otomatis ke Vercel atau Netlify."
+      },
+      {
+        "summary": "Visualisasi data cuaca real-time dengan grafik interaktif.",
+        "description": "Dashboard cuaca yang mengambil data dari OpenWeatherMap API dan menampilkan kondisi saat ini, prakiraan per jam, dan prakiraan 7 hari dengan grafik interaktif. Fitur pencarian lokasi, favorit, dan konversi satuan."
+      }
+    ]
+  },
+  "contact": {
+    "badge": "Kontak",
+    "title": "Mari Bekerja Sama",
+    "subtitle": "Jangan ragu untuk menghubungi — saya selalu terbuka untuk peluang dan kolaborasi baru."
+  },
+  "footer": {
+    "builtWith": "Dibangun dengan Next.js & Tailwind CSS."
+  }
+}

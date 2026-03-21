@@ -1,0 +1,80 @@
+{
+  "nav": {
+    "home": "Home",
+    "experience": "Experience",
+    "projects": "Projects",
+    "resume": "Resume",
+    "contact": "Contact"
+  },
+  "hero": {
+    "available": "Available for work",
+    "greeting": "Hi, I'm",
+    "role": "Frontend Developer",
+    "description": "I craft modern, responsive, and performant web experiences with a passion for clean code and delightful user interfaces.",
+    "viewProjects": "View Projects",
+    "resume": "Resume",
+    "contactMe": "Contact Me",
+    "techStack": "Tech Stack",
+    "scrollToExplore": "Scroll to Explore"
+  },
+  "experience": {
+    "badge": "Career",
+    "title": "Work Experience",
+    "subtitle": "My professional journey as a frontend developer.",
+    "jobs": [
+      {
+        "description": [
+          "Led the frontend architecture migration from legacy codebase to Next.js App Router, improving page load times by 40%.",
+          "Mentored a team of 4 junior developers through code reviews and pair programming sessions.",
+          "Implemented design system with reusable components, reducing UI development time by 30%."
+        ]
+      },
+      {
+        "description": [
+          "Built responsive web applications for 10+ clients across e-commerce, fintech, and education sectors.",
+          "Collaborated closely with UI/UX designers to translate Figma prototypes into pixel-perfect interfaces.",
+          "Integrated RESTful APIs and GraphQL endpoints with robust error handling and loading states."
+        ]
+      },
+      {
+        "description": [
+          "Developed and maintained multiple client-facing web applications using React and Vue.js.",
+          "Wrote unit and integration tests, achieving 80%+ code coverage across key modules.",
+          "Participated in agile ceremonies including sprint planning, daily stand-ups, and retrospectives."
+        ]
+      }
+    ]
+  },
+  "projects": {
+    "badge": "Portfolio",
+    "title": "Featured Projects",
+    "subtitle": "A selection of projects I've worked on. Click a card to see details.",
+    "sourceCode": "Source Code",
+    "items": [
+      {
+        "summary": "Full-featured online store with cart, checkout, and payment integration.",
+        "description": "A modern e-commerce platform built with Next.js and Tailwind CSS. Features include product catalog with filtering & search, shopping cart with persistent state, Stripe payment integration, order tracking dashboard, and responsive design for all devices."
+      },
+      {
+        "summary": "Collaborative project management tool with real-time updates.",
+        "description": "A Kanban-style task management application with drag-and-drop functionality. Supports real-time collaboration via WebSockets, team workspaces, role-based access control, and activity logging. Built with a focus on performance and usability."
+      },
+      {
+        "summary": "CLI tool to generate developer portfolio sites from a config file.",
+        "description": "An open-source CLI tool that lets developers scaffold a beautiful portfolio website from a simple YAML configuration file. Supports multiple themes, dark mode, blog integration, and automatic deployment to Vercel or Netlify."
+      },
+      {
+        "summary": "Real-time weather data visualization with interactive charts.",
+        "description": "A weather dashboard that fetches data from OpenWeatherMap API and displays current conditions, hourly forecasts, and 7-day outlooks with interactive charts. Features location search, favorites, and unit conversion."
+      }
+    ]
+  },
+  "contact": {
+    "badge": "Contact",
+    "title": "Let's Work Together",
+    "subtitle": "Feel free to reach out — I'm always open to new opportunities and collaborations."
+  },
+  "footer": {
+    "builtWith": "Built with Next.js & Tailwind CSS."
+  }
+}
