@@ -27,7 +27,7 @@ export function ProjectCard({
       onClick={onSelect}
     >
       {/* Image with gradient overlay */}
-      <div className="relative aspect-video w-full overflow-hidden bg-muted">
+      <div className="relative -mt-4 aspect-video w-full overflow-hidden">
         {isVideo(project.images[0]) ? (
           <video
             src={project.images[0]}

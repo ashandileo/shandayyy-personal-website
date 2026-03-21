@@ -114,4 +114,27 @@ export const PROJECTS: Project[] = [
     repoUrl: "https://github.com/ashandileo/MovieApp",
     gradient: "from-rose-500/20 via-red-500/10 to-transparent",
   },
+  {
+    title: "Journal",
+    index: 4,
+    images: [
+      "/projects/journal/journal-5.png",
+      "/projects/journal/journal-6.png",
+      "/projects/journal/journal-4.png",
+      "/projects/journal/journal-3.png",
+      "/projects/journal/journal-2.png",
+      "/projects/journal/journal-1.png",
+      "/projects/journal/journal-6.mp4",
+    ],
+    techStack: [
+      "React.js",
+      "Ionic Capacitor",
+      "Supabase",
+      "TanStack Query",
+      "TypeScript",
+      "Tailwind CSS",
+    ],
+    gradient: "from-amber-500/20 via-orange-500/10 to-transparent",
+    repoUrl: "https://github.com/ashandileo/my-journal-app",
+  },
 ];

@@ -106,6 +106,10 @@
       {
         "summary": "Aplikasi pencarian film untuk mencari, menjelajahi, dan melihat detail tentang film.",
         "description": "GoMovies adalah aplikasi film yang menyediakan informasi dan detail tentang film. Pengguna dapat mencari film, menjelajahi koleksi populer, melihat informasi detail termasuk rating, durasi, genre, dan sinopsis, serta mencetak daftar film. Dibangun dengan React.js dan Next.js, aplikasi ini terintegrasi dengan The Movie Database (TMDb) API untuk data film yang komprehensif. Fitur meliputi banner hero dengan film unggulan, halaman explore dengan fungsi pencarian, halaman detail film dengan info perusahaan produksi, dan halaman about."
+      },
+      {
+        "summary": "Aplikasi jurnal pribadi cross-platform dengan dukungan offline dan deployment native.",
+        "description": "Membangun aplikasi jurnal pribadi cross-platform yang memungkinkan pengguna mencatat pikiran, melampirkan foto, dan menandai lokasi. Aplikasi berjalan sebagai PWA dengan dukungan offline dan dapat di-deploy secara native ke iOS dan Android dari satu codebase React menggunakan Ionic Capacitor. Backend didukung oleh Supabase untuk autentikasi, database, dan penyimpanan file. Fitur meliputi pencarian full-text, dark mode, native sharing, dan optimistic UI updates dengan TanStack Query."
       }
     ]
   },

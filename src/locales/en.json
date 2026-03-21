@@ -106,6 +106,10 @@
       {
         "summary": "A movie discovery app to search, explore, and view details about movies.",
         "description": "GoMovies is a movie application that provides users with information and details about movies. Users can search for movies, browse popular collections, view detailed information including ratings, duration, genres, and overviews, and print movie lists. Built with React.js and Next.js, it integrates with The Movie Database (TMDb) API for comprehensive movie data. Features include a hero banner with featured movies, an explore page with search functionality, detailed movie pages with production company info, and an about page."
+      },
+      {
+        "summary": "A cross-platform personal journaling app with offline support and native deployment.",
+        "description": "Built a cross-platform personal journaling app that lets users capture thoughts, attach photos, and tag locations. The app runs as a PWA with offline support and can be deployed natively to iOS and Android from a single React codebase using Ionic Capacitor. The backend is powered by Supabase for authentication, database, and file storage. Features include full-text search, dark mode, native sharing, and optimistic UI updates with TanStack Query."
       }
     ]
   },
