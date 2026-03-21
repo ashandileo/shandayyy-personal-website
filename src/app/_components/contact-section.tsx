@@ -4,11 +4,12 @@ import { useTranslation } from "react-i18next";
 import { Mail } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { Badge } from "@/components/ui/badge";
-import { useSectionFade } from "@/hooks";
+import { useSectionFade, useStaggeredFade } from "@/hooks";
 import { CONTACTS } from "@/data/contacts";
 
 export function ContactSection() {
   const fadeRef = useSectionFade();
+  const staggerRef = useStaggeredFade(100);
   const { t } = useTranslation();
 
   return (
@@ -24,11 +25,11 @@ export function ContactSection() {
           {t("contact.subtitle")}
         </p>
 
-        <div className="mt-10 flex items-center justify-center gap-4">
+        <div ref={staggerRef} className="mt-10 flex items-center justify-center gap-4">
           <a
             href={`mailto:${CONTACTS.email}`}
             aria-label="Email"
-            className="flex size-12 items-center justify-center rounded-full border bg-card text-muted-foreground transition-all hover:border-primary/20 hover:bg-primary hover:text-primary-foreground hover:shadow-md"
+            className="contact-icon stagger-item flex size-12 items-center justify-center rounded-full border bg-card text-muted-foreground hover:border-primary/20 hover:bg-primary hover:text-primary-foreground"
           >
             <Mail className="size-5" />
           </a>
@@ -37,7 +38,7 @@ export function ContactSection() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
-            className="flex size-12 items-center justify-center rounded-full border bg-card text-muted-foreground transition-all hover:border-primary/20 hover:bg-primary hover:text-primary-foreground hover:shadow-md"
+            className="contact-icon stagger-item flex size-12 items-center justify-center rounded-full border bg-card text-muted-foreground hover:border-primary/20 hover:bg-primary hover:text-primary-foreground"
           >
             <FaGithub className="size-5" />
           </a>
@@ -46,7 +47,7 @@ export function ContactSection() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
-            className="flex size-12 items-center justify-center rounded-full border bg-card text-muted-foreground transition-all hover:border-primary/20 hover:bg-primary hover:text-primary-foreground hover:shadow-md"
+            className="contact-icon stagger-item flex size-12 items-center justify-center rounded-full border bg-card text-muted-foreground hover:border-primary/20 hover:bg-primary hover:text-primary-foreground"
           >
             <FaLinkedin className="size-5" />
           </a>

@@ -10,6 +10,12 @@
     "available": "Available for work",
     "greeting": "Hi, I'm",
     "role": "Frontend Developer",
+    "roles": [
+      "Frontend Developer",
+      "Fullstack Developer",
+      "Software Engineer",
+      "UI Engineer"
+    ],
     "description": "I craft modern, responsive, and performant web experiences with a passion for clean code and delightful user interfaces.",
     "viewProjects": "View Projects",
     "resume": "Resume",
@@ -20,7 +26,7 @@
   "experience": {
     "badge": "Career",
     "title": "Work Experience",
-    "subtitle": "My professional journey as a frontend developer.",
+    "subtitle": "My professional journey as a software engineer.",
     "jobs": [
       {
         "description": [

@@ -4,10 +4,13 @@ import Link from "next/link";
 import { useTranslation } from "react-i18next";
 import { ArrowDown, Sparkles, Send, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useTypewriter } from "@/hooks";
 import { TECH_STACK } from "@/data/tech-stack";
 
 export function HeroSection() {
   const { t } = useTranslation();
+  const roles = t("hero.roles", { returnObjects: true }) as string[];
+  const typed = useTypewriter({ words: roles });
 
   return (
     <section
@@ -24,7 +27,7 @@ export function HeroSection() {
         <div className="glow-orb-3 absolute top-1/3 right-1/3 size-64 rounded-full bg-sky-500/8 blur-3xl" />
       </div>
 
-      <div className="relative mx-auto max-w-2xl">
+      <div className="hero-stagger relative mx-auto max-w-2xl">
         {/* Status badge */}
         <div className="mb-6 inline-flex items-center gap-2 rounded-full border bg-background/60 px-4 py-1.5 text-sm backdrop-blur-sm">
           <span className="relative flex size-2">
@@ -36,13 +39,14 @@ export function HeroSection() {
 
         <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
           {t("hero.greeting")}{" "}
-          <span className="bg-linear-to-r from-primary via-purple-500 to-sky-500 bg-clip-text text-transparent">
+          <span className="gradient-shimmer bg-linear-to-r from-primary via-purple-500 to-sky-500 bg-clip-text text-transparent">
             Ashandi Leonadi
           </span>
         </h1>
 
         <p className="mt-4 text-lg font-medium text-muted-foreground sm:text-xl">
-          {t("hero.role")}
+          {typed}
+          <span className="typewriter-cursor ml-0.5 inline-block w-[2px] bg-primary" />
         </p>
 
         <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-muted-foreground sm:text-base">
@@ -87,12 +91,13 @@ export function HeroSection() {
             {t("hero.techStack")}
           </p>
           <div className="flex flex-wrap items-center justify-center gap-2">
-            {TECH_STACK.map((tech) => {
+            {TECH_STACK.map((tech, i) => {
               const Icon = tech.icon;
               return (
                 <span
                   key={tech.name}
-                  className="inline-flex items-center gap-1.5 rounded-full border bg-background/60 px-3 py-1.5 text-xs font-medium backdrop-blur-sm transition-colors hover:bg-accent"
+                  className="tech-pill inline-flex items-center gap-1.5 rounded-full border bg-background/60 px-3 py-1.5 text-xs font-medium backdrop-blur-sm transition-all hover:scale-105 hover:bg-accent hover:shadow-sm"
+                  style={{ animationDelay: `${0.9 + i * 0.05}s` }}
                 >
                   <Icon className={`size-3.5 ${tech.color}`} />
                   {tech.name}

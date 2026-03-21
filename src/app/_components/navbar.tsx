@@ -46,7 +46,7 @@ export function Navbar({ activeSection }: { activeSection: string }) {
           className="relative font-heading text-xl font-bold tracking-tight"
         >
           <span className="bg-linear-to-r from-primary to-purple-500 bg-clip-text text-transparent">
-            AL
+            Shandayyy
           </span>
         </Link>
 
@@ -54,7 +54,9 @@ export function Navbar({ activeSection }: { activeSection: string }) {
         <div className="hidden items-center gap-1 md:flex">
           <ul className="flex gap-1">
             {NAV_ITEMS.map((item) => {
-              const isActive = item.sectionId === activeSection;
+              const isActive = item.href.startsWith("/")
+                ? pathname === item.href
+                : item.sectionId === activeSection;
               return (
                 <li key={item.href}>
                   <Link
@@ -82,7 +84,9 @@ export function Navbar({ activeSection }: { activeSection: string }) {
               aria-label="Switch language"
             >
               <span className="text-base leading-none">
-                {i18n.language === "en" ? "\u{1F1EE}\u{1F1E9}" : "\u{1F1FA}\u{1F1F8}"}
+                {i18n.language === "en"
+                  ? "\u{1F1EE}\u{1F1E9}"
+                  : "\u{1F1FA}\u{1F1F8}"}
               </span>
             </Button>
             <Button
@@ -105,7 +109,9 @@ export function Navbar({ activeSection }: { activeSection: string }) {
             aria-label="Switch language"
           >
             <span className="text-base leading-none">
-              {i18n.language === "en" ? "\u{1F1EE}\u{1F1E9}" : "\u{1F1FA}\u{1F1F8}"}
+              {i18n.language === "en"
+                ? "\u{1F1EE}\u{1F1E9}"
+                : "\u{1F1FA}\u{1F1F8}"}
             </span>
           </Button>
           <Button
@@ -132,10 +138,12 @@ export function Navbar({ activeSection }: { activeSection: string }) {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="border-t bg-background/95 px-6 pb-4 backdrop-blur-xl md:hidden">
+        <div className="mobile-menu-enter border-t bg-background/95 px-6 pb-4 backdrop-blur-xl md:hidden">
           <ul className="flex flex-col gap-1 pt-2">
             {NAV_ITEMS.map((item) => {
-              const isActive = item.sectionId === activeSection;
+              const isActive = item.href.startsWith("/")
+                ? pathname === item.href
+                : item.sectionId === activeSection;
               return (
                 <li key={item.href}>
                   <Link

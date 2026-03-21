@@ -10,6 +10,12 @@
     "available": "Tersedia untuk bekerja",
     "greeting": "Hai, saya",
     "role": "Frontend Developer",
+    "roles": [
+      "Frontend Developer",
+      "Fullstack Developer",
+      "Software Engineer",
+      "UI Engineer"
+    ],
     "description": "Saya membuat pengalaman web modern, responsif, dan berkinerja tinggi dengan semangat untuk kode bersih dan antarmuka pengguna yang menyenangkan.",
     "viewProjects": "Lihat Proyek",
     "resume": "Resume",
@@ -20,7 +26,7 @@
   "experience": {
     "badge": "Karir",
     "title": "Pengalaman Kerja",
-    "subtitle": "Perjalanan profesional saya sebagai frontend developer.",
+    "subtitle": "Perjalanan profesional saya sebagai software engineer.",
     "jobs": [
       {
         "description": [

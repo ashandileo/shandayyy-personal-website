@@ -3,11 +3,12 @@
 import { useTranslation } from "react-i18next";
 import { MapPin, Building2 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { useSectionFade } from "@/hooks";
+import { useSectionFade, usePerItemFade } from "@/hooks";
 import { EXPERIENCES } from "@/data/experiences";
 
 export function ExperienceSection() {
   const fadeRef = useSectionFade();
+  const itemFadeRef = usePerItemFade();
   const { t } = useTranslation();
 
   return (
@@ -29,11 +30,11 @@ export function ExperienceSection() {
           {/* Timeline line */}
           <div className="timeline-line absolute left-4 top-0 h-full w-px md:left-1/2 md:-translate-x-px" />
 
-          <div className="flex flex-col gap-14">
+          <div ref={itemFadeRef} className="flex flex-col gap-14">
             {EXPERIENCES.map((exp, i) => (
               <div
                 key={i}
-                className="relative grid grid-cols-[32px_1fr] gap-6 md:grid-cols-2 md:gap-10"
+                className="stagger-item relative grid grid-cols-[32px_1fr] gap-6 md:grid-cols-2 md:gap-10"
               >
                 {/* Dot */}
                 <div className="timeline-dot absolute left-4 top-1 z-10 size-3 -translate-x-1/2 rounded-full bg-primary md:left-1/2" />

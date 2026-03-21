@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Badge } from "@/components/ui/badge";
-import { useSectionFade } from "@/hooks";
+import { useSectionFade, useStaggeredFade } from "@/hooks";
 import { PROJECTS } from "@/data/projects";
 import type { Project } from "@/data/projects";
 import { ProjectCard } from "./project-card";
@@ -12,6 +12,7 @@ import { ProjectDialog } from "./project-dialog";
 export function ProjectsSection() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const fadeRef = useSectionFade();
+  const staggerRef = useStaggeredFade(120);
   const { t } = useTranslation();
 
   return (
@@ -35,13 +36,14 @@ export function ProjectsSection() {
           </p>
         </div>
 
-        <div className="mt-14 grid gap-6 sm:grid-cols-2">
+        <div ref={staggerRef} className="mt-14 grid gap-6 sm:grid-cols-2">
           {PROJECTS.map((project) => (
-            <ProjectCard
-              key={project.title}
-              project={project}
-              onSelect={() => setSelectedProject(project)}
-            />
+            <div key={project.title} className="stagger-item">
+              <ProjectCard
+                project={project}
+                onSelect={() => setSelectedProject(project)}
+              />
+            </div>
           ))}
         </div>
 
