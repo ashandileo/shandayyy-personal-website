@@ -64,8 +64,37 @@ export const PROJECTS: Project[] = [
     gradient: "from-blue-500/20 via-indigo-500/10 to-transparent",
   },
   {
-    title: "E-Commerce Platform",
+    title: "Echo Test",
     index: 2,
+    images: [
+      "/projects/echo-test/echo-test-5.png",
+      "/projects/echo-test/echo-test-4.png",
+      "/projects/echo-test/echo-test-3.webp",
+      "/projects/echo-test/echo-test-6.png",
+      "/projects/echo-test/echo-test-10.png",
+      "/projects/echo-test/echo-test-11.png",
+      "/projects/echo-test/echo-test-12.png",
+      "/projects/echo-test/echo-test-13.png",
+      "/projects/echo-test/echo-test-14.png",
+      "/projects/echo-test/echo-test-15.png",
+      "/projects/echo-test/echo-test-16.png",
+    ],
+    techStack: [
+      "React.js",
+      "Next.js",
+      "Supabase",
+      "TanStack Query",
+      "OpenAI",
+      "Mistral AI",
+      "Tailwind CSS",
+      "Shadcn",
+    ],
+    liveUrl: "https://echo-test-p7ydj0o5f-ashandileos-projects.vercel.app/",
+    gradient: "from-violet-500/20 via-purple-500/10 to-transparent",
+  },
+  {
+    title: "E-Commerce Platform",
+    index: 3,
     images: [
       "/projects/ecommerce/ecommerce-1.svg",
       "/projects/ecommerce/ecommerce-2.svg",
@@ -77,7 +106,7 @@ export const PROJECTS: Project[] = [
   },
   {
     title: "Task Management App",
-    index: 3,
+    index: 4,
     images: [
       "/projects/taskapp/taskapp-1.svg",
       "/projects/taskapp/taskapp-2.svg",
@@ -88,7 +117,7 @@ export const PROJECTS: Project[] = [
   },
   {
     title: "Portfolio Generator",
-    index: 4,
+    index: 5,
     images: [
       "/projects/portfolio/portfolio-1.svg",
       "/projects/portfolio/portfolio-2.svg",
@@ -99,7 +128,7 @@ export const PROJECTS: Project[] = [
   },
   {
     title: "Weather Dashboard",
-    index: 5,
+    index: 6,
     images: [
       "/projects/weather/weather-1.svg",
       "/projects/weather/weather-2.svg",

@@ -94,6 +94,10 @@
         "description": "Happy5 is an AI-powered performance management platform that unifies goal tracking, project management, and employee performance reviews. It enables organizations to align goals, work, and performance in one fully customizable platform. Supports multiple goal frameworks including OKRs, MBOs, and KPIs, with integrations to tools like Jira for comprehensive visibility into strategic alignment from executive level to individual contributors."
       },
       {
+        "summary": "AI-powered interactive quiz platform for English language learning.",
+        "description": "EchoTest is an AI-powered English learning platform where teachers create quizzes with AI assistance and students take interactive assessments. Teachers can upload PDF learning materials for AI-generated quiz questions, supporting multiple question types including multiple choice, essay, listening tests, and speaking tests with audio recording. Features include quiz management, student submission tracking, automated and manual grading, performance analytics, and Google authentication. Developed as an undergraduate thesis project."
+      },
+      {
         "summary": "Full-featured online store with cart, checkout, and payment integration.",
         "description": "A modern e-commerce platform built with Next.js and Tailwind CSS. Features include product catalog with filtering & search, shopping cart with persistent state, Stripe payment integration, order tracking dashboard, and responsive design for all devices."
       },
