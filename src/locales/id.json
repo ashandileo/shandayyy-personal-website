@@ -96,6 +96,10 @@
       {
         "summary": "Platform kuis interaktif berbasis AI untuk pembelajaran Bahasa Inggris.",
         "description": "EchoTest adalah platform pembelajaran Bahasa Inggris berbasis AI di mana guru membuat kuis dengan bantuan AI dan siswa mengerjakan asesmen interaktif. Guru dapat mengunggah materi pembelajaran dalam format PDF untuk pembuatan soal kuis secara otomatis oleh AI, mendukung berbagai tipe soal termasuk pilihan ganda, esai, listening test, dan speaking test dengan perekaman audio. Fitur meliputi manajemen kuis, pelacakan submission siswa, penilaian otomatis dan manual, analitik performa, serta autentikasi Google. Dikembangkan sebagai proyek skripsi."
+      },
+      {
+        "summary": "Aplikasi pencarian film untuk mencari, menjelajahi, dan melihat detail tentang film.",
+        "description": "GoMovies adalah aplikasi film yang menyediakan informasi dan detail tentang film. Pengguna dapat mencari film, menjelajahi koleksi populer, melihat informasi detail termasuk rating, durasi, genre, dan sinopsis, serta mencetak daftar film. Dibangun dengan React.js dan Next.js, aplikasi ini terintegrasi dengan The Movie Database (TMDb) API untuk data film yang komprehensif. Fitur meliputi banner hero dengan film unggulan, halaman explore dengan fungsi pencarian, halaman detail film dengan info perusahaan produksi, dan halaman about."
       }
     ]
   },

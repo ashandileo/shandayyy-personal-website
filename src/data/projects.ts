@@ -92,4 +92,26 @@ export const PROJECTS: Project[] = [
     liveUrl: "https://echotest.vercel.app/",
     gradient: "from-violet-500/20 via-purple-500/10 to-transparent",
   },
+  {
+    title: "GoMovies",
+    index: 3,
+    images: [
+      "/projects/gomovies/gomovies-1.png",
+      "/projects/gomovies/gomovies-2.png",
+      "/projects/gomovies/gomovies-3.png",
+      "/projects/gomovies/gomovies-4.png",
+    ],
+    techStack: [
+      "React.js",
+      "Next.js",
+      "Tailwind CSS",
+      "React Query",
+      "TMDb API",
+      "Axios",
+      "Zustand",
+    ],
+    liveUrl: "https://movie-app-lemon-sigma.vercel.app/",
+    repoUrl: "https://github.com/ashandileo/MovieApp",
+    gradient: "from-rose-500/20 via-red-500/10 to-transparent",
+  },
 ];

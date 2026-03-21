@@ -96,6 +96,10 @@
       {
         "summary": "AI-powered interactive quiz platform for English language learning.",
         "description": "EchoTest is an AI-powered English learning platform where teachers create quizzes with AI assistance and students take interactive assessments. Teachers can upload PDF learning materials for AI-generated quiz questions, supporting multiple question types including multiple choice, essay, listening tests, and speaking tests with audio recording. Features include quiz management, student submission tracking, automated and manual grading, performance analytics, and Google authentication. Developed as an undergraduate thesis project."
+      },
+      {
+        "summary": "A movie discovery app to search, explore, and view details about movies.",
+        "description": "GoMovies is a movie application that provides users with information and details about movies. Users can search for movies, browse popular collections, view detailed information including ratings, duration, genres, and overviews, and print movie lists. Built with React.js and Next.js, it integrates with The Movie Database (TMDb) API for comprehensive movie data. Features include a hero banner with featured movies, an explore page with search functionality, detailed movie pages with production company info, and an about page."
       }
     ]
   },
