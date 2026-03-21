@@ -90,6 +90,10 @@
         "description": "MapTrack is a comprehensive asset management platform that provides real-time GPS tracking, battery monitoring, and device status indicators. Features include AI-powered PDF generation for custom forms, offline-first architecture powered by TanStack DB, and seamless integration with Supabase for data persistence. Built with a focus on reliability and performance in low-connectivity environments."
       },
       {
+        "summary": "AI-powered performance management platform for aligning goals, work, and reviews.",
+        "description": "Happy5 is an AI-powered performance management platform that unifies goal tracking, project management, and employee performance reviews. It enables organizations to align goals, work, and performance in one fully customizable platform. Supports multiple goal frameworks including OKRs, MBOs, and KPIs, with integrations to tools like Jira for comprehensive visibility into strategic alignment from executive level to individual contributors."
+      },
+      {
         "summary": "Full-featured online store with cart, checkout, and payment integration.",
         "description": "A modern e-commerce platform built with Next.js and Tailwind CSS. Features include product catalog with filtering & search, shopping cart with persistent state, Stripe payment integration, order tracking dashboard, and responsive design for all devices."
       },

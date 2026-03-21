@@ -90,6 +90,10 @@
         "description": "MapTrack adalah platform manajemen aset komprehensif yang menyediakan pelacakan GPS real-time, pemantauan baterai, dan indikator status perangkat. Fitur meliputi pembuatan PDF berbasis AI untuk formulir kustom, arsitektur offline-first yang didukung TanStack DB, dan integrasi mulus dengan Supabase untuk penyimpanan data. Dibangun dengan fokus pada keandalan dan performa di lingkungan dengan konektivitas rendah."
       },
       {
+        "summary": "Platform manajemen performa berbasis AI untuk menyelaraskan tujuan, pekerjaan, dan review.",
+        "description": "Happy5 adalah platform manajemen performa berbasis AI yang menyatukan pelacakan tujuan, manajemen proyek, dan review performa karyawan. Platform ini memungkinkan organisasi menyelaraskan tujuan, pekerjaan, dan performa dalam satu platform yang sepenuhnya dapat disesuaikan. Mendukung berbagai framework tujuan termasuk OKR, MBO, dan KPI, dengan integrasi ke tools seperti Jira untuk visibilitas komprehensif terhadap keselarasan strategis dari level eksekutif hingga kontributor individu."
+      },
+      {
         "summary": "Toko online lengkap dengan keranjang, checkout, dan integrasi pembayaran.",
         "description": "Platform e-commerce modern yang dibangun dengan Next.js dan Tailwind CSS. Fitur meliputi katalog produk dengan filter & pencarian, keranjang belanja dengan state persisten, integrasi pembayaran Stripe, dashboard pelacakan pesanan, dan desain responsif untuk semua perangkat."
       },

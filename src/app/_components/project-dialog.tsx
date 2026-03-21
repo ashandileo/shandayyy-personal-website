@@ -51,14 +51,14 @@ function ProjectDialogInner({
               autoPlay
               loop
               playsInline
-              className="h-full w-full object-cover"
+              className="h-full w-full object-contain"
             />
           ) : (
             <Image
               src={project.images[imgIndex]}
               alt={`${project.title} screenshot ${imgIndex + 1}`}
               fill
-              className="object-cover"
+              className="object-contain"
             />
           )}
 
