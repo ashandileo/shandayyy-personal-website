@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ResumeHeader, ResumeActions, ResumePreview } from "./_components";
+import { ResumeLayout, ResumeHeader, ResumeActions, ResumePreview } from "./_components";
 
 export const metadata: Metadata = {
   title: "Resume | Ashandi Leonadi",
@@ -10,11 +10,13 @@ export const metadata: Metadata = {
 export default function ResumePage() {
   return (
     <div className="min-h-dvh bg-background">
-      <ResumeHeader />
-      <main className="mx-auto max-w-3xl space-y-6 px-6 py-10">
-        <ResumeActions />
-        <ResumePreview />
-      </main>
+      <ResumeLayout>
+        <ResumeHeader />
+        <main className="mx-auto max-w-3xl space-y-6 px-6 py-10">
+          <ResumeActions />
+          <ResumePreview />
+        </main>
+      </ResumeLayout>
     </div>
   );
 }

@@ -24,48 +24,31 @@ export function ContactSection() {
           {t("contact.subtitle")}
         </p>
 
-        <div className="mt-10 flex flex-col items-center gap-3">
+        <div className="mt-10 flex items-center justify-center gap-4">
           <a
             href={`mailto:${CONTACTS.email}`}
-            className="glass-card group flex w-full max-w-sm items-center gap-4 rounded-2xl border px-5 py-4 text-sm transition-all hover:shadow-md hover:border-primary/20"
+            aria-label="Email"
+            className="flex size-12 items-center justify-center rounded-full border bg-card text-muted-foreground transition-all hover:border-primary/20 hover:bg-primary hover:text-primary-foreground hover:shadow-md"
           >
-            <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-              <Mail className="size-5" />
-            </div>
-            <div className="text-left">
-              <p className="text-xs text-muted-foreground">Email</p>
-              <p className="font-medium">{CONTACTS.email}</p>
-            </div>
+            <Mail className="size-5" />
           </a>
-
           <a
             href={CONTACTS.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="glass-card group flex w-full max-w-sm items-center gap-4 rounded-2xl border px-5 py-4 text-sm transition-all hover:shadow-md hover:border-primary/20"
+            aria-label="GitHub"
+            className="flex size-12 items-center justify-center rounded-full border bg-card text-muted-foreground transition-all hover:border-primary/20 hover:bg-primary hover:text-primary-foreground hover:shadow-md"
           >
-            <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-              <FaGithub className="size-5" />
-            </div>
-            <div className="text-left">
-              <p className="text-xs text-muted-foreground">GitHub</p>
-              <p className="font-medium">github.com/ashandileonadi</p>
-            </div>
+            <FaGithub className="size-5" />
           </a>
-
           <a
             href={CONTACTS.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="glass-card group flex w-full max-w-sm items-center gap-4 rounded-2xl border px-5 py-4 text-sm transition-all hover:shadow-md hover:border-primary/20"
+            aria-label="LinkedIn"
+            className="flex size-12 items-center justify-center rounded-full border bg-card text-muted-foreground transition-all hover:border-primary/20 hover:bg-primary hover:text-primary-foreground hover:shadow-md"
           >
-            <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-              <FaLinkedin className="size-5" />
-            </div>
-            <div className="text-left">
-              <p className="text-xs text-muted-foreground">LinkedIn</p>
-              <p className="font-medium">linkedin.com/in/ashandileonadi</p>
-            </div>
+            <FaLinkedin className="size-5" />
           </a>
         </div>
       </div>

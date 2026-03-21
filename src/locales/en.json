@@ -24,23 +24,57 @@
     "jobs": [
       {
         "description": [
-          "Led the frontend architecture migration from legacy codebase to Next.js App Router, improving page load times by 40%.",
-          "Mentored a team of 4 junior developers through code reviews and pair programming sessions.",
-          "Implemented design system with reusable components, reducing UI development time by 30%."
+          "Integrated OpenAI-powered PDF generation for custom forms, enabling dynamic form creation, intelligent content structuring, and automated document generation.",
+          "Refactored the data layer using TanStack DB to support an offline-first architecture, improving reliability and user experience in low-connectivity environments.",
+          "Implemented enhancements for GPS battery monitoring and status indicators backed by Amazon DynamoDB, improving real-time visibility, scalability, and device reliability."
         ]
       },
       {
         "description": [
-          "Built responsive web applications for 10+ clients across e-commerce, fintech, and education sectors.",
-          "Collaborated closely with UI/UX designers to translate Figma prototypes into pixel-perfect interfaces.",
-          "Integrated RESTful APIs and GraphQL endpoints with robust error handling and loading states."
+          "Conducted thorough code reviews, optimizing overall performance.",
+          "Successfully refactored JavaScript codebases into TypeScript, ensuring improved efficiency and maintainability.",
+          "Converting designs from the design team (mockups, wireframes) into interactive web pages using HTML, Tailwind CSS, and JavaScript/TypeScript.",
+          "Implemented end-to-end testing using Cypress, enhancing the reliability of the application.",
+          "Designed reusable components and meticulously documented them with Storybook, facilitating easier development and collaboration.",
+          "Successfully guided new intern engineers in developing features and resolving bugs.",
+          "Managed Amplitude analytics integration, providing valuable insights into user behavior.",
+          "Built Happy5 Culture application using React Native, enhancing performance and code maintainability.",
+          "Set up Tailwind CSS within the mobile application framework, streamlining the styling process and ensuring a consistent design system."
         ]
       },
       {
         "description": [
-          "Developed and maintained multiple client-facing web applications using React and Vue.js.",
-          "Wrote unit and integration tests, achieving 80%+ code coverage across key modules.",
-          "Participated in agile ceremonies including sprint planning, daily stand-ups, and retrospectives."
+          "Successfully revamped the VRMS web application with a new design and additional features using React.js.",
+          "Styling components using Tailwind CSS.",
+          "Utilized Ant Design as the base component library.",
+          "Successfully refactored JavaScript codebases into TypeScript, ensuring improved efficiency and maintainability."
+        ]
+      },
+      {
+        "description": [
+          "Enhanced features to improve user experience and functionality.",
+          "Implemented designs into React components, ensuring a seamless transition from mockups to code.",
+          "Integrated the application with backend services, enabling dynamic and interactive features.",
+          "Consumed backend endpoints using React Query, optimizing data fetching and state management.",
+          "Styled React components using the Styled Components library, ensuring consistent and maintainable styling across the application."
+        ]
+      },
+      {
+        "description": [
+          "Developed new features using Next.js.",
+          "Utilized Bootstrap as the CSS framework, ensuring a responsive and aesthetically pleasing design.",
+          "Created reusable functions to efficiently consume backend endpoints, promoting code reusability and maintainability.",
+          "Conducted thorough code reviews, ensuring high code quality.",
+          "Implemented design specifications into React components, translating visual designs into interactive elements.",
+          "Revamped outdated pages, improving their performance, design, and functionality to meet modern standards."
+        ]
+      },
+      {
+        "description": [
+          "Successfully developed formal review results using @react-pdf/renderer, enabling the generation of PDF documents within the application.",
+          "Implemented end-to-end testing using Cypress, enhancing the reliability of the application.",
+          "Identified and fixed bugs, as well as implemented improvements to ensure the application's stability and performance.",
+          "Integrated the application with backend services, ensuring seamless communication and data flow between frontend and backend."
         ]
       }
     ]

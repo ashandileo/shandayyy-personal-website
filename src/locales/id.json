@@ -24,23 +24,57 @@
     "jobs": [
       {
         "description": [
-          "Memimpin migrasi arsitektur frontend dari codebase legacy ke Next.js App Router, meningkatkan kecepatan loading halaman sebesar 40%.",
-          "Membimbing tim yang terdiri dari 4 developer junior melalui code review dan sesi pair programming.",
-          "Mengimplementasikan design system dengan komponen yang dapat digunakan kembali, mengurangi waktu pengembangan UI sebesar 30%."
+          "Mengintegrasikan pembuatan PDF berbasis OpenAI untuk formulir kustom, memungkinkan pembuatan formulir dinamis, penataan konten cerdas, dan pembuatan dokumen otomatis.",
+          "Melakukan refaktor lapisan data menggunakan TanStack DB untuk mendukung arsitektur offline-first, meningkatkan keandalan dan pengalaman pengguna di lingkungan dengan konektivitas rendah.",
+          "Mengimplementasikan peningkatan untuk pemantauan baterai GPS dan indikator status yang didukung oleh Amazon DynamoDB, meningkatkan visibilitas real-time, skalabilitas, dan keandalan perangkat."
         ]
       },
       {
         "description": [
-          "Membangun aplikasi web responsif untuk 10+ klien di sektor e-commerce, fintech, dan pendidikan.",
-          "Berkolaborasi erat dengan desainer UI/UX untuk menerjemahkan prototipe Figma menjadi antarmuka pixel-perfect.",
-          "Mengintegrasikan RESTful API dan endpoint GraphQL dengan penanganan error dan loading state yang robust."
+          "Melakukan code review secara menyeluruh, mengoptimalkan performa secara keseluruhan.",
+          "Berhasil melakukan refaktor codebase JavaScript ke TypeScript, memastikan peningkatan efisiensi dan kemudahan pemeliharaan.",
+          "Mengonversi desain dari tim desain (mockup, wireframe) menjadi halaman web interaktif menggunakan HTML, Tailwind CSS, dan JavaScript/TypeScript.",
+          "Mengimplementasikan pengujian end-to-end menggunakan Cypress, meningkatkan keandalan aplikasi.",
+          "Merancang komponen yang dapat digunakan kembali dan mendokumentasikannya secara detail dengan Storybook, memfasilitasi pengembangan dan kolaborasi yang lebih mudah.",
+          "Berhasil membimbing engineer magang baru dalam mengembangkan fitur dan menyelesaikan bug.",
+          "Mengelola integrasi analitik Amplitude, memberikan wawasan berharga tentang perilaku pengguna.",
+          "Membangun aplikasi Happy5 Culture menggunakan React Native, meningkatkan performa dan kemudahan pemeliharaan kode.",
+          "Menyiapkan Tailwind CSS dalam framework aplikasi mobile, menyederhanakan proses styling dan memastikan sistem desain yang konsisten."
         ]
       },
       {
         "description": [
-          "Mengembangkan dan memelihara beberapa aplikasi web untuk klien menggunakan React dan Vue.js.",
-          "Menulis unit test dan integration test, mencapai 80%+ code coverage pada modul-modul utama.",
-          "Berpartisipasi dalam kegiatan agile termasuk sprint planning, daily stand-up, dan retrospective."
+          "Berhasil merombak aplikasi web VRMS dengan desain baru dan fitur tambahan menggunakan React.js.",
+          "Melakukan styling komponen menggunakan Tailwind CSS.",
+          "Menggunakan Ant Design sebagai library komponen dasar.",
+          "Berhasil melakukan refaktor codebase JavaScript ke TypeScript, memastikan peningkatan efisiensi dan kemudahan pemeliharaan."
+        ]
+      },
+      {
+        "description": [
+          "Meningkatkan fitur untuk memperbaiki pengalaman pengguna dan fungsionalitas.",
+          "Mengimplementasikan desain ke dalam komponen React, memastikan transisi yang mulus dari mockup ke kode.",
+          "Mengintegrasikan aplikasi dengan layanan backend, memungkinkan fitur yang dinamis dan interaktif.",
+          "Mengonsumsi endpoint backend menggunakan React Query, mengoptimalkan pengambilan data dan manajemen state.",
+          "Melakukan styling komponen React menggunakan library Styled Components, memastikan styling yang konsisten dan mudah dipelihara di seluruh aplikasi."
+        ]
+      },
+      {
+        "description": [
+          "Mengembangkan fitur baru menggunakan Next.js.",
+          "Menggunakan Bootstrap sebagai framework CSS, memastikan desain yang responsif dan estetis.",
+          "Membuat fungsi yang dapat digunakan kembali untuk mengonsumsi endpoint backend secara efisien, mendorong reusabilitas dan kemudahan pemeliharaan kode.",
+          "Melakukan code review secara menyeluruh, memastikan kualitas kode yang tinggi.",
+          "Mengimplementasikan spesifikasi desain ke dalam komponen React, menerjemahkan desain visual menjadi elemen interaktif.",
+          "Merombak halaman yang sudah usang, meningkatkan performa, desain, dan fungsionalitas agar memenuhi standar modern."
+        ]
+      },
+      {
+        "description": [
+          "Berhasil mengembangkan hasil review formal menggunakan @react-pdf/renderer, memungkinkan pembuatan dokumen PDF dalam aplikasi.",
+          "Mengimplementasikan pengujian end-to-end menggunakan Cypress, meningkatkan keandalan aplikasi.",
+          "Mengidentifikasi dan memperbaiki bug, serta mengimplementasikan peningkatan untuk memastikan stabilitas dan performa aplikasi.",
+          "Mengintegrasikan aplikasi dengan layanan backend, memastikan komunikasi dan aliran data yang lancar antara frontend dan backend."
         ]
       }
     ]

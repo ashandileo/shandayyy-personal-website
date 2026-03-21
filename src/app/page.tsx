@@ -12,6 +12,7 @@ import {
   ProjectsSection,
   ContactSection,
   Footer,
+  ScrollToTop,
 } from "@/app/_components";
 
 export default function Home() {
@@ -36,6 +37,7 @@ export default function Home() {
         <ContactSection />
       </main>
       <Footer />
+      <ScrollToTop />
     </>
   );
 }

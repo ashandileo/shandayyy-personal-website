@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useTranslation } from "react-i18next";
-import { Menu, X, Sun, Moon, Globe } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useDarkMode } from "@/hooks";
 import { NAV_ITEMS } from "@/data/navigation";
@@ -11,8 +12,13 @@ import { NAV_ITEMS } from "@/data/navigation";
 export function Navbar({ activeSection }: { activeSection: string }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
   const { dark, toggle: toggleDark } = useDarkMode();
   const { t, i18n } = useTranslation();
+
+  const resolveHref = (href: string) =>
+    !isHome && href.startsWith("#") ? `/${href}` : href;
 
   const toggleLang = () => {
     const next = i18n.language === "en" ? "id" : "en";
@@ -36,7 +42,7 @@ export function Navbar({ activeSection }: { activeSection: string }) {
     >
       <nav className="mx-auto flex h-16 max-w-5xl items-center justify-between px-6">
         <Link
-          href="#home"
+          href={resolveHref("#home")}
           className="relative font-heading text-xl font-bold tracking-tight"
         >
           <span className="bg-linear-to-r from-primary to-purple-500 bg-clip-text text-transparent">
@@ -52,7 +58,7 @@ export function Navbar({ activeSection }: { activeSection: string }) {
               return (
                 <li key={item.href}>
                   <Link
-                    href={item.href}
+                    href={resolveHref(item.href)}
                     className={`relative rounded-full px-4 py-2 text-sm font-medium transition-colors ${
                       isActive
                         ? "text-foreground"
@@ -74,11 +80,9 @@ export function Navbar({ activeSection }: { activeSection: string }) {
               size="icon-sm"
               onClick={toggleLang}
               aria-label="Switch language"
-              className="gap-1"
             >
-              <Globe className="size-3.5" />
-              <span className="text-[10px] font-semibold uppercase">
-                {i18n.language === "en" ? "ID" : "EN"}
+              <span className="text-base leading-none">
+                {i18n.language === "en" ? "\u{1F1EE}\u{1F1E9}" : "\u{1F1FA}\u{1F1F8}"}
               </span>
             </Button>
             <Button
@@ -99,11 +103,9 @@ export function Navbar({ activeSection }: { activeSection: string }) {
             size="icon-sm"
             onClick={toggleLang}
             aria-label="Switch language"
-            className="gap-1"
           >
-            <Globe className="size-3.5" />
-            <span className="text-[10px] font-semibold uppercase">
-              {i18n.language === "en" ? "ID" : "EN"}
+            <span className="text-base leading-none">
+              {i18n.language === "en" ? "\u{1F1EE}\u{1F1E9}" : "\u{1F1FA}\u{1F1F8}"}
             </span>
           </Button>
           <Button
@@ -137,7 +139,7 @@ export function Navbar({ activeSection }: { activeSection: string }) {
               return (
                 <li key={item.href}>
                   <Link
-                    href={item.href}
+                    href={resolveHref(item.href)}
                     onClick={() => setMobileOpen(false)}
                     className={`block rounded-xl px-4 py-2.5 text-sm font-medium transition-colors ${
                       isActive
