@@ -96,22 +96,6 @@
       {
         "summary": "Platform kuis interaktif berbasis AI untuk pembelajaran Bahasa Inggris.",
         "description": "EchoTest adalah platform pembelajaran Bahasa Inggris berbasis AI di mana guru membuat kuis dengan bantuan AI dan siswa mengerjakan asesmen interaktif. Guru dapat mengunggah materi pembelajaran dalam format PDF untuk pembuatan soal kuis secara otomatis oleh AI, mendukung berbagai tipe soal termasuk pilihan ganda, esai, listening test, dan speaking test dengan perekaman audio. Fitur meliputi manajemen kuis, pelacakan submission siswa, penilaian otomatis dan manual, analitik performa, serta autentikasi Google. Dikembangkan sebagai proyek skripsi."
-      },
-      {
-        "summary": "Toko online lengkap dengan keranjang, checkout, dan integrasi pembayaran.",
-        "description": "Platform e-commerce modern yang dibangun dengan Next.js dan Tailwind CSS. Fitur meliputi katalog produk dengan filter & pencarian, keranjang belanja dengan state persisten, integrasi pembayaran Stripe, dashboard pelacakan pesanan, dan desain responsif untuk semua perangkat."
-      },
-      {
-        "summary": "Alat manajemen proyek kolaboratif dengan pembaruan real-time.",
-        "description": "Aplikasi manajemen tugas bergaya Kanban dengan fungsi drag-and-drop. Mendukung kolaborasi real-time via WebSocket, workspace tim, kontrol akses berbasis peran, dan pencatatan aktivitas. Dibangun dengan fokus pada performa dan kemudahan penggunaan."
-      },
-      {
-        "summary": "Alat CLI untuk menghasilkan situs portfolio developer dari file konfigurasi.",
-        "description": "Alat CLI open-source yang memungkinkan developer membuat situs portfolio yang indah dari file konfigurasi YAML sederhana. Mendukung berbagai tema, mode gelap, integrasi blog, dan deployment otomatis ke Vercel atau Netlify."
-      },
-      {
-        "summary": "Visualisasi data cuaca real-time dengan grafik interaktif.",
-        "description": "Dashboard cuaca yang mengambil data dari OpenWeatherMap API dan menampilkan kondisi saat ini, prakiraan per jam, dan prakiraan 7 hari dengan grafik interaktif. Fitur pencarian lokasi, favorit, dan konversi satuan."
       }
     ]
   },
