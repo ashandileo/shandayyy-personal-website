@@ -8,11 +8,44 @@ export interface Project {
   gradient: string;
 }
 
+export function isVideo(src: string) {
+  return /\.(mp4|webm|ogg)$/i.test(src);
+}
+
 export const PROJECTS: Project[] = [
   {
-    title: "E-Commerce Platform",
+    title: "MapTrack",
     index: 0,
-    images: ["/projects/ecommerce-1.svg", "/projects/ecommerce-2.svg"],
+    images: [
+      "/projects/maptrack/maptrack-1.png",
+      "/projects/maptrack/maptrack-2.mp4",
+      "/projects/maptrack/maptrack-3.avif",
+      "/projects/maptrack/maptrack-4.mp4",
+      "/projects/maptrack/maptack-5.mp4",
+      "/projects/maptrack/maptrack-6.mp4",
+      "/projects/maptrack/maptrack-7.mp4",
+      "/projects/maptrack/maptrack-8.avif",
+      "/projects/maptrack/maptrack-9.mp4",
+      "/projects/maptrack/maptrack-10.mp4",
+    ],
+    techStack: [
+      "React.js",
+      "Next.js",
+      "Tailwind CSS",
+      "Headless UI",
+      "Supabase",
+      "OpenAI",
+      "React Hook Form",
+      "TanStack Query",
+      "TanStack DB",
+    ],
+    liveUrl: "https://maptrack.com",
+    gradient: "from-emerald-500/20 via-teal-500/10 to-transparent",
+  },
+  {
+    title: "E-Commerce Platform",
+    index: 1,
+    images: ["/projects/ecommerce/ecommerce-1.svg", "/projects/ecommerce/ecommerce-2.svg"],
     techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Stripe", "Prisma"],
     liveUrl: "https://example.com",
     repoUrl: "https://github.com",
@@ -20,24 +53,24 @@ export const PROJECTS: Project[] = [
   },
   {
     title: "Task Management App",
-    index: 1,
-    images: ["/projects/taskapp-1.svg", "/projects/taskapp-2.svg"],
+    index: 2,
+    images: ["/projects/taskapp/taskapp-1.svg", "/projects/taskapp/taskapp-2.svg"],
     techStack: ["React", "Node.js", "Socket.io", "PostgreSQL", "Docker"],
     liveUrl: "https://example.com",
     gradient: "from-amber-500/20 via-orange-500/10 to-transparent",
   },
   {
     title: "Portfolio Generator",
-    index: 2,
-    images: ["/projects/portfolio-1.svg", "/projects/portfolio-2.svg"],
+    index: 3,
+    images: ["/projects/portfolio/portfolio-1.svg", "/projects/portfolio/portfolio-2.svg"],
     techStack: ["TypeScript", "Node.js", "EJS", "Tailwind CSS"],
     repoUrl: "https://github.com",
     gradient: "from-teal-500/20 via-emerald-500/10 to-transparent",
   },
   {
     title: "Weather Dashboard",
-    index: 3,
-    images: ["/projects/weather-1.svg", "/projects/weather-2.svg"],
+    index: 4,
+    images: ["/projects/weather/weather-1.svg", "/projects/weather/weather-2.svg"],
     techStack: ["React", "Chart.js", "OpenWeatherMap API", "Geolocation API"],
     liveUrl: "https://example.com",
     repoUrl: "https://github.com",

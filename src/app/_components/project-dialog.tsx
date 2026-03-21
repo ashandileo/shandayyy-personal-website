@@ -15,7 +15,7 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 import { Separator } from "@/components/ui/separator";
-import type { Project } from "@/data/projects";
+import { isVideo, type Project } from "@/data/projects";
 
 function ProjectDialogInner({
   project,
@@ -32,7 +32,7 @@ function ProjectDialogInner({
 
   return (
     <Dialog open onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-lg">
+      <DialogContent className="sm:max-w-3xl">
         <DialogHeader>
           <DialogTitle className="text-lg">{project.title}</DialogTitle>
           <DialogDescription>
@@ -42,12 +42,25 @@ function ProjectDialogInner({
 
         {/* Image carousel */}
         <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-muted">
-          <Image
-            src={project.images[imgIndex]}
-            alt={`${project.title} screenshot ${imgIndex + 1}`}
-            fill
-            className="object-cover"
-          />
+          {isVideo(project.images[imgIndex]) ? (
+            <video
+              key={imgIndex}
+              src={project.images[imgIndex]}
+              controls
+              muted
+              autoPlay
+              loop
+              playsInline
+              className="h-full w-full object-cover"
+            />
+          ) : (
+            <Image
+              src={project.images[imgIndex]}
+              alt={`${project.title} screenshot ${imgIndex + 1}`}
+              fill
+              className="object-cover"
+            />
+          )}
 
           {hasPrev && (
             <button

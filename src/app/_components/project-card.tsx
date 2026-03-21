@@ -10,7 +10,7 @@ import {
   CardContent,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import type { Project } from "@/data/projects";
+import { isVideo, type Project } from "@/data/projects";
 
 export function ProjectCard({
   project,
@@ -28,12 +28,23 @@ export function ProjectCard({
     >
       {/* Image with gradient overlay */}
       <div className="relative aspect-video w-full overflow-hidden bg-muted">
-        <Image
-          src={project.images[0]}
-          alt={project.title}
-          fill
-          className="object-cover transition-transform duration-500 hover:scale-105"
-        />
+        {isVideo(project.images[0]) ? (
+          <video
+            src={project.images[0]}
+            muted
+            autoPlay
+            loop
+            playsInline
+            className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+          />
+        ) : (
+          <Image
+            src={project.images[0]}
+            alt={project.title}
+            fill
+            className="object-cover transition-transform duration-500 hover:scale-105"
+          />
+        )}
         <div
           className={`pointer-events-none absolute inset-0 bg-linear-to-t ${project.gradient}`}
         />

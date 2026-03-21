@@ -86,6 +86,10 @@
     "sourceCode": "Kode Sumber",
     "items": [
       {
+        "summary": "Satu platform untuk mengelola aset dengan pelacakan GPS dan pemantauan real-time.",
+        "description": "MapTrack adalah platform manajemen aset komprehensif yang menyediakan pelacakan GPS real-time, pemantauan baterai, dan indikator status perangkat. Fitur meliputi pembuatan PDF berbasis AI untuk formulir kustom, arsitektur offline-first yang didukung TanStack DB, dan integrasi mulus dengan Supabase untuk penyimpanan data. Dibangun dengan fokus pada keandalan dan performa di lingkungan dengan konektivitas rendah."
+      },
+      {
         "summary": "Toko online lengkap dengan keranjang, checkout, dan integrasi pembayaran.",
         "description": "Platform e-commerce modern yang dibangun dengan Next.js dan Tailwind CSS. Fitur meliputi katalog produk dengan filter & pencarian, keranjang belanja dengan state persisten, integrasi pembayaran Stripe, dashboard pelacakan pesanan, dan desain responsif untuk semua perangkat."
       },

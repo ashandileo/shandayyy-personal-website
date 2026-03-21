@@ -86,6 +86,10 @@
     "sourceCode": "Source Code",
     "items": [
       {
+        "summary": "One platform to manage your assets with real-time GPS tracking and monitoring.",
+        "description": "MapTrack is a comprehensive asset management platform that provides real-time GPS tracking, battery monitoring, and device status indicators. Features include AI-powered PDF generation for custom forms, offline-first architecture powered by TanStack DB, and seamless integration with Supabase for data persistence. Built with a focus on reliability and performance in low-connectivity environments."
+      },
+      {
         "summary": "Full-featured online store with cart, checkout, and payment integration.",
         "description": "A modern e-commerce platform built with Next.js and Tailwind CSS. Features include product catalog with filtering & search, shopping cart with persistent state, Stripe payment integration, order tracking dashboard, and responsive design for all devices."
       },
