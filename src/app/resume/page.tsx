@@ -2,9 +2,12 @@ import type { Metadata } from "next";
 import { ResumeLayout, ResumeHeader, ResumeActions, ResumePreview } from "./_components";
 
 export const metadata: Metadata = {
-  title: "Resume | Ashandi Leonadi",
+  title: "Resume",
   description:
-    "View or download the resume of Ashandi Leonadi — Frontend Developer.",
+    "View or download the resume of Ashandi Leonadi — Frontend Developer specializing in React, Next.js, and TypeScript.",
+  alternates: {
+    canonical: "https://ashandileonadi.vercel.app/resume",
+  },
 };
 
 export default function ResumePage() {
