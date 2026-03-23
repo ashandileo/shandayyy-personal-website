@@ -104,6 +104,10 @@
         "description": "Expense Tracker is a personal finance management application built with Laravel and Inertia.js with React. Users can track daily expenses, organize spending by custom categories, and view a dashboard with financial summaries. Features include user authentication with login and registration, full CRUD for expenses and categories, responsive design for both desktop and mobile, and form validation powered by React Hook Form and Zod. The backend uses SQLite for lightweight data storage and Laravel for robust server-side logic."
       },
       {
+        "summary": "An AI-powered WhatsApp chatbot that helps SME owners manage product catalogs and serve customers automatically.",
+        "description": "Shopbot Assistant is an AI-powered WhatsApp chatbot built for SME (UMKM) owners to manage their product catalog and automate customer interactions. Store owners can upload their product list through a web dashboard, and customers can check product availability directly via WhatsApp chat powered by Meta Cloud API. The bot uses Retrieval-Augmented Generation (RAG) with Supabase Vector Search and OpenAI embeddings to accurately answer product queries. Features include customizable bot persona settings, conversation history tracking, FAQ knowledge base management, and Supabase Auth with Row Level Security for multi-tenant support."
+      },
+      {
         "summary": "AI-powered interactive quiz platform for English language learning.",
         "description": "EchoTest is an AI-powered English learning platform where teachers create quizzes with AI assistance and students take interactive assessments. Teachers can upload PDF learning materials for AI-generated quiz questions, supporting multiple question types including multiple choice, essay, listening tests, and speaking tests with audio recording. Features include quiz management, student submission tracking, automated and manual grading, performance analytics, and Google authentication. Developed as an undergraduate thesis project."
       },

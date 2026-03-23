@@ -9,7 +9,7 @@ export interface Project {
 }
 
 export function isVideo(src: string) {
-  return /\.(mp4|webm|ogg)$/i.test(src);
+  return /\.(mp4|webm|ogg|mov)$/i.test(src);
 }
 
 export const PROJECTS: Project[] = [
@@ -99,8 +99,31 @@ export const PROJECTS: Project[] = [
     gradient: "from-lime-500/20 via-green-500/10 to-transparent",
   },
   {
-    title: "Echo Test",
+    title: "Shopbot Assistant",
     index: 3,
+    images: [
+      "/projects/shopbot-assistant/shopbot-assistant.png",
+      "/projects/shopbot-assistant/shopbot-assistant.mov",
+    ],
+    techStack: [
+      "Next.js",
+      "React.js",
+      "TypeScript",
+      "Supabase",
+      "Supabase Vector Search",
+      "OpenAI",
+      "RAG",
+      "WhatsApp Cloud API",
+      "Tailwind CSS",
+      "Shadcn",
+      "TanStack Query",
+    ],
+    repoUrl: "https://github.com/ashandileo/Shopbot-Assistant",
+    gradient: "from-cyan-500/20 via-sky-500/10 to-transparent",
+  },
+  {
+    title: "Echo Test",
+    index: 4,
     images: [
       "/projects/echo-test/echo-test-5.png",
       "/projects/echo-test/echo-test-4.png",
@@ -129,7 +152,7 @@ export const PROJECTS: Project[] = [
   },
   {
     title: "GoMovies",
-    index: 4,
+    index: 5,
     images: [
       "/projects/gomovies/gomovies-1.png",
       "/projects/gomovies/gomovies-2.png",
@@ -151,7 +174,7 @@ export const PROJECTS: Project[] = [
   },
   {
     title: "Journal",
-    index: 5,
+    index: 6,
     images: [
       "/projects/journal/journal-5.png",
       "/projects/journal/journal-6.png",
