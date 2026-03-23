@@ -20,7 +20,7 @@ export function ResumeActions() {
           className="rounded-full px-5"
           render={
             <a
-              href="/resume.pdf"
+              href="/Ashandi_Leonadi_CV_2026.pdf"
               target="_blank"
               rel="noopener noreferrer"
             />
@@ -33,7 +33,7 @@ export function ResumeActions() {
           variant="outline"
           nativeButton={false}
           className="rounded-full px-5"
-          render={<a href="/resume.pdf" download />}
+          render={<a href="/Ashandi_Leonadi_CV_2026.pdf" download />}
         >
           <Download className="size-4" />
           Download PDF
