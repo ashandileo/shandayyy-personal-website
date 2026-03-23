@@ -13,6 +13,14 @@ import {
   SiOpenai,
   SiReactquery,
   SiIonic,
+  SiLaravel,
+  SiInertia,
+  SiPhp,
+  SiSqlite,
+  SiShadcnui,
+  SiZod,
+  SiReacthookform,
+  SiMistralai,
 } from "react-icons/si";
 
 export const TECH_STACK = [
@@ -30,4 +38,12 @@ export const TECH_STACK = [
   { name: "Storybook", icon: SiStorybook, color: "text-[#FF4785]" },
   { name: "Figma", icon: SiFigma, color: "text-[#F24E1E]" },
   { name: "Git", icon: SiGit, color: "text-[#F05032]" },
+  { name: "Laravel", icon: SiLaravel, color: "text-[#FF2D20]" },
+  { name: "Inertia.js", icon: SiInertia, color: "text-[#9553E9]" },
+  { name: "PHP", icon: SiPhp, color: "text-[#777BB4]" },
+  { name: "SQLite", icon: SiSqlite, color: "text-[#003B57]" },
+  { name: "Shadcn", icon: SiShadcnui, color: "text-foreground" },
+  { name: "Mistral AI", icon: SiMistralai, color: "text-[#FF7000]" },
+  { name: "React Hook Form", icon: SiReacthookform, color: "text-[#EC5990]" },
+  { name: "Zod", icon: SiZod, color: "text-[#3E67B1]" },
 ];

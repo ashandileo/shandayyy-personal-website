@@ -64,8 +64,43 @@ export const PROJECTS: Project[] = [
     gradient: "from-blue-500/20 via-indigo-500/10 to-transparent",
   },
   {
-    title: "Echo Test",
+    title: "Expense Tracker",
     index: 2,
+    images: [
+      "/projects/expense-tracker/dashboard-desktop.png",
+      "/projects/expense-tracker/dashboard-mobile.png",
+      "/projects/expense-tracker/expense-desktop.png",
+      "/projects/expense-tracker/expense-mobile.png",
+      "/projects/expense-tracker/expense-add-desktop.png",
+      "/projects/expense-tracker/expense-add-mobile.png",
+      "/projects/expense-tracker/category-desktop.png",
+      "/projects/expense-tracker/category-mobile.png",
+      "/projects/expense-tracker/category-add-desktop.png",
+      "/projects/expense-tracker/category-add-mobile.png",
+      "/projects/expense-tracker/login-desktop.png",
+      "/projects/expense-tracker/login-mobile.png",
+      "/projects/expense-tracker/register-desktop.png",
+      "/projects/expense-tracker/register-mobile.png",
+      "/projects/expense-tracker/sidebar-expanded-mobile.png",
+    ],
+    techStack: [
+      "Laravel",
+      "Inertia.js",
+      "React.js",
+      "PHP",
+      "SQLite",
+      "Shadcn",
+      "Tailwind CSS",
+      "React Hook Form",
+      "Zod",
+    ],
+    liveUrl: "https://expense-tracker-portfolio.fly.dev/",
+    repoUrl: "https://github.com/ashandileo/ExpenseTracker-Laravel",
+    gradient: "from-lime-500/20 via-green-500/10 to-transparent",
+  },
+  {
+    title: "Echo Test",
+    index: 3,
     images: [
       "/projects/echo-test/echo-test-5.png",
       "/projects/echo-test/echo-test-4.png",
@@ -94,7 +129,7 @@ export const PROJECTS: Project[] = [
   },
   {
     title: "GoMovies",
-    index: 3,
+    index: 4,
     images: [
       "/projects/gomovies/gomovies-1.png",
       "/projects/gomovies/gomovies-2.png",
@@ -116,7 +151,7 @@ export const PROJECTS: Project[] = [
   },
   {
     title: "Journal",
-    index: 4,
+    index: 5,
     images: [
       "/projects/journal/journal-5.png",
       "/projects/journal/journal-6.png",

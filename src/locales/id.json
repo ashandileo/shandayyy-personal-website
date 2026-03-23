@@ -100,6 +100,10 @@
         "description": "Happy5 adalah platform manajemen performa berbasis AI yang menyatukan pelacakan tujuan, manajemen proyek, dan review performa karyawan. Platform ini memungkinkan organisasi menyelaraskan tujuan, pekerjaan, dan performa dalam satu platform yang sepenuhnya dapat disesuaikan. Mendukung berbagai framework tujuan termasuk OKR, MBO, dan KPI, dengan integrasi ke tools seperti Jira untuk visibilitas komprehensif terhadap keselarasan strategis dari level eksekutif hingga kontributor individu."
       },
       {
+        "summary": "Aplikasi keuangan pribadi untuk melacak pengeluaran dan mengelola spending berdasarkan kategori.",
+        "description": "Expense Tracker adalah aplikasi manajemen keuangan pribadi yang dibangun dengan Laravel dan Inertia.js dengan React. Pengguna dapat melacak pengeluaran harian, mengorganisir spending berdasarkan kategori kustom, dan melihat dashboard dengan ringkasan keuangan. Fitur meliputi autentikasi pengguna dengan login dan registrasi, CRUD lengkap untuk pengeluaran dan kategori, desain responsif untuk desktop dan mobile, serta validasi form menggunakan React Hook Form dan Zod. Backend menggunakan SQLite untuk penyimpanan data yang ringan dan Laravel untuk logika server-side yang robust."
+      },
+      {
         "summary": "Platform kuis interaktif berbasis AI untuk pembelajaran Bahasa Inggris.",
         "description": "EchoTest adalah platform pembelajaran Bahasa Inggris berbasis AI di mana guru membuat kuis dengan bantuan AI dan siswa mengerjakan asesmen interaktif. Guru dapat mengunggah materi pembelajaran dalam format PDF untuk pembuatan soal kuis secara otomatis oleh AI, mendukung berbagai tipe soal termasuk pilihan ganda, esai, listening test, dan speaking test dengan perekaman audio. Fitur meliputi manajemen kuis, pelacakan submission siswa, penilaian otomatis dan manual, analitik performa, serta autentikasi Google. Dikembangkan sebagai proyek skripsi."
       },
