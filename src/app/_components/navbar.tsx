@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useTranslation } from "react-i18next";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -17,8 +17,24 @@ export function Navbar({ activeSection }: { activeSection: string }) {
   const { dark, toggle: toggleDark } = useDarkMode();
   const { t, i18n } = useTranslation();
 
+  const router = useRouter();
+
   const resolveHref = (href: string) =>
     !isHome && href.startsWith("#") ? `/${href}` : href;
+
+  const handleNavClick = useCallback(
+    (e: React.MouseEvent, href: string) => {
+      if (!href.startsWith("#")) return;
+      const sectionId = href.slice(1);
+      if (isHome) {
+        e.preventDefault();
+        document
+          .getElementById(sectionId)
+          ?.scrollIntoView({ behavior: "smooth" });
+      }
+    },
+    [isHome],
+  );
 
   const toggleLang = () => {
     const next = i18n.language === "en" ? "id" : "en";
@@ -43,6 +59,7 @@ export function Navbar({ activeSection }: { activeSection: string }) {
       <nav className="mx-auto flex h-16 max-w-5xl items-center justify-between px-6">
         <Link
           href={resolveHref("#home")}
+          onClick={(e) => handleNavClick(e, "#home")}
           className="relative font-heading text-xl font-bold tracking-tight"
         >
           <span className="bg-linear-to-r from-primary to-purple-500 bg-clip-text text-transparent">
@@ -61,6 +78,7 @@ export function Navbar({ activeSection }: { activeSection: string }) {
                 <li key={item.href}>
                   <Link
                     href={resolveHref(item.href)}
+                    onClick={(e) => handleNavClick(e, item.href)}
                     className={`relative rounded-full px-4 py-2 text-sm font-medium transition-colors ${
                       isActive
                         ? "text-foreground"
@@ -148,7 +166,10 @@ export function Navbar({ activeSection }: { activeSection: string }) {
                 <li key={item.href}>
                   <Link
                     href={resolveHref(item.href)}
-                    onClick={() => setMobileOpen(false)}
+                    onClick={(e) => {
+                      handleNavClick(e, item.href);
+                      setMobileOpen(false);
+                    }}
                     className={`block rounded-xl px-4 py-2.5 text-sm font-medium transition-colors ${
                       isActive
                         ? "bg-accent text-foreground"

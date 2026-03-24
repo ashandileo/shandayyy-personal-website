@@ -15,7 +15,7 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="relative flex min-h-dvh flex-col items-center justify-center overflow-hidden px-6 text-center"
+      className="relative flex min-h-dvh flex-col items-center justify-center overflow-hidden px-6 pt-20 pb-24 text-center"
     >
       {/* Animated grid background */}
       <div className="hero-grid hero-grid-fade pointer-events-none absolute inset-0" />
@@ -108,16 +108,21 @@ export function HeroSection() {
         </div>
       </div>
 
-      <Link
-        href="#experience"
-        className="absolute bottom-8 flex flex-col items-center gap-2 text-muted-foreground transition-colors hover:text-primary"
+      <button
+        type="button"
+        onClick={() =>
+          document
+            .getElementById("experience")
+            ?.scrollIntoView({ behavior: "smooth" })
+        }
+        className="absolute bottom-8 z-10 flex flex-col items-center gap-2 text-muted-foreground transition-colors hover:text-primary"
         aria-label="Scroll to experience"
       >
         <span className="text-[10px] font-medium uppercase tracking-[0.2em]">
           {t("hero.scrollToExplore")}
         </span>
         <ArrowDown className="size-4 animate-bounce" />
-      </Link>
+      </button>
     </section>
   );
 }
