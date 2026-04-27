@@ -2,10 +2,9 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useTranslation } from "react-i18next";
 import { Menu, X, Sun, Moon } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { useDarkMode } from "@/hooks";
 import { NAV_ITEMS } from "@/data/navigation";
 
@@ -16,8 +15,6 @@ export function Navbar({ activeSection }: { activeSection: string }) {
   const isHome = pathname === "/";
   const { dark, toggle: toggleDark } = useDarkMode();
   const { t, i18n } = useTranslation();
-
-  const router = useRouter();
 
   const resolveHref = (href: string) =>
     !isHome && href.startsWith("#") ? `/${href}` : href;
@@ -50,113 +47,94 @@ export function Navbar({ activeSection }: { activeSection: string }) {
 
   return (
     <header
-      className={`fixed top-0 z-40 w-full transition-all duration-300 ${
-        scrolled
-          ? "border-b bg-background/80 backdrop-blur-xl shadow-sm"
-          : "bg-transparent"
+      className={`fixed top-0 z-40 w-full transition-colors duration-200 ${
+        scrolled ? "border-b-2 border-border bg-background" : "bg-transparent"
       }`}
     >
       <nav className="mx-auto flex h-16 max-w-5xl items-center justify-between px-6">
         <Link
           href={resolveHref("#home")}
           onClick={(e) => handleNavClick(e, "#home")}
-          className="relative font-heading text-xl font-bold tracking-tight"
+          className="font-heading text-base font-black tracking-tight text-primary"
         >
-          <span className="bg-linear-to-r from-primary to-purple-500 bg-clip-text text-transparent">
-            Shandayyy
-          </span>
+          Shandayyy
         </Link>
 
         {/* Desktop */}
-        <div className="hidden items-center gap-1 md:flex">
-          <ul className="flex gap-1">
-            {NAV_ITEMS.map((item) => {
+        <div className="hidden items-center gap-2 md:flex">
+          <ul className="flex">
+            {NAV_ITEMS.map((item, i) => {
               const isActive = item.href.startsWith("/")
                 ? pathname === item.href
                 : item.sectionId === activeSection;
               return (
-                <li key={item.href}>
+                <li key={item.href} className={i === 0 ? "" : "-ml-[1.5px]"}>
                   <Link
                     href={resolveHref(item.href)}
                     onClick={(e) => handleNavClick(e, item.href)}
-                    className={`relative rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+                    className={`inline-flex items-center border-[1.5px] px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.1em] transition-colors ${
                       isActive
-                        ? "text-foreground"
-                        : "text-muted-foreground hover:bg-accent hover:text-foreground"
+                        ? "border-border bg-foreground text-background shadow-[2px_2px_0_var(--border)]"
+                        : "border-transparent text-muted-foreground hover:border-border hover:bg-muted hover:text-foreground"
                     }`}
                   >
                     {t(item.labelKey)}
-                    {isActive && (
-                      <span className="absolute inset-x-1 -bottom-px h-0.5 rounded-full bg-primary" />
-                    )}
                   </Link>
                 </li>
               );
             })}
           </ul>
-          <div className="ml-2 flex items-center gap-0.5">
-            <Button
-              variant="ghost"
-              size="icon-sm"
+          <div className="ml-2 flex items-center gap-1.5">
+            <button
+              type="button"
               onClick={toggleLang}
               aria-label="Switch language"
+              className="border-[1.5px] border-border bg-card px-2.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.1em] text-muted-foreground shadow-[2px_2px_0_var(--border)] transition-colors hover:bg-foreground hover:text-background"
             >
-              <span className="text-base leading-none">
-                {i18n.language === "en"
-                  ? "\u{1F1EE}\u{1F1E9}"
-                  : "\u{1F1FA}\u{1F1F8}"}
-              </span>
-            </Button>
-            <Button
-              variant="ghost"
-              size="icon-sm"
+              {i18n.language === "en" ? "ID" : "EN"}
+            </button>
+            <button
+              type="button"
               onClick={toggleDark}
               aria-label="Toggle dark mode"
+              className="border-[1.5px] border-border bg-card px-2.5 py-1.5 text-muted-foreground shadow-[2px_2px_0_var(--border)] transition-colors hover:bg-foreground hover:text-background"
             >
-              {dark ? <Sun className="size-4" /> : <Moon className="size-4" />}
-            </Button>
+              {dark ? <Sun className="size-3.5" /> : <Moon className="size-3.5" />}
+            </button>
           </div>
         </div>
 
         {/* Mobile toggle */}
-        <div className="flex items-center gap-1 md:hidden">
-          <Button
-            variant="ghost"
-            size="icon-sm"
+        <div className="flex items-center gap-1.5 md:hidden">
+          <button
+            type="button"
             onClick={toggleLang}
             aria-label="Switch language"
+            className="border-[1.5px] border-border bg-card px-2.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.1em] text-muted-foreground shadow-[2px_2px_0_var(--border)]"
           >
-            <span className="text-base leading-none">
-              {i18n.language === "en"
-                ? "\u{1F1EE}\u{1F1E9}"
-                : "\u{1F1FA}\u{1F1F8}"}
-            </span>
-          </Button>
-          <Button
-            variant="ghost"
-            size="icon-sm"
+            {i18n.language === "en" ? "ID" : "EN"}
+          </button>
+          <button
+            type="button"
             onClick={toggleDark}
             aria-label="Toggle dark mode"
+            className="border-[1.5px] border-border bg-card px-2.5 py-1.5 text-muted-foreground shadow-[2px_2px_0_var(--border)]"
           >
-            {dark ? <Sun className="size-4" /> : <Moon className="size-4" />}
-          </Button>
-          <Button
-            variant="ghost"
-            size="icon-sm"
+            {dark ? <Sun className="size-3.5" /> : <Moon className="size-3.5" />}
+          </button>
+          <button
+            type="button"
             onClick={() => setMobileOpen(!mobileOpen)}
+            className="border-[1.5px] border-border bg-card px-2.5 py-1.5 text-muted-foreground shadow-[2px_2px_0_var(--border)]"
           >
-            {mobileOpen ? (
-              <X className="size-5" />
-            ) : (
-              <Menu className="size-5" />
-            )}
-          </Button>
+            {mobileOpen ? <X className="size-4" /> : <Menu className="size-4" />}
+          </button>
         </div>
       </nav>
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="mobile-menu-enter border-t bg-background/95 px-6 pb-4 backdrop-blur-xl md:hidden">
+        <div className="mobile-menu-enter border-t-2 border-border bg-background px-6 pb-4 md:hidden">
           <ul className="flex flex-col gap-1 pt-2">
             {NAV_ITEMS.map((item) => {
               const isActive = item.href.startsWith("/")
@@ -170,10 +148,10 @@ export function Navbar({ activeSection }: { activeSection: string }) {
                       handleNavClick(e, item.href);
                       setMobileOpen(false);
                     }}
-                    className={`block rounded-xl px-4 py-2.5 text-sm font-medium transition-colors ${
+                    className={`block border-[1.5px] px-3 py-2 text-[11px] font-bold uppercase tracking-[0.1em] ${
                       isActive
-                        ? "bg-accent text-foreground"
-                        : "text-muted-foreground hover:bg-accent hover:text-foreground"
+                        ? "border-border bg-foreground text-background"
+                        : "border-transparent text-muted-foreground hover:border-border hover:bg-muted hover:text-foreground"
                     }`}
                   >
                     {t(item.labelKey)}
