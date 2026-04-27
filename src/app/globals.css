@@ -221,34 +221,6 @@
 }
 
 /* ------------------------------------------------------------------ */
-/*  GLOW ORBS                                                          */
-/* ------------------------------------------------------------------ */
-
-@keyframes float-slow {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(30px, -20px) scale(1.05); }
-  66% { transform: translate(-20px, 15px) scale(0.95); }
-}
-
-@keyframes float-slow-reverse {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(-25px, 20px) scale(0.95); }
-  66% { transform: translate(20px, -15px) scale(1.05); }
-}
-
-.glow-orb-1 {
-  animation: float-slow 8s ease-in-out infinite;
-}
-
-.glow-orb-2 {
-  animation: float-slow-reverse 10s ease-in-out infinite;
-}
-
-.glow-orb-3 {
-  animation: float-slow 12s ease-in-out infinite;
-}
-
-/* ------------------------------------------------------------------ */
 /*  TIMELINE GLOW                                                      */
 /* ------------------------------------------------------------------ */
 
@@ -310,44 +282,6 @@
 .hero-stagger > *:nth-child(4) { animation-delay: 0.5s; }
 .hero-stagger > *:nth-child(5) { animation-delay: 0.65s; }
 .hero-stagger > *:nth-child(6) { animation-delay: 0.8s; }
-
-/* ------------------------------------------------------------------ */
-/*  CAROUSEL SLIDE ANIMATION                                            */
-/* ------------------------------------------------------------------ */
-
-@keyframes card-swap {
-  0% {
-    opacity: 0;
-    transform: translateY(40px) scale(0.95) rotate(2deg);
-  }
-  60% {
-    opacity: 1;
-    transform: translateY(-4px) scale(1.01) rotate(0deg);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1) rotate(0deg);
-  }
-}
-
-.animate-card-swap {
-  animation: card-swap 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-/* ------------------------------------------------------------------ */
-/*  GRADIENT TEXT SHIMMER                                               */
-/* ------------------------------------------------------------------ */
-
-@keyframes gradient-shimmer {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-.gradient-shimmer {
-  background-size: 200% auto;
-  animation: gradient-shimmer 4s ease-in-out infinite;
-}
 
 /* ------------------------------------------------------------------ */
 /*  STAGGERED CHILDREN (scroll-triggered via .stagger-fade)            */
@@ -469,4 +403,19 @@
 
 .dark .glass-card {
   background: oklch(0.17 0.02 265 / 0.6);
+}
+
+/* ------------------------------------------------------------------ */
+/*  HERO MARQUEE STRIP                                                 */
+/* ------------------------------------------------------------------ */
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 18s linear infinite;
+  display: inline-block;
+  white-space: nowrap;
 }
