@@ -221,24 +221,6 @@
 }
 
 /* ------------------------------------------------------------------ */
-/*  TIMELINE GLOW                                                      */
-/* ------------------------------------------------------------------ */
-
-.timeline-line {
-  background: linear-gradient(
-    to bottom,
-    oklch(0.55 0.2 265 / 0),
-    oklch(0.55 0.2 265 / 0.3),
-    oklch(0.55 0.2 265 / 0.3),
-    oklch(0.55 0.2 265 / 0)
-  );
-}
-
-.timeline-dot {
-  box-shadow: 0 0 0 4px var(--background), 0 0 12px oklch(0.55 0.2 265 / 0.4);
-}
-
-/* ------------------------------------------------------------------ */
 /*  SECTION FADE-IN (via Intersection Observer in JS)                  */
 /* ------------------------------------------------------------------ */
 
@@ -375,34 +357,6 @@
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-/* ------------------------------------------------------------------ */
-/*  PROJECT CARD HOVER                                                 */
-/* ------------------------------------------------------------------ */
-
-.project-card {
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.project-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px -12px oklch(0.55 0.2 265 / 0.15);
-}
-
-/* ------------------------------------------------------------------ */
-/*  CONTACT CARD GLASS                                                 */
-/* ------------------------------------------------------------------ */
-
-.glass-card {
-  background: oklch(1 0 0 / 0.6);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-}
-
-.dark .glass-card {
-  background: oklch(0.17 0.02 265 / 0.6);
 }
 
 /* ------------------------------------------------------------------ */
