@@ -1,14 +1,17 @@
 "use client";
 
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useSectionFade, usePerItemFade } from "@/hooks";
-import { EXPERIENCES, EXPERIENCE_STYLES } from "@/data/experiences";
+import { EXPERIENCES, EXPERIENCE_STYLES, type Experience } from "@/data/experiences";
 import { ExperienceCard } from "./experience-card";
+import { ExperienceDialog } from "./experience-dialog";
 
 export function ExperienceSection() {
   const fadeRef = useSectionFade();
   const itemFadeRef = usePerItemFade();
   const { t } = useTranslation();
+  const [selectedExperience, setSelectedExperience] = useState<Experience | null>(null);
 
   return (
     <section
@@ -32,7 +35,6 @@ export function ExperienceSection() {
 
         {/* Timeline */}
         <div ref={itemFadeRef} className="relative pl-7">
-          {/* Vertical line */}
           <span
             aria-hidden
             className="absolute left-2 top-0 bottom-0 w-[3px] bg-border opacity-10"
@@ -53,13 +55,21 @@ export function ExperienceSection() {
                     experience={exp}
                     style={style}
                     isCurrent={isCurrent}
-                    onSelect={() => {}}
+                    onSelect={() => setSelectedExperience(exp)}
                   />
                 </li>
               );
             })}
           </ul>
         </div>
+
+        <ExperienceDialog
+          experience={selectedExperience}
+          open={!!selectedExperience}
+          onOpenChange={(open) => {
+            if (!open) setSelectedExperience(null);
+          }}
+        />
       </div>
     </section>
   );
