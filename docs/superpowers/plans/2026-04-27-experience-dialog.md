@@ -18,7 +18,7 @@
 
 | File | Status | Responsibility |
 |---|---|---|
-| `src/data/experiences.ts` | Modify | Add `Style` type, export `EXPERIENCE_STYLES`, add optional `website` field to `Experience`, populate URLs for MapTrack and Happy5. |
+| `src/data/experiences.ts` | Modify | Add `ExperienceStyle` type, export `EXPERIENCE_STYLES`, add optional `website` field to `Experience`, populate URLs for MapTrack and Happy5. |
 | `src/app/_components/experience-section.tsx` | Modify | Drop the inline `STYLES` and `<li>` body; import `EXPERIENCE_STYLES`, render `<ExperienceCard>`, hold `selectedExperience` state, render `<ExperienceDialog>`. |
 | `src/app/_components/experience-card.tsx` | Create | Per-item card markup, clickable (cursor + role + key/click handlers). |
 | `src/app/_components/experience-dialog.tsx` | Create | Detail dialog: colored header strip, description bullets, skills tags, optional "Visit Company" button. |
@@ -38,7 +38,7 @@ No translation file changes — bullets already exist in `src/locales/en.json` a
 Replace the file with:
 
 ```ts
-export interface Style {
+export interface ExperienceStyle {
   color: string;
   initials: string;
   lightBg: string;
@@ -110,7 +110,7 @@ export const EXPERIENCES: Experience[] = [
 ];
 
 // Indexed by EXPERIENCES position so the two Happy5 entries get different colors.
-export const EXPERIENCE_STYLES: Style[] = [
+export const EXPERIENCE_STYLES: ExperienceStyle[] = [
   { color: "var(--primary)",         lightBg: "color-mix(in oklch, var(--primary) 8%, transparent)",   initials: "MT" },
   { color: "var(--secondary)",       lightBg: "color-mix(in oklch, var(--secondary) 8%, transparent)", initials: "H5" },
   { color: "var(--accent)",          lightBg: "color-mix(in oklch, var(--accent) 10%, transparent)",   initials: "KG", isLightInitials: true },
@@ -195,7 +195,7 @@ git commit -m "refactor(experience): export styles and add optional website fiel
 ```tsx
 "use client";
 
-import type { Experience, Style } from "@/data/experiences";
+import type { Experience, ExperienceStyle } from "@/data/experiences";
 
 export function ExperienceCard({
   experience,
@@ -203,7 +203,7 @@ export function ExperienceCard({
   isCurrent,
 }: {
   experience: Experience;
-  style: Style;
+  style: ExperienceStyle;
   isCurrent: boolean;
 }) {
   const [location, type] = experience.location.split(",").map((s) => s.trim());
@@ -327,7 +327,7 @@ Update the props and the outer wrapper. New file contents:
 ```tsx
 "use client";
 
-import type { Experience, Style } from "@/data/experiences";
+import type { Experience, ExperienceStyle } from "@/data/experiences";
 
 export function ExperienceCard({
   experience,
@@ -336,7 +336,7 @@ export function ExperienceCard({
   onSelect,
 }: {
   experience: Experience;
-  style: Style;
+  style: ExperienceStyle;
   isCurrent: boolean;
   onSelect: () => void;
 }) {
