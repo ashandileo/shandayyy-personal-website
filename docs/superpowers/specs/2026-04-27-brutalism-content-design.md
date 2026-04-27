@@ -12,7 +12,6 @@ This spec covers the **visual adjustments** required across the homepage (`src/a
 
 ## Out of Scope
 
-- Resume page (`src/app/resume/*`) — keep as-is
 - Project dialog (modal) — keep as-is
 - Data files (`src/data/*`) — content unchanged
 - i18n keys (`src/locales/*`) — content unchanged
@@ -211,7 +210,53 @@ Minimal change:
 - `border-t` → `border-t-2 border-border`.
 - `text-xs text-muted-foreground` → `font-mono text-[9px] text-muted-foreground uppercase tracking-wider`.
 
-### 7. Shared UI Components — `src/components/ui/*`
+### 7. Resume Page — `src/app/resume/*`
+
+The resume page (`src/app/resume/page.tsx`) reuses the same `Navbar` and shows two cards: download/view actions, and a PDF preview. Restyle to match the brutalism aesthetic.
+
+**Page wrapper** (`page.tsx`):
+- Wrapper `div` keeps `min-h-dvh bg-background`.
+- Inner `<main>` keeps `mx-auto max-w-3xl space-y-6 px-6 py-10`. Increase to `gap-5` (20px) between cards.
+- Add 4 decorative SVG shapes scattered across the page (same set used elsewhere — asterisk, squiggly arrow, rotated square, dot grid), absolute positioned with `pointer-events-none`, opacity 0.3–0.5.
+
+**ResumeHeader** (`resume-header.tsx`):
+- Wrap in centered container `mx-auto max-w-3xl px-6 pt-24 text-center` (keep).
+- Add a **section tag** above the title — same style as homepage tags but with an inline SVG document icon (file outline with folded corner + text lines, stroke-based, no emoji):
+  - `font-mono text-[9px] font-bold uppercase tracking-widest text-secondary border-2 border-secondary px-2.5 py-1 bg-card shadow-[2px_2px_0]`
+  - Inline-flex with the SVG icon (11×13px, stroke 2, currentColor) + the word "Document"
+- Title: `text-[56px] font-black uppercase tracking-[-2.5px] leading-[0.92]`. Word "Resume" gets `underline decoration-primary decoration-[5px] underline-offset-[6px]`. Restyle the existing `<h1>Resume</h1>` to `My <span class="...">Resume</span>` (or use `t('nav.resume')` directly, plus the wrapping word "My" — see i18n note below).
+- Subtitle: `font-mono text-[12px] text-muted-foreground leading-[1.65] max-w-[480px] mx-auto`.
+
+**ResumeActions** (`resume-actions.tsx`):
+- Card wrapper: drop `rounded-2xl border bg-card p-6 shadow-sm`. Replace with `border-2 border-border bg-card shadow-[5px_5px_0_var(--border)] p-6 relative`.
+- Add a corner number "01 / 02" in the top-right (mono 8px tracking-widest text-muted-foreground).
+- Top row: keep `FileText` icon + title + description, but restyle:
+  - Icon: wrap in a 44×44 colored block — `bg-primary text-white border-2 border-border shadow-[2px_2px_0]`. Keep the Lucide `FileText` icon at 20px, stroke-width 2.5.
+  - Title: `text-[16px] font-black uppercase tracking-tight`.
+  - Description: `font-mono text-[11px] text-muted-foreground leading-[1.6]`.
+- Add a divider line: after the top row, `border-t-2 border-border pt-4` before the buttons row.
+- Buttons row stays `flex flex-wrap items-center justify-center gap-3`. Drop `rounded-full px-5` from each button.
+  - "View Online" → solid: `bg-foreground text-background border-2 shadow-[4px_4px_0]`, hover translate + shadow 6px.
+  - "Download PDF" → accent: `bg-accent text-foreground border-2 shadow-[4px_4px_0]`, hover translate + shadow 6px.
+- Both buttons keep their existing icons (Lucide `Eye`, `Download`).
+
+**ResumePreview** (`resume-preview.tsx`):
+- Card wrapper: drop `rounded-2xl border bg-card p-6 shadow-sm`. Replace with `border-2 border-border bg-card shadow-[5px_5px_0_var(--border)] relative` (no padding — content has its own).
+- Add corner number "02 / 02" in the top-right.
+- Replace the heading area with a **header strip**:
+  - `flex justify-between items-center px-5 py-4 border-b-2 border-border` with subtle `bg-accent/10` tint.
+  - Left: title "Resume Preview" (`text-[14px] font-black uppercase tracking-tight`) + filename `Ashandi_Leonadi_CV_2026.pdf` (`font-mono text-[9px] uppercase tracking-wider text-muted-foreground`).
+  - Right: meta pill `PDF · 1 PAGE` (`font-mono text-[9px] font-bold border-2 border-border px-2 py-1 shadow-[2px_2px_0] bg-card text-accent`).
+- iframe wrapper: drop `rounded-xl bg-muted`. Replace with `m-4 border-2 border-border bg-muted overflow-hidden`. iframe keeps its existing `h-[70vh] w-full sm:h-[80vh]` sizing and `src="/Ashandi_Leonadi_CV_2026.pdf"`.
+- Replace the existing trailing `<p>` (fallback note) with a footer strip: `border-t-2 border-border bg-muted px-5 py-3 text-center font-mono text-[9px] uppercase tracking-wider text-muted-foreground`. Text: `↑ If preview doesn't load, use the buttons above to view or download`.
+
+**ResumeLayout** (`resume-layout.tsx`):
+- No changes — it just wires the navbar + i18n boot. The navbar restyle from section 1 covers the visible change.
+
+**i18n note:**
+- The resume page currently has hardcoded English strings ("Resume", "Download or view my professional resume...", etc.). For this spec, those stay hardcoded — translating the resume page is **out of scope**. If the user wants i18n on the resume page, that's a follow-up.
+
+### 8. Shared UI Components — `src/components/ui/*`
 
 The shared shadcn components (`button.tsx`, `badge.tsx`, `card.tsx`, `dialog.tsx`, `separator.tsx`) are **already** receiving the brutalism styles via the CSS tokens (`--radius: 0`, `--shadow: 4px 4px 0...`). They should **not** need code changes.
 
@@ -247,6 +292,10 @@ src/app/_components/project-card.tsx               — add corner number, catego
 src/app/_components/experience-section.tsx         — replace timeline layout + add company colors map
 src/app/_components/contact-section.tsx            — full rewrite to two-column asymmetric layout
 src/app/_components/footer.tsx                     — minor restyle
+src/app/resume/page.tsx                            — add deco shapes wrapper
+src/app/resume/_components/resume-header.tsx       — add "Document" section tag with SVG icon, restyle title
+src/app/resume/_components/resume-actions.tsx      — brutalism card style, button restyle, corner number
+src/app/resume/_components/resume-preview.tsx      — header strip + footer strip, brutalism iframe wrap
 ```
 
 No changes to:
@@ -254,14 +303,16 @@ No changes to:
 - `src/locales/*`
 - `src/components/ui/*` (verify only)
 - `src/hooks/*`
-- `src/app/resume/*`
+- `src/app/resume/_components/resume-layout.tsx` (just wires navbar + i18n)
 - `src/app/layout.tsx`
 - `globals.css` color tokens
 
 ## Acceptance
 
-- All 7 sections (navbar, hero, marquee, projects, experience, contact, footer) match the approved final composite mockup at `.superpowers/brainstorm/41588-1777293684/content/final-composite.html` (with the contact section updated to Option C from `contact-options.html`).
-- Existing functionality preserved: typewriter, dark mode toggle, language toggle, smooth scroll, active section highlight, project dialog open, all i18n keys still resolved.
-- No `rounded-full`, `gradient-shimmer`, `glass-card`, `glow-orb-*`, or `backdrop-blur-*` left in homepage components.
+- All homepage sections (navbar, hero, marquee, projects, experience, contact, footer) match the approved final composite mockup at `.superpowers/brainstorm/41588-1777293684/content/final-composite.html` (with the contact section updated to Option C from `contact-options.html`).
+- Resume page sections (header, actions card, preview card) match the approved mockup at `.superpowers/brainstorm/41588-1777293684/content/resume-page.html`.
+- Existing functionality preserved: typewriter, dark mode toggle, language toggle, smooth scroll, active section highlight, project dialog open, PDF iframe still loads, View/Download buttons still work, all i18n keys still resolved.
+- No `rounded-full`, `gradient-shimmer`, `glass-card`, `glow-orb-*`, or `backdrop-blur-*` left in any component touched by this spec.
+- No emoji in any decorative element — all icons are inline SVG (stroke-based).
 - Project data, experience data, and locale strings unchanged.
 - Lint + typecheck pass.
