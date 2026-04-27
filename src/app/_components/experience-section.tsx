@@ -49,7 +49,12 @@ export function ExperienceSection() {
                     className="absolute left-[-30px] top-5 size-4 border-[2.5px] border-border shadow-[2px_2px_0_var(--border)]"
                     style={{ background: style.color }}
                   />
-                  <ExperienceCard experience={exp} style={style} isCurrent={isCurrent} />
+                  <ExperienceCard
+                    experience={exp}
+                    style={style}
+                    isCurrent={isCurrent}
+                    onSelect={() => {}}
+                  />
                 </li>
               );
             })}

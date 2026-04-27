@@ -6,15 +6,28 @@ export function ExperienceCard({
   experience,
   style,
   isCurrent,
+  onSelect,
 }: {
   experience: Experience;
   style: ExperienceStyle;
   isCurrent: boolean;
+  onSelect: () => void;
 }) {
   const [location, type] = experience.location.split(",").map((s) => s.trim());
 
   return (
-    <div className="border-2 border-border bg-card shadow-[4px_4px_0_var(--border)] transition-shadow hover:shadow-[6px_6px_0_var(--border)]">
+    <div
+      onClick={onSelect}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onSelect();
+        }
+      }}
+      className="cursor-pointer border-2 border-border bg-card shadow-[4px_4px_0_var(--border)] transition-shadow hover:shadow-[6px_6px_0_var(--border)] focus-visible:shadow-[6px_6px_0_var(--border)]"
+    >
       <div
         className="flex flex-col gap-3 border-b-2 border-border px-5 py-3.5 sm:flex-row sm:items-center sm:justify-between"
         style={{ background: style.lightBg }}
