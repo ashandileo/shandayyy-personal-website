@@ -2,19 +2,7 @@
 
 import { useTranslation } from "react-i18next";
 import { useSectionFade, usePerItemFade } from "@/hooks";
-import { EXPERIENCES } from "@/data/experiences";
-
-type Style = { color: string; initials: string; lightBg: string; isLightInitials?: boolean };
-
-// Indexed by EXPERIENCES position so the two Happy5 entries get different colors.
-const STYLES: Style[] = [
-  { color: "var(--primary)",         lightBg: "color-mix(in oklch, var(--primary) 8%, transparent)",   initials: "MT" },
-  { color: "var(--secondary)",       lightBg: "color-mix(in oklch, var(--secondary) 8%, transparent)", initials: "H5" },
-  { color: "var(--accent)",          lightBg: "color-mix(in oklch, var(--accent) 10%, transparent)",   initials: "KG", isLightInitials: true },
-  { color: "oklch(0.45 0.14 190)",   lightBg: "color-mix(in oklch, oklch(0.45 0.14 190) 8%, transparent)", initials: "RA" },
-  { color: "oklch(0.5 0.18 290)",    lightBg: "color-mix(in oklch, oklch(0.5 0.18 290) 8%, transparent)",  initials: "SS" },
-  { color: "oklch(0.75 0.18 29)",    lightBg: "color-mix(in oklch, oklch(0.75 0.18 29) 8%, transparent)",  initials: "H5", isLightInitials: true },
-];
+import { EXPERIENCES, EXPERIENCE_STYLES } from "@/data/experiences";
 
 export function ExperienceSection() {
   const fadeRef = useSectionFade();
@@ -51,7 +39,7 @@ export function ExperienceSection() {
 
           <ul className="flex flex-col gap-5">
             {EXPERIENCES.map((exp, i) => {
-              const style = STYLES[i] ?? STYLES[0];
+              const style = EXPERIENCE_STYLES[i] ?? EXPERIENCE_STYLES[0];
               const isCurrent = i === 0;
               const [location, type] = exp.location.split(",").map((s) => s.trim());
               return (

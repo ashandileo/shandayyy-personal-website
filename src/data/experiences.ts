@@ -1,3 +1,10 @@
+export interface ExperienceStyle {
+  color: string;
+  initials: string;
+  lightBg: string;
+  isLightInitials?: boolean;
+}
+
 export interface Experience {
   role: string;
   company: string;
@@ -5,6 +12,7 @@ export interface Experience {
   period: string;
   descriptionCount: number;
   skills: string[];
+  website?: string;
 }
 
 export const EXPERIENCES: Experience[] = [
@@ -15,6 +23,7 @@ export const EXPERIENCES: Experience[] = [
     period: "Jan 2025 — Present",
     descriptionCount: 3,
     skills: ["Next.js", "TypeScript", "Supabase", "OpenAI", "TanStack DB", "Amazon DynamoDB"],
+    website: "https://maptrack.com",
   },
   {
     role: "Frontend Web/Mobile Engineer",
@@ -23,6 +32,7 @@ export const EXPERIENCES: Experience[] = [
     period: "Mar 2021 — Dec 2025",
     descriptionCount: 9,
     skills: ["React", "React Native", "TypeScript", "Tailwind CSS", "Cypress", "Storybook", "Amplitude"],
+    website: "https://www.happy5.co/",
   },
   {
     role: "Frontend Web Engineer",
@@ -55,5 +65,16 @@ export const EXPERIENCES: Experience[] = [
     period: "May 2020 — Mar 2021",
     descriptionCount: 4,
     skills: ["React", "Cypress", "@react-pdf/renderer"],
+    website: "https://www.happy5.co/",
   },
+];
+
+// Indexed by EXPERIENCES position so the two Happy5 entries get different colors.
+export const EXPERIENCE_STYLES: ExperienceStyle[] = [
+  { color: "var(--primary)",         lightBg: "color-mix(in oklch, var(--primary) 8%, transparent)",   initials: "MT" },
+  { color: "var(--secondary)",       lightBg: "color-mix(in oklch, var(--secondary) 8%, transparent)", initials: "H5" },
+  { color: "var(--accent)",          lightBg: "color-mix(in oklch, var(--accent) 10%, transparent)",   initials: "KG", isLightInitials: true },
+  { color: "oklch(0.45 0.14 190)",   lightBg: "color-mix(in oklch, oklch(0.45 0.14 190) 8%, transparent)", initials: "RA" },
+  { color: "oklch(0.5 0.18 290)",    lightBg: "color-mix(in oklch, oklch(0.5 0.18 290) 8%, transparent)",  initials: "SS" },
+  { color: "oklch(0.75 0.18 29)",    lightBg: "color-mix(in oklch, oklch(0.75 0.18 29) 8%, transparent)",  initials: "H5", isLightInitials: true },
 ];
