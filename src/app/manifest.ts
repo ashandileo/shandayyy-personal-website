@@ -8,8 +8,8 @@ export default function manifest(): MetadataRoute.Manifest {
       "Personal portfolio of Ashandi Leonadi — Frontend Developer specializing in React, Next.js, and TypeScript.",
     start_url: "/",
     display: "standalone",
-    background_color: "#ffffff",
-    theme_color: "#7c3aed",
+    background_color: "#FBF8EF",
+    theme_color: "#F4A340",
     icons: [
       {
         src: "/favicon.ico",
