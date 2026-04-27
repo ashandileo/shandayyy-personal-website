@@ -1,15 +1,21 @@
 import type { Metadata } from "next";
-import { Inter, Geist_Mono } from "next/font/google";
+import { Montserrat, Lora, Space_Mono } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const fontSans = Montserrat({
   subsets: ["latin"],
+  variable: "--font-sans",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const fontSerif = Lora({
   subsets: ["latin"],
+  variable: "--font-serif",
+});
+
+const fontMono = Space_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  weight: ["400", "700"],
 });
 
 const SITE_URL = "https://ashandileonadi.vercel.app";
@@ -87,7 +93,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${fontSans.variable} ${fontSerif.variable} ${fontMono.variable} antialiased`}
     >
       <body className="min-h-full flex flex-col scroll-smooth">
         <script
