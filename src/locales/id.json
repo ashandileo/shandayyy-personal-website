@@ -90,6 +90,10 @@
     "title": "Proyek Unggulan",
     "subtitle": "Pilihan proyek yang telah saya kerjakan. Klik kartu untuk melihat detail.",
     "sourceCode": "Kode Sumber",
+    "viewAll": "Lihat Semua {{count}} Proyek",
+    "allTitle": "Semua Proyek",
+    "allSubtitle": "Semua proyek yang telah saya kerjakan, dalam satu halaman.",
+    "backHome": "Kembali ke Beranda",
     "items": [
       {
         "summary": "Satu platform untuk mengelola aset dengan pelacakan GPS dan pemantauan real-time.",

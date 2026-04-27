@@ -246,20 +246,25 @@ export function HeroSection() {
 
       {/* Marquee strip — full-bleed below hero */}
       <div className="overflow-hidden border-y-2 border-border bg-foreground py-2 text-background">
-        <div className="animate-marquee font-mono text-[11px] font-bold uppercase tracking-[0.18em]">
+        <div className="flex w-max animate-marquee font-mono text-[11px] font-bold uppercase tracking-[0.18em]">
           {(() => {
-            const items = [
-              ...roles,
-              t("hero.available"),
-              ...roles,
-              t("hero.available"),
-            ];
-            return items.map((label, i) => (
-              <span key={i} className="mx-3">
-                <span className="mr-3 text-accent">✦</span>
-                {label}
-              </span>
-            ));
+            const items = [...roles, t("hero.available")];
+            const Group = (
+              <div className="flex shrink-0">
+                {items.map((label, i) => (
+                  <span key={i} className="mx-3 whitespace-nowrap">
+                    <span className="mr-3 text-accent">✦</span>
+                    {label}
+                  </span>
+                ))}
+              </div>
+            );
+            return (
+              <>
+                {Group}
+                {Group}
+              </>
+            );
           })()}
         </div>
       </div>

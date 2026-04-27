@@ -370,6 +370,5 @@
 
 .animate-marquee {
   animation: marquee 18s linear infinite;
-  display: inline-block;
-  white-space: nowrap;
+  will-change: transform;
 }

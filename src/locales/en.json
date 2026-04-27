@@ -90,6 +90,10 @@
     "title": "Featured Projects",
     "subtitle": "A selection of projects I've worked on. Click a card to see details.",
     "sourceCode": "Source Code",
+    "viewAll": "View All {{count}} Projects",
+    "allTitle": "All Projects",
+    "allSubtitle": "Every project I've worked on, in one place.",
+    "backHome": "Back to Home",
     "items": [
       {
         "summary": "One platform to manage your assets with real-time GPS tracking and monitoring.",

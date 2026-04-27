@@ -1,12 +1,16 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { ArrowRight } from "lucide-react";
 import { useSectionFade, useStaggeredFade } from "@/hooks";
 import { PROJECTS } from "@/data/projects";
 import type { Project } from "@/data/projects";
 import { ProjectCard } from "./project-card";
 import { ProjectDialog } from "./project-dialog";
+
+const HOME_LIMIT = 5;
 
 export function ProjectsSection() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -14,7 +18,8 @@ export function ProjectsSection() {
   const staggerRef = useStaggeredFade(120);
   const { t } = useTranslation();
 
-  const [featured, ...rest] = PROJECTS;
+  const visible = PROJECTS.slice(0, HOME_LIMIT);
+  const [featured, ...rest] = visible;
 
   return (
     <section
@@ -36,13 +41,13 @@ export function ProjectsSection() {
           {t("projects.subtitle")}
         </p>
 
-        {/* Asymmetric grid */}
+        {/* Featured + 2x2 grid (Option A) */}
         <div
           ref={staggerRef}
-          className="grid grid-cols-1 border-2 border-border shadow-[4px_4px_0_var(--border)] md:grid-cols-3"
+          className="grid grid-cols-1 border-2 border-border shadow-[4px_4px_0_var(--border)] md:[grid-template-columns:2fr_1fr_1fr]"
         >
-          {/* Featured (col 1, spans 3 rows on md+) */}
-          <div className="stagger-item border-b-2 border-border md:col-span-1 md:row-span-3 md:border-b-0 md:border-r-2">
+          {/* Featured (col 1, spans 2 rows on md+) */}
+          <div className="stagger-item border-b-2 border-border md:col-start-1 md:row-span-2 md:border-b-0 md:border-r-2">
             <ProjectCard
               project={featured}
               onSelect={() => setSelectedProject(featured)}
@@ -50,12 +55,11 @@ export function ProjectsSection() {
             />
           </div>
 
-          {/* Other 6 projects fill cols 2-3 over 3 rows */}
+          {/* 4 small cards in 2x2 grid on cols 2-3 */}
           {rest.map((project, idx) => {
-            // idx: 0..5 ; on md+ col index in the right block: idx % 2 (0 = col2, 1 = col3)
-            const isLastColMd = idx % 2 === 1;        // idx 1, 3, 5 sit in column 3 on md+
-            const isLastRowMd = idx >= 4;             // idx 4, 5 sit in the third (last) row on md+
-            const isLastDomCell = idx === 5;          // very last cell when stacked on mobile
+            const isLastColMd = idx % 2 === 1; // idx 1, 3 sit in column 3 on md+
+            const isLastRowMd = idx >= 2;       // idx 2, 3 sit in row 2 on md+
+            const isLastDomCell = idx === rest.length - 1;
             const bottomBase = isLastDomCell ? "border-b-0" : "border-b-2";
             const bottomMd = isLastRowMd && !isLastDomCell ? "md:border-b-0" : "";
             const rightMd = isLastColMd ? "md:border-r-0" : "md:border-r-2";
@@ -71,6 +75,17 @@ export function ProjectsSection() {
               </div>
             );
           })}
+        </div>
+
+        {/* View all CTA */}
+        <div className="mt-6 flex justify-center">
+          <Link
+            href="/projects"
+            className="group inline-flex items-center gap-2 border-2 border-border bg-card px-5 py-2.5 font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-foreground shadow-[3px_3px_0_var(--border)] transition-all hover:-translate-x-[1px] hover:-translate-y-[1px] hover:shadow-[4px_4px_0_var(--border)] active:translate-x-0 active:translate-y-0 active:shadow-[2px_2px_0_var(--border)]"
+          >
+            {t("projects.viewAll", { count: PROJECTS.length })}
+            <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />
+          </Link>
         </div>
 
         <ProjectDialog
