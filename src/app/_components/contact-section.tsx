@@ -11,7 +11,7 @@ const LI_HANDLE = CONTACTS.linkedin.replace(/.*linkedin\.com\/in\//i, "").replac
 
 export function ContactSection() {
   const fadeRef = useSectionFade();
-  const staggerRef = useStaggeredFade(100);
+  const staggerRef = useStaggeredFade<HTMLUListElement>(100);
   const { t } = useTranslation();
 
   return (

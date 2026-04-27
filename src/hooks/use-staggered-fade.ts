@@ -7,8 +7,10 @@ import { useEffect, useRef } from "react";
  * `.stagger-item` with an incremental delay when the container
  * scrolls into view.
  */
-export function useStaggeredFade(delayMs = 100) {
-  const ref = useRef<HTMLDivElement>(null);
+export function useStaggeredFade<T extends HTMLElement = HTMLDivElement>(
+  delayMs = 100,
+) {
+  const ref = useRef<T>(null);
 
   useEffect(() => {
     const container = ref.current;
