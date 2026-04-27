@@ -1,10 +1,20 @@
 "use client";
 
 import { useTranslation } from "react-i18next";
-import { MapPin, Building2 } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
 import { useSectionFade, usePerItemFade } from "@/hooks";
 import { EXPERIENCES } from "@/data/experiences";
+
+type Style = { color: string; initials: string; lightBg: string; isLightInitials?: boolean };
+
+// Indexed by EXPERIENCES position so the two Happy5 entries get different colors.
+const STYLES: Style[] = [
+  { color: "var(--primary)",         lightBg: "color-mix(in oklch, var(--primary) 8%, transparent)",   initials: "MT" },
+  { color: "var(--secondary)",       lightBg: "color-mix(in oklch, var(--secondary) 8%, transparent)", initials: "H5" },
+  { color: "var(--accent)",          lightBg: "color-mix(in oklch, var(--accent) 10%, transparent)",   initials: "KG", isLightInitials: true },
+  { color: "oklch(0.45 0.14 190)",   lightBg: "color-mix(in oklch, oklch(0.45 0.14 190) 8%, transparent)", initials: "RA" },
+  { color: "oklch(0.5 0.18 290)",    lightBg: "color-mix(in oklch, oklch(0.5 0.18 290) 8%, transparent)",  initials: "SS" },
+  { color: "oklch(0.75 0.18 29)",    lightBg: "color-mix(in oklch, oklch(0.75 0.18 29) 8%, transparent)",  initials: "H5", isLightInitials: true },
+];
 
 export function ExperienceSection() {
   const fadeRef = useSectionFade();
@@ -12,89 +22,104 @@ export function ExperienceSection() {
   const { t } = useTranslation();
 
   return (
-    <section id="experience" className="scroll-mt-16 px-6 py-24">
-      <div ref={fadeRef} className="section-fade mx-auto max-w-3xl">
-        <div className="text-center">
-          <Badge variant="secondary" className="mb-4 rounded-full px-3 py-1">
+    <section
+      id="experience"
+      className="relative scroll-mt-16 border-b-2 border-border px-6 py-16 sm:py-20"
+    >
+      <div ref={fadeRef} className="section-fade mx-auto max-w-4xl">
+        {/* Header */}
+        <div className="mb-3 flex items-center gap-3">
+          <span className="border-2 border-secondary bg-card px-2.5 py-1 font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-secondary shadow-[2px_2px_0_var(--border)]">
             {t("experience.badge")}
-          </Badge>
-          <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
+          </span>
+          <h2 className="text-xl font-black uppercase tracking-tight sm:text-2xl">
             {t("experience.title")}
           </h2>
-          <p className="mt-2 text-sm text-muted-foreground">
-            {t("experience.subtitle")}
-          </p>
+          <span aria-hidden className="h-[2px] flex-1 bg-border opacity-10" />
         </div>
+        <p className="mb-10 text-[11px] text-muted-foreground">
+          {t("experience.subtitle")}
+        </p>
 
-        <div className="relative mt-16">
-          {/* Timeline line */}
-          <div className="timeline-line absolute left-4 top-0 h-full w-px md:left-1/2 md:-translate-x-px" />
+        {/* Timeline */}
+        <div ref={itemFadeRef} className="relative pl-7">
+          {/* Vertical line */}
+          <span
+            aria-hidden
+            className="absolute left-2 top-0 bottom-0 w-[3px] bg-border opacity-10"
+          />
 
-          <div ref={itemFadeRef} className="flex flex-col gap-14">
-            {EXPERIENCES.map((exp, i) => (
-              <div
-                key={i}
-                className="stagger-item relative grid grid-cols-[32px_1fr] gap-6 md:grid-cols-2 md:gap-10"
-              >
-                {/* Dot */}
-                <div className="timeline-dot absolute left-4 top-1 z-10 size-3 -translate-x-1/2 rounded-full bg-primary md:left-1/2" />
+          <ul className="flex flex-col gap-5">
+            {EXPERIENCES.map((exp, i) => {
+              const style = STYLES[i] ?? STYLES[0];
+              const isCurrent = i === 0;
+              const [location, type] = exp.location.split(",").map((s) => s.trim());
+              return (
+                <li key={i} className="stagger-item relative">
+                  {/* Dot */}
+                  <span
+                    aria-hidden
+                    className="absolute left-[-30px] top-5 size-4 border-[2.5px] border-border shadow-[2px_2px_0_var(--border)]"
+                    style={{ background: style.color }}
+                  />
 
-                {/* Left side — period (desktop only) */}
-                <div
-                  className={`hidden md:flex md:items-start ${
-                    i % 2 === 0 ? "md:justify-end md:text-right" : "md:order-2"
-                  }`}
-                >
-                  <span className="mt-0.5 inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
-                    {exp.period}
-                  </span>
-                </div>
+                  {/* Card */}
+                  <div className="border-2 border-border bg-card shadow-[4px_4px_0_var(--border)] transition-shadow hover:shadow-[6px_6px_0_var(--border)]">
+                    {/* Header strip */}
+                    <div
+                      className="flex flex-col gap-3 border-b-2 border-border px-5 py-3.5 sm:flex-row sm:items-center sm:justify-between"
+                      style={{ background: style.lightBg }}
+                    >
+                      <div className="flex items-center gap-3.5">
+                        <div
+                          className="flex size-11 shrink-0 items-center justify-center border-2 border-border font-mono text-[13px] font-black shadow-[2px_2px_0_var(--border)]"
+                          style={{
+                            background: style.color,
+                            color: style.isLightInitials ? "var(--foreground)" : "#fff",
+                          }}
+                        >
+                          {style.initials}
+                        </div>
+                        <div>
+                          <div className="mb-0.5 text-[11px] font-bold uppercase tracking-[0.08em] text-muted-foreground">
+                            {exp.company}
+                          </div>
+                          <div className="text-[13px] font-black uppercase tracking-tight">
+                            {exp.role}
+                          </div>
+                        </div>
+                      </div>
+                      <div className="flex flex-col items-start gap-1 sm:items-end">
+                        {isCurrent && (
+                          <span className="border-[1.5px] border-border bg-primary px-1.5 py-[1px] font-mono text-[7px] font-bold uppercase tracking-[0.1em] text-white shadow-[1px_1px_0_var(--border)]">
+                            ● Current
+                          </span>
+                        )}
+                        <span className="border-2 border-border bg-card px-2 py-0.5 font-mono text-[9px] font-bold whitespace-nowrap shadow-[2px_2px_0_var(--border)]">
+                          {exp.period}
+                        </span>
+                        <span className="font-mono text-[8px] uppercase tracking-[0.1em] text-muted-foreground">
+                          {[location, type].filter(Boolean).join(" · ")}
+                        </span>
+                      </div>
+                    </div>
 
-                {/* Content card */}
-                <div
-                  className={`col-start-2 rounded-2xl border bg-card p-5 shadow-sm transition-shadow hover:shadow-md md:col-start-auto ${
-                    i % 2 === 0 ? "" : "md:order-1"
-                  }`}
-                >
-                  {/* Mobile period */}
-                  <span className="mb-3 inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary md:hidden">
-                    {exp.period}
-                  </span>
-
-                  <h3 className="text-base font-semibold">{exp.role}</h3>
-                  <div className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted-foreground">
-                    <span className="inline-flex items-center gap-1">
-                      <Building2 className="size-3" /> {exp.company}
-                    </span>
-                    <span className="inline-flex items-center gap-1">
-                      <MapPin className="size-3" /> {exp.location}
-                    </span>
+                    {/* Body */}
+                    <div className="flex flex-wrap gap-1.5 px-5 py-3">
+                      {exp.skills.map((skill) => (
+                        <span
+                          key={skill}
+                          className="border-[1.5px] border-border bg-muted px-1.5 py-[1px] font-mono text-[8px] font-bold uppercase tracking-[0.05em] text-muted-foreground"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-
-                  <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-                    {Array.from({ length: exp.descriptionCount }, (_, j) => (
-                      <li key={j} className="flex gap-2.5">
-                        <span className="mt-2 block size-1 shrink-0 rounded-full bg-primary/50" />
-                        {t(`experience.jobs.${i}.description.${j}`)}
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className="mt-4 flex flex-wrap gap-1.5">
-                    {exp.skills.map((skill) => (
-                      <Badge
-                        key={skill}
-                        variant="secondary"
-                        className="rounded-full text-[11px]"
-                      >
-                        {skill}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+                </li>
+              );
+            })}
+          </ul>
         </div>
       </div>
     </section>
