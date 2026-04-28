@@ -22,7 +22,7 @@ export const EXPERIENCES: Experience[] = [
     location: "Remote, Full-time",
     period: "Jan 2025 — Present",
     descriptionCount: 3,
-    skills: ["Next.js", "TypeScript", "Supabase", "OpenAI", "TanStack DB", "Amazon DynamoDB"],
+    skills: ["Next.js", "TypeScript", "Supabase", "OpenAI", "TanStack DB"],
     website: "https://maptrack.com",
   },
   {

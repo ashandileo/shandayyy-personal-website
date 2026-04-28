@@ -32,7 +32,7 @@
         "description": [
           "Mengintegrasikan pembuatan PDF berbasis OpenAI untuk formulir kustom, memungkinkan pembuatan formulir dinamis, penataan konten cerdas, dan pembuatan dokumen otomatis.",
           "Melakukan refaktor lapisan data menggunakan TanStack DB untuk mendukung arsitektur offline-first, meningkatkan keandalan dan pengalaman pengguna di lingkungan dengan konektivitas rendah.",
-          "Mengimplementasikan peningkatan untuk pemantauan baterai GPS dan indikator status yang didukung oleh Amazon DynamoDB, meningkatkan visibilitas real-time, skalabilitas, dan keandalan perangkat."
+          "Mengimplementasikan AI streaming menggunakan mode streaming OpenAI untuk merender konten yang dihasilkan secara bertahap, secara signifikan meningkatkan persepsi responsivitas dan pengalaman pengguna selama proses generasi AI berlangsung."
         ]
       },
       {
@@ -100,12 +100,8 @@
         "description": "MapTrack adalah platform manajemen aset komprehensif yang menyediakan pelacakan GPS real-time, pemantauan baterai, dan indikator status perangkat. Fitur meliputi pembuatan PDF berbasis AI untuk formulir kustom, arsitektur offline-first yang didukung TanStack DB, dan integrasi mulus dengan Supabase untuk penyimpanan data. Dibangun dengan fokus pada keandalan dan performa di lingkungan dengan konektivitas rendah."
       },
       {
-        "summary": "Platform manajemen performa berbasis AI untuk menyelaraskan tujuan, pekerjaan, dan review.",
-        "description": "Happy5 adalah platform manajemen performa berbasis AI yang menyatukan pelacakan tujuan, manajemen proyek, dan review performa karyawan. Platform ini memungkinkan organisasi menyelaraskan tujuan, pekerjaan, dan performa dalam satu platform yang sepenuhnya dapat disesuaikan. Mendukung berbagai framework tujuan termasuk OKR, MBO, dan KPI, dengan integrasi ke tools seperti Jira untuk visibilitas komprehensif terhadap keselarasan strategis dari level eksekutif hingga kontributor individu."
-      },
-      {
-        "summary": "Aplikasi keuangan pribadi untuk melacak pengeluaran dan mengelola spending berdasarkan kategori.",
-        "description": "Expense Tracker adalah aplikasi manajemen keuangan pribadi yang dibangun dengan Laravel dan Inertia.js dengan React. Pengguna dapat melacak pengeluaran harian, mengorganisir spending berdasarkan kategori kustom, dan melihat dashboard dengan ringkasan keuangan. Fitur meliputi autentikasi pengguna dengan login dan registrasi, CRUD lengkap untuk pengeluaran dan kategori, desain responsif untuk desktop dan mobile, serta validasi form menggunakan React Hook Form dan Zod. Backend menggunakan SQLite untuk penyimpanan data yang ringan dan Laravel untuk logika server-side yang robust."
+        "summary": "Latihan wawancara kerja dalam Bahasa Inggris bersama AI interviewer yang menyesuaikan posisi dan skill Anda.",
+        "description": "English AI Interview adalah platform latihan voice interview yang membantu pengguna mengasah komunikasi Bahasa Inggris untuk wawancara kerja sungguhan. Pengguna dapat memilih template wawancara siap pakai atau membuat setup sepenuhnya kustom — menentukan nama interviewer, role, kepribadian, perusahaan target, job title, key skills/topik, serta catatan tambahan yang mengarahkan perilaku AI. Setiap sesi dijalankan dalam mode practice yang fokus dan didukung OpenAI, dengan endpoint start, respond, dan score yang menggerakkan percakapan sekaligus menilai performa pengguna. Dashboard menampilkan sesi terbaru dan setup milik pengguna, sementara halaman history melacak tren skor antar percobaan agar pengguna dapat memantau peningkatan dari waktu ke waktu. Dibangun dengan Next.js 16, React 19, Supabase (auth, database, RLS), TanStack Query, Zustand, dan Shadcn UI."
       },
       {
         "summary": "Chatbot WhatsApp berbasis AI yang membantu pemilik UMKM mengelola katalog produk dan melayani pelanggan secara otomatis.",
@@ -114,6 +110,14 @@
       {
         "summary": "Platform kuis interaktif berbasis AI untuk pembelajaran Bahasa Inggris.",
         "description": "EchoTest adalah platform pembelajaran Bahasa Inggris berbasis AI di mana guru membuat kuis dengan bantuan AI dan siswa mengerjakan asesmen interaktif. Guru dapat mengunggah materi pembelajaran dalam format PDF untuk pembuatan soal kuis secara otomatis oleh AI, mendukung berbagai tipe soal termasuk pilihan ganda, esai, listening test, dan speaking test dengan perekaman audio. Fitur meliputi manajemen kuis, pelacakan submission siswa, penilaian otomatis dan manual, analitik performa, serta autentikasi Google. Dikembangkan sebagai proyek skripsi."
+      },
+      {
+        "summary": "Platform manajemen performa berbasis AI untuk menyelaraskan tujuan, pekerjaan, dan review.",
+        "description": "Happy5 adalah platform manajemen performa berbasis AI yang menyatukan pelacakan tujuan, manajemen proyek, dan review performa karyawan. Platform ini memungkinkan organisasi menyelaraskan tujuan, pekerjaan, dan performa dalam satu platform yang sepenuhnya dapat disesuaikan. Mendukung berbagai framework tujuan termasuk OKR, MBO, dan KPI, dengan integrasi ke tools seperti Jira untuk visibilitas komprehensif terhadap keselarasan strategis dari level eksekutif hingga kontributor individu."
+      },
+      {
+        "summary": "Aplikasi keuangan pribadi untuk melacak pengeluaran dan mengelola spending berdasarkan kategori.",
+        "description": "Expense Tracker adalah aplikasi manajemen keuangan pribadi yang dibangun dengan Laravel dan Inertia.js dengan React. Pengguna dapat melacak pengeluaran harian, mengorganisir spending berdasarkan kategori kustom, dan melihat dashboard dengan ringkasan keuangan. Fitur meliputi autentikasi pengguna dengan login dan registrasi, CRUD lengkap untuk pengeluaran dan kategori, desain responsif untuk desktop dan mobile, serta validasi form menggunakan React Hook Form dan Zod. Backend menggunakan SQLite untuk penyimpanan data yang ringan dan Laravel untuk logika server-side yang robust."
       },
       {
         "summary": "Aplikasi pencarian film untuk mencari, menjelajahi, dan melihat detail tentang film.",

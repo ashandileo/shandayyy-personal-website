@@ -19,9 +19,11 @@ import { isVideo, type Project } from "@/data/projects";
 
 function ProjectDialogInner({
   project,
+  index,
   onOpenChange,
 }: {
   project: Project;
+  index: number;
   onOpenChange: (open: boolean) => void;
 }) {
   const [imgIndex, setImgIndex] = useState(0);
@@ -36,7 +38,7 @@ function ProjectDialogInner({
         <DialogHeader>
           <DialogTitle className="text-lg">{project.title}</DialogTitle>
           <DialogDescription>
-            {t(`projects.items.${project.index}.summary`)}
+            {t(`projects.items.${index}.summary`)}
           </DialogDescription>
         </DialogHeader>
 
@@ -99,7 +101,7 @@ function ProjectDialogInner({
         </div>
 
         <p className="text-sm leading-relaxed text-muted-foreground">
-          {t(`projects.items.${project.index}.description`)}
+          {t(`projects.items.${index}.description`)}
         </p>
 
         <div className="flex flex-wrap gap-1.5">
@@ -160,9 +162,11 @@ function ProjectDialogInner({
 
 export function ProjectDialog({
   project,
+  index,
   onOpenChange,
 }: {
   project: Project | null;
+  index: number;
   open: boolean;
   onOpenChange: (open: boolean) => void;
 }) {
@@ -171,6 +175,7 @@ export function ProjectDialog({
     <ProjectDialogInner
       key={project.title}
       project={project}
+      index={index}
       onOpenChange={onOpenChange}
     />
   );

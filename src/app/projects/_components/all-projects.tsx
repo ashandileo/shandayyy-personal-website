@@ -13,7 +13,7 @@ import { PROJECTS } from "@/data/projects";
 import type { Project } from "@/data/projects";
 
 export function AllProjects() {
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [selected, setSelected] = useState<{ project: Project; index: number } | null>(null);
   const fadeRef = useSectionFade();
   const staggerRef = useStaggeredFade(80);
   const { t, i18n } = useTranslation();
@@ -85,7 +85,8 @@ export function AllProjects() {
                   >
                     <ProjectCard
                       project={project}
-                      onSelect={() => setSelectedProject(project)}
+                      index={idx}
+                      onSelect={() => setSelected({ project, index: idx })}
                     />
                   </div>
                 );
@@ -93,10 +94,11 @@ export function AllProjects() {
             </div>
 
             <ProjectDialog
-              project={selectedProject}
-              open={!!selectedProject}
+              project={selected?.project ?? null}
+              index={selected?.index ?? 0}
+              open={!!selected}
               onOpenChange={(open) => {
-                if (!open) setSelectedProject(null);
+                if (!open) setSelected(null);
               }}
             />
           </div>

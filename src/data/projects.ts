@@ -1,6 +1,5 @@
 export interface Project {
   title: string;
-  index: number;
   images: string[];
   techStack: string[];
   liveUrl?: string;
@@ -15,18 +14,9 @@ export function isVideo(src: string) {
 export const PROJECTS: Project[] = [
   {
     title: "MapTrack",
-    index: 0,
     images: [
       "/projects/maptrack/maptrack-1.png",
-      "/projects/maptrack/maptrack-2.mp4",
-      "/projects/maptrack/maptrack-3.avif",
-      "/projects/maptrack/maptrack-4.mp4",
-      "/projects/maptrack/maptack-5.mp4",
-      "/projects/maptrack/maptrack-6.mp4",
-      "/projects/maptrack/maptrack-7.mp4",
-      "/projects/maptrack/maptrack-8.avif",
-      "/projects/maptrack/maptrack-9.mp4",
-      "/projects/maptrack/maptrack-10.mp4",
+      "/projects/maptrack/maptrack-11.mov",
     ],
     techStack: [
       "React.js",
@@ -44,8 +34,83 @@ export const PROJECTS: Project[] = [
     gradient: "from-emerald-500/20 via-teal-500/10 to-transparent",
   },
   {
+    title: "English AI Interview",
+    images: [
+      "/projects/english-ai-interview/dashboard.png",
+      "/projects/english-ai-interview/interview-setups.png",
+      "/projects/english-ai-interview/setup-edit.png",
+      "/projects/english-ai-interview/live-session.png",
+      "/projects/english-ai-interview/session-result.png",
+      "/projects/english-ai-interview/history.png",
+    ],
+    techStack: [
+      "Next.js",
+      "React.js",
+      "TypeScript",
+      "Supabase",
+      "OpenAI",
+      "TanStack Query",
+      "Zustand",
+      "Tailwind CSS",
+      "Shadcn",
+      "Radix UI",
+    ],
+    liveUrl: "https://english-learning-v2.vercel.app",
+    repoUrl: "https://github.com/ashandileo/English-AI-Interview",
+    gradient: "from-yellow-500/20 via-orange-500/10 to-transparent",
+  },
+  {
+    title: "Shopbot Assistant",
+    images: [
+      "/projects/shopbot-assistant/shopbot-assistant.png",
+      "/projects/shopbot-assistant/shopbot-assistant.mov",
+    ],
+    techStack: [
+      "Next.js",
+      "React.js",
+      "TypeScript",
+      "Supabase",
+      "Supabase Vector Search",
+      "OpenAI",
+      "RAG",
+      "WhatsApp Cloud API",
+      "Tailwind CSS",
+      "Shadcn",
+      "TanStack Query",
+    ],
+    repoUrl: "https://github.com/ashandileo/Shopbot-Assistant",
+    gradient: "from-cyan-500/20 via-sky-500/10 to-transparent",
+  },
+  {
+    title: "Echo Test",
+    images: [
+      "/projects/echo-test/echo-test-5.png",
+      "/projects/echo-test/echo-test-4.png",
+      "/projects/echo-test/echo-test-3.webp",
+      "/projects/echo-test/echo-test-6.png",
+      "/projects/echo-test/echo-test-10.png",
+      "/projects/echo-test/echo-test-11.png",
+      "/projects/echo-test/echo-test-12.png",
+      "/projects/echo-test/echo-test-13.png",
+      "/projects/echo-test/echo-test-14.png",
+      "/projects/echo-test/echo-test-15.png",
+      "/projects/echo-test/echo-test-16.png",
+    ],
+    techStack: [
+      "React.js",
+      "Next.js",
+      "Supabase",
+      "TanStack Query",
+      "OpenAI",
+      "Mistral AI",
+      "Tailwind CSS",
+      "Shadcn",
+    ],
+    liveUrl: "https://echotest.vercel.app/",
+    gradient: "from-violet-500/20 via-purple-500/10 to-transparent",
+  },
+  {
     title: "Happy5",
-    index: 1,
     images: [
       "/projects/happy5/happy5-4.webp",
       "/projects/happy5/happy5-2.webp",
@@ -65,7 +130,6 @@ export const PROJECTS: Project[] = [
   },
   {
     title: "Expense Tracker",
-    index: 2,
     images: [
       "/projects/expense-tracker/dashboard-desktop.png",
       "/projects/expense-tracker/dashboard-mobile.png",
@@ -99,60 +163,7 @@ export const PROJECTS: Project[] = [
     gradient: "from-lime-500/20 via-green-500/10 to-transparent",
   },
   {
-    title: "Shopbot Assistant",
-    index: 3,
-    images: [
-      "/projects/shopbot-assistant/shopbot-assistant.png",
-      "/projects/shopbot-assistant/shopbot-assistant.mov",
-    ],
-    techStack: [
-      "Next.js",
-      "React.js",
-      "TypeScript",
-      "Supabase",
-      "Supabase Vector Search",
-      "OpenAI",
-      "RAG",
-      "WhatsApp Cloud API",
-      "Tailwind CSS",
-      "Shadcn",
-      "TanStack Query",
-    ],
-    repoUrl: "https://github.com/ashandileo/Shopbot-Assistant",
-    gradient: "from-cyan-500/20 via-sky-500/10 to-transparent",
-  },
-  {
-    title: "Echo Test",
-    index: 4,
-    images: [
-      "/projects/echo-test/echo-test-5.png",
-      "/projects/echo-test/echo-test-4.png",
-      "/projects/echo-test/echo-test-3.webp",
-      "/projects/echo-test/echo-test-6.png",
-      "/projects/echo-test/echo-test-10.png",
-      "/projects/echo-test/echo-test-11.png",
-      "/projects/echo-test/echo-test-12.png",
-      "/projects/echo-test/echo-test-13.png",
-      "/projects/echo-test/echo-test-14.png",
-      "/projects/echo-test/echo-test-15.png",
-      "/projects/echo-test/echo-test-16.png",
-    ],
-    techStack: [
-      "React.js",
-      "Next.js",
-      "Supabase",
-      "TanStack Query",
-      "OpenAI",
-      "Mistral AI",
-      "Tailwind CSS",
-      "Shadcn",
-    ],
-    liveUrl: "https://echotest.vercel.app/",
-    gradient: "from-violet-500/20 via-purple-500/10 to-transparent",
-  },
-  {
     title: "GoMovies",
-    index: 5,
     images: [
       "/projects/gomovies/gomovies-1.png",
       "/projects/gomovies/gomovies-2.png",
@@ -174,7 +185,6 @@ export const PROJECTS: Project[] = [
   },
   {
     title: "Journal",
-    index: 6,
     images: [
       "/projects/journal/journal-5.png",
       "/projects/journal/journal-6.png",

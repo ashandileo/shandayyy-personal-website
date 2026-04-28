@@ -32,7 +32,7 @@
         "description": [
           "Integrated OpenAI-powered PDF generation for custom forms, enabling dynamic form creation, intelligent content structuring, and automated document generation.",
           "Refactored the data layer using TanStack DB to support an offline-first architecture, improving reliability and user experience in low-connectivity environments.",
-          "Implemented enhancements for GPS battery monitoring and status indicators backed by Amazon DynamoDB, improving real-time visibility, scalability, and device reliability."
+          "Implemented AI streaming with OpenAI's streaming mode to progressively render generated content, significantly improving perceived responsiveness and user experience while waiting for AI generation."
         ]
       },
       {
@@ -100,12 +100,8 @@
         "description": "MapTrack is a comprehensive asset management platform that provides real-time GPS tracking, battery monitoring, and device status indicators. Features include AI-powered PDF generation for custom forms, offline-first architecture powered by TanStack DB, and seamless integration with Supabase for data persistence. Built with a focus on reliability and performance in low-connectivity environments."
       },
       {
-        "summary": "AI-powered performance management platform for aligning goals, work, and reviews.",
-        "description": "Happy5 is an AI-powered performance management platform that unifies goal tracking, project management, and employee performance reviews. It enables organizations to align goals, work, and performance in one fully customizable platform. Supports multiple goal frameworks including OKRs, MBOs, and KPIs, with integrations to tools like Jira for comprehensive visibility into strategic alignment from executive level to individual contributors."
-      },
-      {
-        "summary": "A personal finance app to track expenses and manage spending by category.",
-        "description": "Expense Tracker is a personal finance management application built with Laravel and Inertia.js with React. Users can track daily expenses, organize spending by custom categories, and view a dashboard with financial summaries. Features include user authentication with login and registration, full CRUD for expenses and categories, responsive design for both desktop and mobile, and form validation powered by React Hook Form and Zod. The backend uses SQLite for lightweight data storage and Laravel for robust server-side logic."
+        "summary": "Practice job interviews in English with an AI interviewer that adapts to your role and skills.",
+        "description": "English AI Interview is a voice interview practice platform that helps users sharpen their English communication for real job interviews. Users can pick from ready-made interview templates or create fully customized setups — defining the interviewer's name, role, personality, target company, job title, key skills/topics, and additional notes that steer the AI's behavior. Each session runs in a focused practice mode powered by OpenAI, with dedicated start, respond, and score endpoints that drive the conversation and grade the user's performance. The dashboard surfaces recent sessions and personal setups, while the history page tracks score trends across attempts so users can measure their improvement. Built with Next.js 16, React 19, Supabase (auth, database, RLS), TanStack Query, Zustand, and Shadcn UI."
       },
       {
         "summary": "An AI-powered WhatsApp chatbot that helps SME owners manage product catalogs and serve customers automatically.",
@@ -114,6 +110,14 @@
       {
         "summary": "AI-powered interactive quiz platform for English language learning.",
         "description": "EchoTest is an AI-powered English learning platform where teachers create quizzes with AI assistance and students take interactive assessments. Teachers can upload PDF learning materials for AI-generated quiz questions, supporting multiple question types including multiple choice, essay, listening tests, and speaking tests with audio recording. Features include quiz management, student submission tracking, automated and manual grading, performance analytics, and Google authentication. Developed as an undergraduate thesis project."
+      },
+      {
+        "summary": "AI-powered performance management platform for aligning goals, work, and reviews.",
+        "description": "Happy5 is an AI-powered performance management platform that unifies goal tracking, project management, and employee performance reviews. It enables organizations to align goals, work, and performance in one fully customizable platform. Supports multiple goal frameworks including OKRs, MBOs, and KPIs, with integrations to tools like Jira for comprehensive visibility into strategic alignment from executive level to individual contributors."
+      },
+      {
+        "summary": "A personal finance app to track expenses and manage spending by category.",
+        "description": "Expense Tracker is a personal finance management application built with Laravel and Inertia.js with React. Users can track daily expenses, organize spending by custom categories, and view a dashboard with financial summaries. Features include user authentication with login and registration, full CRUD for expenses and categories, responsive design for both desktop and mobile, and form validation powered by React Hook Form and Zod. The backend uses SQLite for lightweight data storage and Laravel for robust server-side logic."
       },
       {
         "summary": "A movie discovery app to search, explore, and view details about movies.",

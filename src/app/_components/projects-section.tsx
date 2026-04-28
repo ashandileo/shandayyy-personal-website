@@ -13,7 +13,7 @@ import { ProjectDialog } from "./project-dialog";
 const HOME_LIMIT = 5;
 
 export function ProjectsSection() {
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [selected, setSelected] = useState<{ project: Project; index: number } | null>(null);
   const fadeRef = useSectionFade();
   const staggerRef = useStaggeredFade(120);
   const { t } = useTranslation();
@@ -50,13 +50,15 @@ export function ProjectsSection() {
           <div className="stagger-item border-b-2 border-border md:col-start-1 md:row-span-2 md:border-b-0 md:border-r-2">
             <ProjectCard
               project={featured}
-              onSelect={() => setSelectedProject(featured)}
+              index={0}
+              onSelect={() => setSelected({ project: featured, index: 0 })}
               featured
             />
           </div>
 
           {/* 4 small cards in 2x2 grid on cols 2-3 */}
           {rest.map((project, idx) => {
+            const projectIndex = idx + 1;
             const isLastColMd = idx % 2 === 1; // idx 1, 3 sit in column 3 on md+
             const isLastRowMd = idx >= 2;       // idx 2, 3 sit in row 2 on md+
             const isLastDomCell = idx === rest.length - 1;
@@ -70,7 +72,8 @@ export function ProjectsSection() {
               >
                 <ProjectCard
                   project={project}
-                  onSelect={() => setSelectedProject(project)}
+                  index={projectIndex}
+                  onSelect={() => setSelected({ project, index: projectIndex })}
                 />
               </div>
             );
@@ -89,10 +92,11 @@ export function ProjectsSection() {
         </div>
 
         <ProjectDialog
-          project={selectedProject}
-          open={!!selectedProject}
+          project={selected?.project ?? null}
+          index={selected?.index ?? 0}
+          open={!!selected}
           onOpenChange={(open) => {
-            if (!open) setSelectedProject(null);
+            if (!open) setSelected(null);
           }}
         />
       </div>

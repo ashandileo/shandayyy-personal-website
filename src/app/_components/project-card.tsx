@@ -8,16 +8,17 @@ const CATEGORY_BY_TITLE: Record<
   string,
   { label: string; color: string }
 > = {
-  MapTrack:           { label: "SaaS · Fullstack · AI",  color: "var(--secondary)" },
-  Happy5:             { label: "Performance · SaaS",     color: "var(--primary)" },
-  "Expense Tracker":  { label: "Finance · Personal",     color: "var(--accent)" },
-  "Shopbot Assistant":{ label: "AI · WhatsApp Bot",      color: "var(--secondary)" },
-  "Echo Test":        { label: "Education · AI",         color: "oklch(0.5 0.18 290)" },
-  GoMovies:           { label: "Entertainment",          color: "oklch(0.55 0.2 0)" },
-  Journal:            { label: "Mobile · PWA",           color: "oklch(0.65 0.18 60)" },
+  MapTrack:               { label: "SaaS · Fullstack · AI",  color: "var(--secondary)" },
+  "English AI Interview": { label: "AI · Voice · Career",    color: "oklch(0.7 0.18 60)" },
+  Happy5:                 { label: "Performance · SaaS",     color: "var(--primary)" },
+  "Expense Tracker":      { label: "Finance · Personal",     color: "var(--accent)" },
+  "Shopbot Assistant":    { label: "AI · WhatsApp Bot",      color: "var(--secondary)" },
+  "Echo Test":            { label: "Education · AI",         color: "oklch(0.5 0.18 290)" },
+  GoMovies:               { label: "Entertainment",          color: "oklch(0.55 0.2 0)" },
+  Journal:                { label: "Mobile · PWA",           color: "oklch(0.65 0.18 60)" },
 };
 
-const TOTAL = 7;
+const TOTAL = 8;
 
 function pad2(n: number) {
   return n < 10 ? `0${n}` : `${n}`;
@@ -25,10 +26,12 @@ function pad2(n: number) {
 
 export function ProjectCard({
   project,
+  index,
   onSelect,
   featured = false,
 }: {
   project: Project;
+  index: number;
   onSelect: () => void;
   featured?: boolean;
 }) {
@@ -37,7 +40,7 @@ export function ProjectCard({
     label: "Project",
     color: "var(--muted-foreground)",
   };
-  const number = pad2(project.index + 1);
+  const number = pad2(index + 1);
   const cornerLabel = featured ? `${number} / ${pad2(TOTAL)}` : number;
 
   return (
@@ -127,7 +130,7 @@ export function ProjectCard({
           featured ? "text-[12px] sm:text-sm" : "text-[10px]"
         } line-clamp-3`}
       >
-        {t(`projects.items.${project.index}.summary`)}
+        {t(`projects.items.${index}.summary`)}
       </p>
 
       {/* Tech tags */}
