@@ -5,5 +5,6 @@ export const NAV_ITEMS = [
   { labelKey: "nav.experience", href: "#experience", sectionId: "experience" },
   { labelKey: "nav.projects", href: "#projects", sectionId: "projects" },
   { labelKey: "nav.resume", href: "/resume", sectionId: null },
+  { labelKey: "nav.blog", href: "/blogs", sectionId: null },
   { labelKey: "nav.contact", href: "#contact", sectionId: "contact" },
 ];

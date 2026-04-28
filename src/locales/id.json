@@ -4,6 +4,7 @@
     "experience": "Pengalaman",
     "projects": "Proyek",
     "resume": "Resume",
+    "blog": "Blog",
     "contact": "Kontak"
   },
   "hero": {
@@ -133,6 +134,19 @@
     "badge": "Kontak",
     "title": "Mari Bekerja Sama",
     "subtitle": "Jangan ragu untuk menghubungi — saya selalu terbuka untuk peluang dan kolaborasi baru."
+  },
+  "blog": {
+    "badge": "Tulisan",
+    "title": "Blog",
+    "subtitle": "Catatan, pelajaran, dan hal-hal yang saya pelajari.",
+    "allTag": "Semua",
+    "readingTime": "{{minutes}} menit baca",
+    "backToList": "Kembali ke semua tulisan",
+    "enOnly": "EN saja",
+    "idOnly": "ID saja",
+    "fallbackToEn": "Versi Indonesia belum tersedia. Menampilkan versi English.",
+    "fallbackToId": "Versi English belum tersedia. Menampilkan versi Indonesia.",
+    "empty": "Belum ada tulisan."
   },
   "footer": {
     "builtWith": "Dibangun dengan Next.js & Tailwind CSS."

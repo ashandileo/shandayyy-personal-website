@@ -4,6 +4,7 @@
     "experience": "Experience",
     "projects": "Projects",
     "resume": "Resume",
+    "blog": "Blog",
     "contact": "Contact"
   },
   "hero": {
@@ -133,6 +134,19 @@
     "badge": "Contact",
     "title": "Let's Work Together",
     "subtitle": "Feel free to reach out — I'm always open to new opportunities and collaborations."
+  },
+  "blog": {
+    "badge": "Writing",
+    "title": "Blog",
+    "subtitle": "Notes, lessons, and things I'm learning.",
+    "allTag": "All",
+    "readingTime": "{{minutes}} min read",
+    "backToList": "Back to all posts",
+    "enOnly": "EN only",
+    "idOnly": "ID only",
+    "fallbackToEn": "Indonesian version not available yet. Showing English.",
+    "fallbackToId": "English version not available yet. Showing Indonesian.",
+    "empty": "No posts yet."
   },
   "footer": {
     "builtWith": "Built with Next.js & Tailwind CSS."
