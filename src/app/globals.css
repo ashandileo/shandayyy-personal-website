@@ -372,3 +372,143 @@
   animation: marquee 18s linear infinite;
   will-change: transform;
 }
+
+/* Blog post markdown content */
+.blog-content h2 {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.25rem;
+  font-size: 1.25rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: var(--foreground);
+  border-bottom: 1.5px solid var(--border);
+}
+
+.blog-content h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.0625rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: var(--foreground);
+}
+
+.blog-content p {
+  margin-block: 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: var(--foreground);
+}
+
+.blog-content ul,
+.blog-content ol {
+  margin-block: 0.75rem;
+  padding-left: 1.25rem;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: var(--foreground);
+}
+
+.blog-content ul {
+  list-style: disc;
+}
+
+.blog-content ol {
+  list-style: decimal;
+}
+
+.blog-content li {
+  margin-block: 0.25rem;
+}
+
+.blog-content a {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-weight: 600;
+}
+
+.blog-content a:hover {
+  text-decoration: none;
+}
+
+.blog-content code:not(pre code) {
+  font-family: var(--font-mono);
+  font-size: 0.78em;
+  background: var(--muted);
+  padding: 0.1rem 0.35rem;
+  border: 1.5px solid var(--border);
+  border-radius: 2px;
+}
+
+.blog-content pre {
+  margin-block: 1rem;
+  padding: 0.875rem 1rem;
+  border: 1.5px solid var(--border);
+  background: var(--card);
+  box-shadow: 2px 2px 0 var(--border);
+  overflow-x: auto;
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+
+.blog-content pre code {
+  font-family: var(--font-mono);
+  display: block;
+}
+
+.blog-content blockquote {
+  margin-block: 1rem;
+  padding-left: 1rem;
+  border-left: 3px solid var(--primary);
+  color: var(--muted-foreground);
+  font-style: italic;
+}
+
+.blog-content img {
+  margin-block: 1rem;
+  max-width: 100%;
+  height: auto;
+  border: 1.5px solid var(--border);
+}
+
+.blog-content hr {
+  margin-block: 2rem;
+  border: 0;
+  border-top: 2px solid var(--border);
+}
+
+.blog-content table {
+  margin-block: 1rem;
+  width: 100%;
+  border: 1.5px solid var(--border);
+  font-size: 0.85rem;
+  border-collapse: collapse;
+}
+
+.blog-content th,
+.blog-content td {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border);
+  text-align: left;
+}
+
+.blog-content th {
+  background: var(--muted);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+/* Shiki dual-theme: rehype-pretty-code emits inline --shiki-light / --shiki-dark
+   variables on every span; these rules pick the right color per theme. */
+.blog-content code[data-theme*=" "] span {
+  color: var(--shiki-light);
+}
+
+html.dark .blog-content code[data-theme*=" "] span {
+  color: var(--shiki-dark);
+}
