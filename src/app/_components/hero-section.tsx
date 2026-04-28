@@ -93,11 +93,11 @@ export function HeroSection() {
 
         <svg
           aria-hidden
-          className="pointer-events-none absolute"
+          className="pointer-events-none absolute text-foreground"
           style={{ bottom: 96, left: 48, width: 88, height: 88, opacity: 0.18 }}
           viewBox="0 0 88 88"
         >
-          <g fill="oklch(0.1759 0.0275 161.2531)">
+          <g fill="currentColor">
             <circle cx="11" cy="11" r="4" />
             <circle cx="44" cy="11" r="4" />
             <circle cx="77" cy="11" r="4" />
@@ -112,7 +112,7 @@ export function HeroSection() {
 
         <svg
           aria-hidden
-          className="pointer-events-none absolute"
+          className="pointer-events-none absolute text-foreground"
           style={{ bottom: 110, right: 60, width: 78, height: 78, opacity: 0.22 }}
           viewBox="0 0 78 78"
         >
@@ -121,7 +121,7 @@ export function HeroSection() {
             cy="39"
             r="32"
             fill="none"
-            stroke="oklch(0.1759 0.0275 161.2531)"
+            stroke="currentColor"
             strokeWidth="2.5"
           />
           <circle
@@ -129,7 +129,7 @@ export function HeroSection() {
             cy="39"
             r="18"
             fill="none"
-            stroke="oklch(0.1759 0.0275 161.2531)"
+            stroke="currentColor"
             strokeWidth="1.5"
           />
           <line
@@ -137,7 +137,7 @@ export function HeroSection() {
             y1="2"
             x2="39"
             y2="76"
-            stroke="oklch(0.1759 0.0275 161.2531)"
+            stroke="currentColor"
             strokeWidth="2"
           />
           <line
@@ -145,7 +145,7 @@ export function HeroSection() {
             y1="39"
             x2="76"
             y2="39"
-            stroke="oklch(0.1759 0.0275 161.2531)"
+            stroke="currentColor"
             strokeWidth="2"
           />
         </svg>
@@ -183,7 +183,7 @@ export function HeroSection() {
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <Link
               href="#projects"
-              className="inline-flex items-center gap-2 border-2 border-border bg-foreground px-6 py-2.5 text-[11px] font-bold uppercase tracking-[0.08em] text-background shadow-[4px_4px_0_var(--border)] transition-transform hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[6px_6px_0_var(--border)]"
+              className="inline-flex items-center gap-2 border-2 border-border bg-primary px-6 py-2.5 text-[11px] font-bold uppercase tracking-[0.08em] text-primary-foreground shadow-[4px_4px_0_var(--border)] transition-transform hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[6px_6px_0_var(--border)]"
             >
               <Sparkles className="size-4" />
               {t("hero.viewProjects")}
@@ -197,7 +197,7 @@ export function HeroSection() {
             </Link>
             <Link
               href="#contact"
-              className="inline-flex items-center gap-2 border-2 border-muted-foreground px-6 py-2.5 text-[11px] font-bold uppercase tracking-[0.08em] text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+              className="inline-flex items-center gap-2 border-2 border-border px-6 py-2.5 text-[11px] font-bold uppercase tracking-[0.08em] text-foreground transition-colors hover:bg-muted"
             >
               <Send className="size-4" />
               {t("hero.contactMe")}
@@ -245,7 +245,7 @@ export function HeroSection() {
       </section>
 
       {/* Marquee strip — full-bleed below hero */}
-      <div className="overflow-hidden border-y-2 border-border bg-foreground py-2 text-background">
+      <div className="overflow-hidden border-y-2 border-border bg-primary py-2 text-primary-foreground">
         <div className="flex w-max animate-marquee font-mono text-[11px] font-bold uppercase tracking-[0.18em]">
           {(() => {
             const items = [...roles, t("hero.available")];
