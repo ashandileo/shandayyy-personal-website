@@ -1,4 +1,5 @@
 export interface Project {
+  slug: string;
   title: string;
   images: string[];
   techStack: string[];
@@ -13,6 +14,7 @@ export function isVideo(src: string) {
 
 export const PROJECTS: Project[] = [
   {
+    slug: "maptrack",
     title: "MapTrack",
     images: [
       "/projects/maptrack/maptrack-1.png",
@@ -34,6 +36,7 @@ export const PROJECTS: Project[] = [
     gradient: "from-emerald-500/20 via-teal-500/10 to-transparent",
   },
   {
+    slug: "english-ai-interview",
     title: "English AI Interview",
     images: [
       "/projects/english-ai-interview/dashboard.png",
@@ -60,6 +63,7 @@ export const PROJECTS: Project[] = [
     gradient: "from-yellow-500/20 via-orange-500/10 to-transparent",
   },
   {
+    slug: "shopbot-assistant",
     title: "Shopbot Assistant",
     images: [
       "/projects/shopbot-assistant/shopbot-assistant.png",
@@ -82,6 +86,7 @@ export const PROJECTS: Project[] = [
     gradient: "from-cyan-500/20 via-sky-500/10 to-transparent",
   },
   {
+    slug: "echo-test",
     title: "Echo Test",
     images: [
       "/projects/echo-test/echo-test-5.png",
@@ -110,6 +115,7 @@ export const PROJECTS: Project[] = [
     gradient: "from-violet-500/20 via-purple-500/10 to-transparent",
   },
   {
+    slug: "happy5",
     title: "Happy5",
     images: [
       "/projects/happy5/happy5-4.webp",
@@ -129,6 +135,7 @@ export const PROJECTS: Project[] = [
     gradient: "from-blue-500/20 via-indigo-500/10 to-transparent",
   },
   {
+    slug: "expense-tracker",
     title: "Expense Tracker",
     images: [
       "/projects/expense-tracker/dashboard-desktop.png",
@@ -163,6 +170,7 @@ export const PROJECTS: Project[] = [
     gradient: "from-lime-500/20 via-green-500/10 to-transparent",
   },
   {
+    slug: "gomovies",
     title: "GoMovies",
     images: [
       "/projects/gomovies/gomovies-1.png",
@@ -184,6 +192,7 @@ export const PROJECTS: Project[] = [
     gradient: "from-rose-500/20 via-red-500/10 to-transparent",
   },
   {
+    slug: "journal",
     title: "Journal",
     images: [
       "/projects/journal/journal-5.png",

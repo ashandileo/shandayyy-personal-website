@@ -130,7 +130,7 @@ export function ProjectCard({
           featured ? "text-[12px] sm:text-sm" : "text-[10px]"
         } line-clamp-3`}
       >
-        {t(`projects.items.${index}.summary`)}
+        {t(`projects.items.${project.slug}.summary`)}
       </p>
 
       {/* Tech tags */}

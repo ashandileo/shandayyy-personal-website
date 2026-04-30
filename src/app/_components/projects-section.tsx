@@ -13,7 +13,7 @@ import { ProjectDialog } from "./project-dialog";
 const HOME_LIMIT = 5;
 
 export function ProjectsSection() {
-  const [selected, setSelected] = useState<{ project: Project; index: number } | null>(null);
+  const [selected, setSelected] = useState<Project | null>(null);
   const fadeRef = useSectionFade();
   const staggerRef = useStaggeredFade(120);
   const { t } = useTranslation();
@@ -51,7 +51,7 @@ export function ProjectsSection() {
             <ProjectCard
               project={featured}
               index={0}
-              onSelect={() => setSelected({ project: featured, index: 0 })}
+              onSelect={() => setSelected(featured)}
               featured
             />
           </div>
@@ -73,7 +73,7 @@ export function ProjectsSection() {
                 <ProjectCard
                   project={project}
                   index={projectIndex}
-                  onSelect={() => setSelected({ project, index: projectIndex })}
+                  onSelect={() => setSelected(project)}
                 />
               </div>
             );
@@ -92,8 +92,7 @@ export function ProjectsSection() {
         </div>
 
         <ProjectDialog
-          project={selected?.project ?? null}
-          index={selected?.index ?? 0}
+          project={selected}
           open={!!selected}
           onOpenChange={(open) => {
             if (!open) setSelected(null);
