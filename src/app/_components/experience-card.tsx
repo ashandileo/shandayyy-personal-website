@@ -1,18 +1,17 @@
 "use client";
 
-import type { Experience, ExperienceStyle } from "@/data/experiences";
+import type { Experience } from "@/data/experiences";
 
 export function ExperienceCard({
   experience,
-  style,
   isCurrent,
   onSelect,
 }: {
   experience: Experience;
-  style: ExperienceStyle;
   isCurrent: boolean;
   onSelect: () => void;
 }) {
+  const { style } = experience;
   const [location, type] = experience.location.split(",").map((s) => s.trim());
 
   return (

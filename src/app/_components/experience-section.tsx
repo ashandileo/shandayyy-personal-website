@@ -41,8 +41,8 @@ export function ExperienceSection() {
           />
 
           <ul className="flex flex-col gap-5">
-            {EXPERIENCES.map((exp, i) => {
-              const isCurrent = i === 0;
+            {EXPERIENCES.map((exp) => {
+              const isCurrent = EXPERIENCES[0]?.slug === exp.slug;
               return (
                 <li key={exp.slug} className="stagger-item relative">
                   <span
@@ -52,7 +52,6 @@ export function ExperienceSection() {
                   />
                   <ExperienceCard
                     experience={exp}
-                    style={exp.style}
                     isCurrent={isCurrent}
                     onSelect={() => setSelectedExperience(exp)}
                   />
