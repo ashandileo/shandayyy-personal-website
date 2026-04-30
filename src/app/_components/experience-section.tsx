@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useSectionFade, usePerItemFade } from "@/hooks";
-import { EXPERIENCES, EXPERIENCE_STYLES, type Experience } from "@/data/experiences";
+import { EXPERIENCES, type Experience } from "@/data/experiences";
 import { ExperienceCard } from "./experience-card";
 import { ExperienceDialog } from "./experience-dialog";
 
@@ -42,18 +42,17 @@ export function ExperienceSection() {
 
           <ul className="flex flex-col gap-5">
             {EXPERIENCES.map((exp, i) => {
-              const style = EXPERIENCE_STYLES[i] ?? EXPERIENCE_STYLES[0];
               const isCurrent = i === 0;
               return (
-                <li key={i} className="stagger-item relative">
+                <li key={exp.slug} className="stagger-item relative">
                   <span
                     aria-hidden
                     className="absolute left-[-30px] top-5 size-4 border-[2.5px] border-border shadow-[2px_2px_0_var(--border)]"
-                    style={{ background: style.color }}
+                    style={{ background: exp.style.color }}
                   />
                   <ExperienceCard
                     experience={exp}
-                    style={style}
+                    style={exp.style}
                     isCurrent={isCurrent}
                     onSelect={() => setSelectedExperience(exp)}
                   />

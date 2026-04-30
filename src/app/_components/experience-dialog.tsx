@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/dialog";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
-import { EXPERIENCES, EXPERIENCE_STYLES, type Experience } from "@/data/experiences";
+import { EXPERIENCES, type Experience } from "@/data/experiences";
 
 function ExperienceDialogInner({
   experience,
@@ -21,12 +21,10 @@ function ExperienceDialogInner({
   onOpenChange: (open: boolean) => void;
 }) {
   const { t } = useTranslation();
-  const index = EXPERIENCES.indexOf(experience);
-  if (index === -1) return null;
-  const style = EXPERIENCE_STYLES[index] ?? EXPERIENCE_STYLES[0];
-  const isCurrent = index === 0;
+  const style = experience.style;
+  const isCurrent = EXPERIENCES[0]?.slug === experience.slug;
   const [location, type] = experience.location.split(",").map((s) => s.trim());
-  const bullets = t(`experience.jobs.${index}.description`, {
+  const bullets = t(`experience.jobs.${experience.slug}.description`, {
     returnObjects: true,
   }) as string[];
 
@@ -138,7 +136,7 @@ export function ExperienceDialog({
   if (!experience) return null;
   return (
     <ExperienceDialogInner
-      key={experience.company + experience.period}
+      key={experience.slug}
       experience={experience}
       onOpenChange={onOpenChange}
     />

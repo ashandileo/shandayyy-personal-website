@@ -28,15 +28,15 @@
     "badge": "Career",
     "title": "Work Experience",
     "subtitle": "My professional journey as a software engineer.",
-    "jobs": [
-      {
+    "jobs": {
+      "maptrack-fullstack": {
         "description": [
           "Integrated OpenAI-powered PDF generation for custom forms, enabling dynamic form creation, intelligent content structuring, and automated document generation.",
           "Refactored the data layer using TanStack DB to support an offline-first architecture, improving reliability and user experience in low-connectivity environments.",
           "Implemented AI streaming with OpenAI's streaming mode to progressively render generated content, significantly improving perceived responsiveness and user experience while waiting for AI generation."
         ]
       },
-      {
+      "happy5-fullstack": {
         "description": [
           "Conducted thorough code reviews, optimizing overall performance.",
           "Successfully refactored JavaScript codebases into TypeScript, ensuring improved efficiency and maintainability.",
@@ -49,7 +49,7 @@
           "Set up Tailwind CSS within the mobile application framework, streamlining the styling process and ensuring a consistent design system."
         ]
       },
-      {
+      "kodegiri": {
         "description": [
           "Successfully revamped the VRMS web application with a new design and additional features using React.js.",
           "Styling components using Tailwind CSS.",
@@ -57,7 +57,7 @@
           "Successfully refactored JavaScript codebases into TypeScript, ensuring improved efficiency and maintainability."
         ]
       },
-      {
+      "rakamin": {
         "description": [
           "Enhanced features to improve user experience and functionality.",
           "Implemented designs into React components, ensuring a seamless transition from mockups to code.",
@@ -66,7 +66,7 @@
           "Styled React components using the Styled Components library, ensuring consistent and maintainable styling across the application."
         ]
       },
-      {
+      "smarteschool": {
         "description": [
           "Developed new features using Next.js.",
           "Utilized Bootstrap as the CSS framework, ensuring a responsive and aesthetically pleasing design.",
@@ -76,7 +76,7 @@
           "Revamped outdated pages, improving their performance, design, and functionality to meet modern standards."
         ]
       },
-      {
+      "happy5-intern": {
         "description": [
           "Successfully developed formal review results using @react-pdf/renderer, enabling the generation of PDF documents within the application.",
           "Implemented end-to-end testing using Cypress, enhancing the reliability of the application.",
@@ -84,7 +84,7 @@
           "Integrated the application with backend services, ensuring seamless communication and data flow between frontend and backend."
         ]
       }
-    ]
+    }
   },
   "projects": {
     "badge": "Portfolio",
