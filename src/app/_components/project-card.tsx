@@ -4,18 +4,18 @@ import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import { isVideo, type Project } from "@/data/projects";
 
-const CATEGORY_BY_TITLE: Record<
+const CATEGORY_BY_SLUG: Record<
   string,
   { label: string; color: string }
 > = {
-  MapTrack:               { label: "SaaS · Fullstack · AI",  color: "var(--secondary)" },
-  "English AI Interview": { label: "AI · Voice · Career",    color: "oklch(0.7 0.18 60)" },
-  Happy5:                 { label: "Performance · SaaS",     color: "var(--primary)" },
-  "Expense Tracker":      { label: "Finance · Personal",     color: "var(--accent)" },
-  "Shopbot Assistant":    { label: "AI · WhatsApp Bot",      color: "var(--secondary)" },
-  "Echo Test":            { label: "Education · AI",         color: "oklch(0.5 0.18 290)" },
-  GoMovies:               { label: "Entertainment",          color: "oklch(0.55 0.2 0)" },
-  Journal:                { label: "Mobile · PWA",           color: "oklch(0.65 0.18 60)" },
+  maptrack:               { label: "SaaS · Fullstack · AI", color: "var(--secondary)" },
+  "english-ai-interview": { label: "AI · Voice · Career",   color: "oklch(0.7 0.18 60)" },
+  happy5:                 { label: "Performance · SaaS",    color: "var(--primary)" },
+  "expense-tracker":      { label: "Finance · Personal",    color: "var(--accent)" },
+  "shopbot-assistant":    { label: "AI · WhatsApp Bot",     color: "var(--secondary)" },
+  "echo-test":            { label: "Education · AI",        color: "oklch(0.5 0.18 290)" },
+  gomovies:               { label: "Entertainment",         color: "oklch(0.55 0.2 0)" },
+  journal:                { label: "Mobile · PWA",          color: "oklch(0.65 0.18 60)" },
 };
 
 const TOTAL = 8;
@@ -36,7 +36,7 @@ export function ProjectCard({
   featured?: boolean;
 }) {
   const { t } = useTranslation();
-  const category = CATEGORY_BY_TITLE[project.title] ?? {
+  const category = CATEGORY_BY_SLUG[project.slug] ?? {
     label: "Project",
     color: "var(--muted-foreground)",
   };

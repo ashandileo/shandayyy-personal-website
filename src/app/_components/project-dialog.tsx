@@ -169,7 +169,7 @@ export function ProjectDialog({
   if (!project) return null;
   return (
     <ProjectDialogInner
-      key={project.title}
+      key={project.slug}
       project={project}
       onOpenChange={onOpenChange}
     />
