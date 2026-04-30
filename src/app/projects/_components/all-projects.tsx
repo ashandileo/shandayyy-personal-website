@@ -80,7 +80,7 @@ export function AllProjects() {
 
                 return (
                   <div
-                    key={project.title}
+                    key={project.slug}
                     className={`stagger-item border-border ${bottomBase} ${bottomSm} ${bottomMd} ${rightSm} ${rightMd}`}
                   >
                     <ProjectCard

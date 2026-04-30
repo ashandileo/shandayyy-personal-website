@@ -67,7 +67,7 @@ export function ProjectsSection() {
             const rightMd = isLastColMd ? "md:border-r-0" : "md:border-r-2";
             return (
               <div
-                key={project.title}
+                key={project.slug}
                 className={`stagger-item border-border ${bottomBase} ${bottomMd} ${rightMd}`}
               >
                 <ProjectCard
