@@ -22,7 +22,7 @@ export const EXPERIENCES: Experience[] = [
     role: "Product Software Engineer (Fullstack)",
     company: "MapTrack",
     location: "Remote, Full-time",
-    period: "Jan 2025 — Present",
+    period: "Oct 2024 — Present",
     skills: ["Next.js", "TypeScript", "Supabase", "OpenAI", "TanStack DB"],
     website: "https://maptrack.com",
     style: {
@@ -36,7 +36,7 @@ export const EXPERIENCES: Experience[] = [
     role: "Frontend Web/Mobile Engineer",
     company: "Happy5",
     location: "Remote, Full-time",
-    period: "Mar 2021 — Dec 2025",
+    period: "Mar 2021 — Dec 2024",
     skills: ["React", "React Native", "TypeScript", "Tailwind CSS", "Cypress", "Storybook", "Amplitude"],
     website: "https://www.happy5.co/",
     style: {

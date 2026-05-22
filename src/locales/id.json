@@ -130,6 +130,13 @@
       }
     }
   },
+  "github": {
+    "badge": "Aktivitas",
+    "title": "Code in the Wild",
+    "subtitle": "Grafik kontribusi GitHub saya — setiap kotak adalah hari di mana saya ngoding.",
+    "contributionsInLastYear": "kontribusi dalam setahun terakhir",
+    "unavailable": "Data aktivitas GitHub sedang tidak tersedia."
+  },
   "contact": {
     "badge": "Kontak",
     "title": "Mari Bekerja Sama",

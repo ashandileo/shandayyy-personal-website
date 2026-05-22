@@ -130,6 +130,13 @@
       }
     }
   },
+  "github": {
+    "badge": "Activity",
+    "title": "Code in the Wild",
+    "subtitle": "My GitHub contribution graph — every square is a day of shipping.",
+    "contributionsInLastYear": "contributions in the last year",
+    "unavailable": "GitHub activity data is temporarily unavailable."
+  },
   "contact": {
     "badge": "Contact",
     "title": "Let's Work Together",

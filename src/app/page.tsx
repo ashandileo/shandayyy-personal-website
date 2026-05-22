@@ -10,6 +10,7 @@ import {
   HeroSection,
   ExperienceSection,
   ProjectsSection,
+  GitHubActivitySection,
   ContactSection,
   Footer,
   ScrollToTop,
@@ -34,6 +35,7 @@ export default function Home() {
         <HeroSection />
         <ExperienceSection />
         <ProjectsSection />
+        <GitHubActivitySection />
         <ContactSection />
       </main>
       <Footer />
