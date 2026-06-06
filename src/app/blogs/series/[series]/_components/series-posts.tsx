@@ -8,13 +8,7 @@ import "@/lib/i18n";
 import { Navbar, Footer, ScrollToTop } from "@/app/_components";
 import { useSectionFade } from "@/hooks";
 import type { LocalizedPost, PostLang } from "@/lib/blogs/types";
-
-function slugToTitle(slug: string): string {
-  return slug
-    .split("-")
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(" ");
-}
+import { slugToTitle } from "../_utils";
 
 interface SeriesPostsProps {
   seriesSlug: string;
@@ -62,11 +56,6 @@ export function SeriesPosts({ seriesSlug, posts }: SeriesPostsProps) {
             </p>
 
             <div className="border-y-2 border-border">
-              {posts.length === 0 && (
-                <p className="py-10 text-center text-[11px] text-muted-foreground">
-                  {t("blog.empty")}
-                </p>
-              )}
               {posts.map((post) => {
                 const preferred = post[lang];
                 const fallback = preferred ? null : (post.en ?? post.id ?? null);

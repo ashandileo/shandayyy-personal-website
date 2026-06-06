@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getAllSeries, getSeriesPosts } from "@/lib/blogs";
 import { SeriesPosts } from "./_components/series-posts";
+import { slugToTitle } from "./_utils";
 
 const SITE_URL = "https://ashandileonadi.vercel.app";
 
@@ -15,15 +16,19 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { series } = await params;
-  const title = series
-    .split("-")
-    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-    .join(" ");
+  const title = slugToTitle(series);
+  const description = `${title} series — daily learning notes.`;
   const url = `${SITE_URL}/blogs/series/${series}`;
   return {
     title,
+    description,
     alternates: { canonical: url },
-    openGraph: { type: "website", title, url },
+    openGraph: { type: "website", title, description, url },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
   };
 }
 
