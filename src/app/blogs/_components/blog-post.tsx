@@ -6,6 +6,7 @@ import { useTranslation } from "react-i18next";
 import { ArrowLeft } from "lucide-react";
 import "@/lib/i18n";
 import { Navbar, Footer, ScrollToTop } from "@/app/_components";
+import { ReadingProgress } from "./reading-progress";
 import { useSectionFade } from "@/hooks";
 import type { LocalizedPost, PostContent, PostLang } from "@/lib/blogs/types";
 
@@ -59,6 +60,7 @@ export function BlogPost({ post, adjacent }: BlogPostProps) {
 
   return (
     <>
+      <ReadingProgress />
       <Navbar activeSection="" />
       <main className="flex-1 pt-16">
         <section className="relative px-6 py-12 sm:py-16">
