@@ -153,7 +153,13 @@
     "idOnly": "ID only",
     "fallbackToEn": "Indonesian version not available yet. Showing English.",
     "fallbackToId": "English version not available yet. Showing Indonesian.",
-    "empty": "No posts yet."
+    "empty": "No posts yet.",
+    "series": "Series",
+    "seriesDay": "Day {{day}}",
+    "seriesDays": "{{count}} days",
+    "backToSeries": "Back to series",
+    "prevDay": "← Day {{day}}",
+    "nextDay": "Day {{day}} →"
   },
   "footer": {
     "builtWith": "Built with Next.js & Tailwind CSS."
