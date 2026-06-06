@@ -55,6 +55,19 @@ export function readPostFile(slug: string, lang: PostLang): PostFile | null {
     throw new Error(`[blogs] ${filename}: frontmatter "tags" is required and must be an array of strings`);
   }
 
+  let series: string | undefined;
+  let seriesDay: number | undefined;
+  if (
+    typeof data.series === "string" &&
+    data.series.trim() &&
+    typeof data.seriesDay === "number" &&
+    Number.isInteger(data.seriesDay) &&
+    data.seriesDay > 0
+  ) {
+    series = data.series.trim();
+    seriesDay = data.seriesDay;
+  }
+
   const stats = readingTime(parsed.content);
 
   return {
@@ -69,6 +82,7 @@ export function readPostFile(slug: string, lang: PostLang): PostFile | null {
       summary: data.summary,
       tags: data.tags,
       readingMinutes: Math.max(1, Math.round(stats.minutes)),
+      ...(series !== undefined ? { series, seriesDay } : {}),
     },
   };
 }

@@ -8,6 +8,8 @@ export interface PostMeta {
   summary: string;
   tags: string[];
   readingMinutes: number;
+  series?: string;
+  seriesDay?: number;
 }
 
 export interface PostContent {
@@ -19,4 +21,9 @@ export interface LocalizedPost {
   slug: string;
   en?: PostContent;
   id?: PostContent;
+}
+
+export interface SeriesMeta {
+  slug: string;
+  totalDays: number;
 }
