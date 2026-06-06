@@ -36,8 +36,8 @@ export function getAllPosts(): LocalizedPost[] {
       const file = readPostFile(slug, lang);
       if (file) post[lang] = { meta: file.meta };
     }
-    const meta = post.en?.meta ?? post.id?.meta;
-    if (meta?.series && meta.seriesDay != null) continue;
+    const isSeries = [post.en, post.id].some(c => c?.meta.series && c.meta.seriesDay != null);
+    if (isSeries) continue;
     posts.push(post);
   }
   posts.sort((a, b) => bestDate(b).localeCompare(bestDate(a)));
@@ -53,7 +53,6 @@ export function getAllSeries(): SeriesMeta[] {
       const slugSet = seriesMap.get(file.meta.series) ?? new Set<string>();
       slugSet.add(slug);
       seriesMap.set(file.meta.series, slugSet);
-      break;
     }
   }
   return [...seriesMap.entries()]
@@ -62,26 +61,22 @@ export function getAllSeries(): SeriesMeta[] {
 }
 
 export function getSeriesPosts(seriesSlug: string): LocalizedPost[] {
-  const posts: LocalizedPost[] = [];
+  const entries: Array<{ post: LocalizedPost; seriesDay: number }> = [];
   for (const { slug, langs } of groupBySlug().values()) {
     const post: LocalizedPost = { slug };
-    let belongsToSeries = false;
+    let matchedSeriesDay: number | null = null;
     for (const lang of langs) {
       const file = readPostFile(slug, lang);
       if (!file) continue;
       post[lang] = { meta: file.meta };
       if (file.meta.series === seriesSlug && file.meta.seriesDay != null) {
-        belongsToSeries = true;
+        matchedSeriesDay = file.meta.seriesDay;
       }
     }
-    if (belongsToSeries) posts.push(post);
+    if (matchedSeriesDay !== null) entries.push({ post, seriesDay: matchedSeriesDay });
   }
-  posts.sort((a, b) => {
-    const dayA = a.en?.meta.seriesDay ?? a.id?.meta.seriesDay ?? 0;
-    const dayB = b.en?.meta.seriesDay ?? b.id?.meta.seriesDay ?? 0;
-    return dayA - dayB;
-  });
-  return posts;
+  entries.sort((a, b) => a.seriesDay - b.seriesDay);
+  return entries.map(({ post }) => post);
 }
 
 export function getAdjacentSeriesPosts(
