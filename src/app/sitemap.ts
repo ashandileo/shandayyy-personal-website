@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { getAllSlugs } from "@/lib/blogs";
+import { getAllSlugs, getAllSeries } from "@/lib/blogs";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://ashandileonadi.vercel.app";
@@ -26,6 +26,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
+  const seriesRoutes: MetadataRoute.Sitemap = getAllSeries().map(({ slug }) => ({
+    url: `${baseUrl}/blogs/series/${slug}`,
+    lastModified,
+    changeFrequency: "weekly",
+    priority: 0.65,
+  }));
+
   const blogRoutes: MetadataRoute.Sitemap = getAllSlugs().map((slug) => ({
     url: `${baseUrl}/blogs/${slug}`,
     lastModified,
@@ -33,5 +40,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticRoutes, ...blogRoutes];
+  return [...staticRoutes, ...seriesRoutes, ...blogRoutes];
 }

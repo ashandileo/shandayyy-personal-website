@@ -108,7 +108,7 @@ export function BlogPost({ post, adjacent }: BlogPostProps) {
               dangerouslySetInnerHTML={{ __html: display.html ?? "" }}
             />
 
-            {seriesSlug && (adjacent.prev || adjacent.next) && (
+            {seriesSlug && (
               <div className="mt-12 border-t-2 border-border pt-6">
                 <Link
                   href={`/blogs/series/${seriesSlug}`}
@@ -116,38 +116,40 @@ export function BlogPost({ post, adjacent }: BlogPostProps) {
                 >
                   {t("blog.backToSeries")} ↑
                 </Link>
-                <div className="flex items-stretch gap-3">
-                  {adjacent.prev && prevDisplay ? (
-                    <Link
-                      href={`/blogs/${adjacent.prev.slug}`}
-                      className="flex flex-1 flex-col border-[1.5px] border-border bg-card px-3 py-3 transition-colors hover:bg-muted"
-                    >
-                      <span className="mb-1 font-mono text-[9px] font-bold uppercase tracking-[0.1em] text-muted-foreground">
-                        {t("blog.prevDay", { day: prevDisplay.meta.seriesDay })}
-                      </span>
-                      <span className="text-[11px] font-bold uppercase leading-tight">
-                        {prevDisplay.meta.title}
-                      </span>
-                    </Link>
-                  ) : (
-                    <div className="flex-1" />
-                  )}
-                  {adjacent.next && nextDisplay ? (
-                    <Link
-                      href={`/blogs/${adjacent.next.slug}`}
-                      className="flex flex-1 flex-col items-end border-[1.5px] border-border bg-card px-3 py-3 text-right transition-colors hover:bg-muted"
-                    >
-                      <span className="mb-1 font-mono text-[9px] font-bold uppercase tracking-[0.1em] text-muted-foreground">
-                        {t("blog.nextDay", { day: nextDisplay.meta.seriesDay })}
-                      </span>
-                      <span className="text-[11px] font-bold uppercase leading-tight">
-                        {nextDisplay.meta.title}
-                      </span>
-                    </Link>
-                  ) : (
-                    <div className="flex-1" />
-                  )}
-                </div>
+                {(adjacent.prev || adjacent.next) && (
+                  <div className="flex items-stretch gap-3">
+                    {adjacent.prev && prevDisplay ? (
+                      <Link
+                        href={`/blogs/${adjacent.prev.slug}`}
+                        className="flex flex-1 flex-col border-[1.5px] border-border bg-card px-3 py-3 transition-colors hover:bg-muted"
+                      >
+                        <span className="mb-1 font-mono text-[9px] font-bold uppercase tracking-[0.1em] text-muted-foreground">
+                          {t("blog.prevDay", { day: prevDisplay.meta.seriesDay ?? "?" })}
+                        </span>
+                        <span className="text-[11px] font-bold uppercase leading-tight">
+                          {prevDisplay.meta.title}
+                        </span>
+                      </Link>
+                    ) : (
+                      <div className="flex-1" />
+                    )}
+                    {adjacent.next && nextDisplay ? (
+                      <Link
+                        href={`/blogs/${adjacent.next.slug}`}
+                        className="flex flex-1 flex-col items-end border-[1.5px] border-border bg-card px-3 py-3 text-right transition-colors hover:bg-muted"
+                      >
+                        <span className="mb-1 font-mono text-[9px] font-bold uppercase tracking-[0.1em] text-muted-foreground">
+                          {t("blog.nextDay", { day: nextDisplay.meta.seriesDay ?? "?" })}
+                        </span>
+                        <span className="text-[11px] font-bold uppercase leading-tight">
+                          {nextDisplay.meta.title}
+                        </span>
+                      </Link>
+                    ) : (
+                      <div className="flex-1" />
+                    )}
+                  </div>
+                )}
               </div>
             )}
           </article>

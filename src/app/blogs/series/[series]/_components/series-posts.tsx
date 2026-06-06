@@ -8,7 +8,7 @@ import "@/lib/i18n";
 import { Navbar, Footer, ScrollToTop } from "@/app/_components";
 import { useSectionFade } from "@/hooks";
 import type { LocalizedPost, PostLang } from "@/lib/blogs/types";
-import { slugToTitle } from "../_utils";
+import { slugToTitle } from "../../../_utils";
 
 interface SeriesPostsProps {
   seriesSlug: string;

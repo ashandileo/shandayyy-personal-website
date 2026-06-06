@@ -7,13 +7,7 @@ import "@/lib/i18n";
 import { Navbar, Footer, ScrollToTop } from "@/app/_components";
 import { useSectionFade } from "@/hooks";
 import type { LocalizedPost, PostLang, SeriesMeta } from "@/lib/blogs/types";
-
-function slugToTitle(slug: string): string {
-  return slug
-    .split("-")
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(" ");
-}
+import { slugToTitle } from "../_utils";
 
 interface BlogListProps {
   posts: LocalizedPost[];

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getAllSeries, getSeriesPosts } from "@/lib/blogs";
 import { SeriesPosts } from "./_components/series-posts";
-import { slugToTitle } from "./_utils";
+import { slugToTitle } from "../../_utils";
 
 const SITE_URL = "https://ashandileonadi.vercel.app";
 
