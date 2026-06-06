@@ -11,11 +11,12 @@ import type { LocalizedPost, PostContent, PostLang } from "@/lib/blogs/types";
 
 interface BlogPostProps {
   post: LocalizedPost;
+  adjacent: { prev: LocalizedPost | null; next: LocalizedPost | null };
 }
 
 type FallbackKey = "fallbackToEn" | "fallbackToId" | null;
 
-export function BlogPost({ post }: BlogPostProps) {
+export function BlogPost({ post, adjacent }: BlogPostProps) {
   const fadeRef = useSectionFade();
   const { t, i18n } = useTranslation();
 
@@ -50,6 +51,11 @@ export function BlogPost({ post }: BlogPostProps) {
   if (!display) return null;
 
   const meta = display.meta;
+  const seriesSlug = meta.series;
+  const seriesDay = meta.seriesDay;
+
+  const prevDisplay = adjacent.prev?.[lang] ?? adjacent.prev?.en ?? adjacent.prev?.id ?? null;
+  const nextDisplay = adjacent.next?.[lang] ?? adjacent.next?.en ?? adjacent.next?.id ?? null;
 
   return (
     <>
@@ -73,6 +79,14 @@ export function BlogPost({ post }: BlogPostProps) {
               <time dateTime={meta.date}>{meta.date}</time>
               <span aria-hidden>·</span>
               <span>{t("blog.readingTime", { minutes: meta.readingMinutes })}</span>
+              {seriesDay != null && (
+                <>
+                  <span aria-hidden>·</span>
+                  <span className="border-[1.5px] border-border bg-card px-1.5 py-[1px] text-[8px]">
+                    {t("blog.seriesDay", { day: seriesDay })}
+                  </span>
+                </>
+              )}
               {meta.tags.map((tag) => (
                 <span
                   key={tag}
@@ -93,6 +107,49 @@ export function BlogPost({ post }: BlogPostProps) {
               className="blog-content"
               dangerouslySetInnerHTML={{ __html: display.html ?? "" }}
             />
+
+            {seriesSlug && (adjacent.prev || adjacent.next) && (
+              <div className="mt-12 border-t-2 border-border pt-6">
+                <Link
+                  href={`/blogs/series/${seriesSlug}`}
+                  className="mb-4 inline-block font-mono text-[10px] font-bold uppercase tracking-[0.1em] text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  {t("blog.backToSeries")} ↑
+                </Link>
+                <div className="flex items-stretch gap-3">
+                  {adjacent.prev && prevDisplay ? (
+                    <Link
+                      href={`/blogs/${adjacent.prev.slug}`}
+                      className="flex flex-1 flex-col border-[1.5px] border-border bg-card px-3 py-3 transition-colors hover:bg-muted"
+                    >
+                      <span className="mb-1 font-mono text-[9px] font-bold uppercase tracking-[0.1em] text-muted-foreground">
+                        {t("blog.prevDay", { day: prevDisplay.meta.seriesDay })}
+                      </span>
+                      <span className="text-[11px] font-bold uppercase leading-tight">
+                        {prevDisplay.meta.title}
+                      </span>
+                    </Link>
+                  ) : (
+                    <div className="flex-1" />
+                  )}
+                  {adjacent.next && nextDisplay ? (
+                    <Link
+                      href={`/blogs/${adjacent.next.slug}`}
+                      className="flex flex-1 flex-col items-end border-[1.5px] border-border bg-card px-3 py-3 text-right transition-colors hover:bg-muted"
+                    >
+                      <span className="mb-1 font-mono text-[9px] font-bold uppercase tracking-[0.1em] text-muted-foreground">
+                        {t("blog.nextDay", { day: nextDisplay.meta.seriesDay })}
+                      </span>
+                      <span className="text-[11px] font-bold uppercase leading-tight">
+                        {nextDisplay.meta.title}
+                      </span>
+                    </Link>
+                  ) : (
+                    <div className="flex-1" />
+                  )}
+                </div>
+              </div>
+            )}
           </article>
         </section>
       </main>

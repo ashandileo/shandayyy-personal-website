@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getAllSlugs, getPostBySlug } from "@/lib/blogs";
+import { getAllSlugs, getPostBySlug, getAdjacentSeriesPosts } from "@/lib/blogs";
 import { BlogPost } from "../_components/blog-post";
 
 const SITE_URL = "https://ashandileonadi.vercel.app";
@@ -42,5 +42,9 @@ export default async function BlogPostPage({ params }: PageProps) {
   const { slug } = await params;
   const post = await getPostBySlug(slug);
   if (!post) notFound();
-  return <BlogPost post={post} />;
+  const seriesSlug = post.en?.meta.series ?? post.id?.meta.series;
+  const adjacent = seriesSlug
+    ? getAdjacentSeriesPosts(slug, seriesSlug)
+    : { prev: null, next: null };
+  return <BlogPost post={post} adjacent={adjacent} />;
 }
