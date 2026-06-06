@@ -1,9 +1,9 @@
 import "server-only";
 import { listPostFiles, readPostFile } from "./read";
 import { compileMarkdown } from "./compile";
-import type { LocalizedPost, PostLang } from "./types";
+import type { LocalizedPost, PostLang, SeriesMeta } from "./types";
 
-export type { PostMeta, PostContent, LocalizedPost, PostLang } from "./types";
+export type { PostMeta, PostContent, LocalizedPost, PostLang, SeriesMeta } from "./types";
 
 interface SlugEntry {
   slug: string;
@@ -36,10 +36,65 @@ export function getAllPosts(): LocalizedPost[] {
       const file = readPostFile(slug, lang);
       if (file) post[lang] = { meta: file.meta };
     }
+    const meta = post.en?.meta ?? post.id?.meta;
+    if (meta?.series && meta.seriesDay != null) continue;
     posts.push(post);
   }
   posts.sort((a, b) => bestDate(b).localeCompare(bestDate(a)));
   return posts;
+}
+
+export function getAllSeries(): SeriesMeta[] {
+  const seriesMap = new Map<string, Set<string>>();
+  for (const { slug, langs } of groupBySlug().values()) {
+    for (const lang of langs) {
+      const file = readPostFile(slug, lang);
+      if (!file?.meta.series || file.meta.seriesDay == null) continue;
+      const slugSet = seriesMap.get(file.meta.series) ?? new Set<string>();
+      slugSet.add(slug);
+      seriesMap.set(file.meta.series, slugSet);
+      break;
+    }
+  }
+  return [...seriesMap.entries()]
+    .map(([seriesSlug, slugSet]) => ({ slug: seriesSlug, totalDays: slugSet.size }))
+    .sort((a, b) => a.slug.localeCompare(b.slug));
+}
+
+export function getSeriesPosts(seriesSlug: string): LocalizedPost[] {
+  const posts: LocalizedPost[] = [];
+  for (const { slug, langs } of groupBySlug().values()) {
+    const post: LocalizedPost = { slug };
+    let belongsToSeries = false;
+    for (const lang of langs) {
+      const file = readPostFile(slug, lang);
+      if (!file) continue;
+      post[lang] = { meta: file.meta };
+      if (file.meta.series === seriesSlug && file.meta.seriesDay != null) {
+        belongsToSeries = true;
+      }
+    }
+    if (belongsToSeries) posts.push(post);
+  }
+  posts.sort((a, b) => {
+    const dayA = a.en?.meta.seriesDay ?? a.id?.meta.seriesDay ?? 0;
+    const dayB = b.en?.meta.seriesDay ?? b.id?.meta.seriesDay ?? 0;
+    return dayA - dayB;
+  });
+  return posts;
+}
+
+export function getAdjacentSeriesPosts(
+  currentSlug: string,
+  seriesSlug: string
+): { prev: LocalizedPost | null; next: LocalizedPost | null } {
+  const posts = getSeriesPosts(seriesSlug);
+  const idx = posts.findIndex((p) => p.slug === currentSlug);
+  if (idx === -1) return { prev: null, next: null };
+  return {
+    prev: idx > 0 ? posts[idx - 1] : null,
+    next: idx < posts.length - 1 ? posts[idx + 1] : null,
+  };
 }
 
 export async function getPostBySlug(slug: string): Promise<LocalizedPost | null> {
