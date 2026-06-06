@@ -6,13 +6,21 @@ import { useTranslation } from "react-i18next";
 import "@/lib/i18n";
 import { Navbar, Footer, ScrollToTop } from "@/app/_components";
 import { useSectionFade } from "@/hooks";
-import type { LocalizedPost, PostLang } from "@/lib/blogs/types";
+import type { LocalizedPost, PostLang, SeriesMeta } from "@/lib/blogs/types";
+
+function slugToTitle(slug: string): string {
+  return slug
+    .split("-")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+}
 
 interface BlogListProps {
   posts: LocalizedPost[];
+  series: SeriesMeta[];
 }
 
-export function BlogList({ posts }: BlogListProps) {
+export function BlogList({ posts, series }: BlogListProps) {
   const fadeRef = useSectionFade();
   const { t, i18n } = useTranslation();
   const [activeTag, setActiveTag] = useState<string | null>(null);
@@ -64,6 +72,33 @@ export function BlogList({ posts }: BlogListProps) {
             <p className="mb-8 text-[11px] text-muted-foreground">
               {t("blog.subtitle")}
             </p>
+
+            {series.length > 0 && (
+              <div className="mb-10">
+                <p className="mb-2 font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-muted-foreground">
+                  {t("blog.series")}
+                </p>
+                <div className="border-y-2 border-border">
+                  {series.map((s) => (
+                    <Link
+                      key={s.slug}
+                      href={`/blogs/series/${s.slug}`}
+                      className="flex items-center justify-between border-b border-border last:border-b-0 px-1 py-4 transition-colors hover:bg-muted"
+                    >
+                      <div className="flex items-center gap-3">
+                        <span className="font-mono text-[10px] text-muted-foreground">📚</span>
+                        <span className="text-sm font-black uppercase tracking-tight">
+                          {slugToTitle(s.slug)}
+                        </span>
+                      </div>
+                      <span className="font-mono text-[10px] text-muted-foreground">
+                        {t("blog.seriesDays", { count: s.totalDays })} →
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {allTags.length > 0 && (
               <div className="mb-6 flex flex-wrap gap-1.5">
