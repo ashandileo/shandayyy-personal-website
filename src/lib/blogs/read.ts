@@ -57,6 +57,7 @@ export function readPostFile(slug: string, lang: PostLang): PostFile | null {
 
   let series: string | undefined;
   let seriesDay: number | undefined;
+  let seriesPart: number | undefined;
   if (
     typeof data.series === "string" &&
     data.series.trim() &&
@@ -66,6 +67,13 @@ export function readPostFile(slug: string, lang: PostLang): PostFile | null {
   ) {
     series = data.series.trim();
     seriesDay = data.seriesDay;
+    if (
+      typeof data.seriesPart === "number" &&
+      Number.isInteger(data.seriesPart) &&
+      data.seriesPart > 0
+    ) {
+      seriesPart = data.seriesPart;
+    }
   }
 
   const stats = readingTime(parsed.content);
@@ -82,7 +90,7 @@ export function readPostFile(slug: string, lang: PostLang): PostFile | null {
       summary: data.summary,
       tags: data.tags,
       readingMinutes: Math.max(1, Math.round(stats.minutes)),
-      ...(series !== undefined ? { series, seriesDay } : {}),
+      ...(series !== undefined ? { series, seriesDay, ...(seriesPart !== undefined ? { seriesPart } : {}) } : {}),
     },
   };
 }

@@ -2,12 +2,21 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
+import { BookOpen } from "lucide-react";
+import { SiGo } from "react-icons/si";
 import { useTranslation } from "react-i18next";
 import "@/lib/i18n";
 import { Navbar, Footer, ScrollToTop } from "@/app/_components";
 import { useSectionFade } from "@/hooks";
 import type { LocalizedPost, PostLang, SeriesMeta } from "@/lib/blogs/types";
 import { slugToTitle } from "../_utils";
+
+function SeriesIcon({ slug }: { slug: string }) {
+  if (slug.includes("golang")) {
+    return <SiGo className="h-4 w-4" style={{ color: "#00ADD8" }} />;
+  }
+  return <BookOpen className="h-4 w-4 text-muted-foreground" />;
+}
 
 interface BlogListProps {
   posts: LocalizedPost[];
@@ -80,7 +89,7 @@ export function BlogList({ posts, series }: BlogListProps) {
                       className="flex items-center justify-between border-b border-border last:border-b-0 px-1 py-4 transition-colors hover:bg-muted"
                     >
                       <div className="flex items-center gap-3">
-                        <span className="font-mono text-[10px] text-muted-foreground">📚</span>
+                        <SeriesIcon slug={s.slug} />
                         <span className="text-sm font-black uppercase tracking-tight">
                           {slugToTitle(s.slug)}
                         </span>

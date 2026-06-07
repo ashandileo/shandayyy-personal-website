@@ -52,7 +52,14 @@ export function SeriesPosts({ seriesSlug, posts }: SeriesPostsProps) {
               <span aria-hidden className="h-[2px] flex-1 bg-border opacity-10" />
             </div>
             <p className="mb-8 text-[11px] text-muted-foreground">
-              {t("blog.seriesDays", { count: posts.length })}
+              {t("blog.seriesDays", {
+                count: new Set(
+                  posts.flatMap((p) => {
+                    const day = (p.en ?? p.id)?.meta.seriesDay;
+                    return day != null ? [day] : [];
+                  })
+                ).size,
+              })}
             </p>
 
             <div className="border-y-2 border-border">
@@ -62,6 +69,7 @@ export function SeriesPosts({ seriesSlug, posts }: SeriesPostsProps) {
                 const display = preferred ?? fallback;
                 if (!display) return null;
                 const day = display.meta.seriesDay ?? 0;
+                const part = display.meta.seriesPart;
 
                 return (
                   <Link
@@ -71,7 +79,9 @@ export function SeriesPosts({ seriesSlug, posts }: SeriesPostsProps) {
                   >
                     <div className="mb-1 flex flex-wrap items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-[0.1em] text-muted-foreground">
                       <span className="border-[1.5px] border-border bg-card px-1.5 py-[1px] text-[8px]">
-                        {t("blog.seriesDay", { day })}
+                        {part != null
+                          ? t("blog.seriesDayPart", { day, part })
+                          : t("blog.seriesDay", { day })}
                       </span>
                       <time dateTime={display.meta.date}>{display.meta.date}</time>
                       <span aria-hidden>·</span>

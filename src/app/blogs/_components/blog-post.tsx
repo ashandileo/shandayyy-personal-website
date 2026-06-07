@@ -85,7 +85,9 @@ export function BlogPost({ post, adjacent }: BlogPostProps) {
                 <>
                   <span aria-hidden>·</span>
                   <span className="border-[1.5px] border-border bg-card px-1.5 py-[1px] text-[8px]">
-                    {t("blog.seriesDay", { day: seriesDay })}
+                    {meta.seriesPart != null
+                      ? t("blog.seriesDayPart", { day: seriesDay, part: meta.seriesPart })
+                      : t("blog.seriesDay", { day: seriesDay })}
                   </span>
                 </>
               )}
@@ -126,7 +128,9 @@ export function BlogPost({ post, adjacent }: BlogPostProps) {
                         className="flex flex-1 flex-col border-[1.5px] border-border bg-card px-3 py-3 transition-colors hover:bg-muted"
                       >
                         <span className="mb-1 font-mono text-[9px] font-bold uppercase tracking-[0.1em] text-muted-foreground">
-                          {t("blog.prevDay", { day: prevDisplay.meta.seriesDay ?? "?" })}
+                          {prevDisplay.meta.seriesPart != null
+                            ? t("blog.prevDayPart", { day: prevDisplay.meta.seriesDay ?? "?", part: prevDisplay.meta.seriesPart })
+                            : t("blog.prevDay", { day: prevDisplay.meta.seriesDay ?? "?" })}
                         </span>
                         <span className="text-[11px] font-bold uppercase leading-tight">
                           {prevDisplay.meta.title}
@@ -141,7 +145,9 @@ export function BlogPost({ post, adjacent }: BlogPostProps) {
                         className="flex flex-1 flex-col items-end border-[1.5px] border-border bg-card px-3 py-3 text-right transition-colors hover:bg-muted"
                       >
                         <span className="mb-1 font-mono text-[9px] font-bold uppercase tracking-[0.1em] text-muted-foreground">
-                          {t("blog.nextDay", { day: nextDisplay.meta.seriesDay ?? "?" })}
+                          {nextDisplay.meta.seriesPart != null
+                            ? t("blog.nextDayPart", { day: nextDisplay.meta.seriesDay ?? "?", part: nextDisplay.meta.seriesPart })
+                            : t("blog.nextDay", { day: nextDisplay.meta.seriesDay ?? "?" })}
                         </span>
                         <span className="text-[11px] font-bold uppercase leading-tight">
                           {nextDisplay.meta.title}

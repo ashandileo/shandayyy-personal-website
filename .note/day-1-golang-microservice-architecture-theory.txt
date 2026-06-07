@@ -1,0 +1,30 @@
+Day1: Microservice Architecture Theory
+
+1. Sebuah pendekatan arsitektur perangkat lunak dimana aplikasi dibangun sebagai sekumpulan service kecil
+2. Setiap service menjalankan satu fungsi bisnis tertentu dan dapat dikembangkan, diterapkan dan diskalan secara terpisah
+3. Contoohnya :
+    1. Order Service => Mengelola data order
+    2. Order User => Mengelola data user
+4. Kelebihan Microservice :
+    1. Independensi pengembangan => Tim dapat mengembangkan, menguji dan menerapkan microserice secara independen
+    2. Skalabilitas => Dapat diskalakan secara individual, sehingga lebih efisien
+    3. Pemilihan Teknologi => Setiap microservice dapat menguankan teknologi, bahasa atau framework yang paling sesuai dengan kebutuhannya
+    4. Resiliensi => Kerusakan pada satu micoservice tidak akan menyebabkan aplikasi down, karena layanan lain tetap dapat berfungsi
+    5. Peningkatan kecepatan pengembangan => Tim kecil dapat fokus pada satu layanan, sehingga pengembangan menjadi lebih cepat dan terorganisir
+
+Perbedaan-perbedaannya Microservice dan Monolith
+1. Aspek => Microservice: Terdiri dari layanan kecil yang berdiri sendiri => Monolith: Semua fungsi dalam satu code besar
+2. Skalabilitas => Microservice: Dapat diskalakan per layanan => Monolith: Harus diskalakan secara keseluruhan
+3. Teknologi => Microservice: Setiap layanan dapat menggunakan teknologi yang berbeda sesuai kebutuhan => Monolith: Biasanya menggunakan satu teknologi saja
+4. Resiliensi => Microservice: Kerusakan pada satu layanan tidak memengaruhi layanan lainnya => Monolith: Jika satu komponen gagal seluruh aplikasi bisa terganggu
+5. Deployment => Microservice: Setiap layanan dapat diterapkan secara independent  => Monolith: Perubahan kecil sering memerlukan redeployment seluruh aplikasi
+
+Kapan harus menggunakan Microservice ?
+1. Aplikasi besar punya banyak fitur
+2. Tim pengenmbangan besar dan terdistribusi
+3. Aplikasi yang butuh skalabilitas tinggi
+4. Organisasi yang ingin mengadopsi DevOps
+
+Contoh Diagram Microservice Arsitektur:
+￼
+/Users/ashandileonadi/Library/Containers/com.apple.Notes/Data/tmp/TemporaryItems/NSIRD_Notes_oDriYe/HardLinkURLTemp/4BBC824C-5A43-49B0-9A1A-DA9E9E477FE1/1780727732/Diagram Microservice.png

@@ -55,27 +55,44 @@ export function getAllSeries(): SeriesMeta[] {
       seriesMap.set(file.meta.series, slugSet);
     }
   }
+  const uniqueDaysMap = new Map<string, Set<number>>();
+  for (const { slug, langs } of groupBySlug().values()) {
+    for (const lang of langs) {
+      const file = readPostFile(slug, lang);
+      if (!file?.meta.series || file.meta.seriesDay == null) continue;
+      const daySet = uniqueDaysMap.get(file.meta.series) ?? new Set<number>();
+      daySet.add(file.meta.seriesDay);
+      uniqueDaysMap.set(file.meta.series, daySet);
+    }
+  }
   return [...seriesMap.entries()]
-    .map(([seriesSlug, slugSet]) => ({ slug: seriesSlug, totalDays: slugSet.size }))
+    .map(([seriesSlug, slugSet]) => ({
+      slug: seriesSlug,
+      totalDays: uniqueDaysMap.get(seriesSlug)?.size ?? slugSet.size,
+    }))
     .sort((a, b) => a.slug.localeCompare(b.slug));
 }
 
 export function getSeriesPosts(seriesSlug: string): LocalizedPost[] {
-  const entries: Array<{ post: LocalizedPost; seriesDay: number }> = [];
+  const entries: Array<{ post: LocalizedPost; seriesDay: number; seriesPart: number }> = [];
   for (const { slug, langs } of groupBySlug().values()) {
     const post: LocalizedPost = { slug };
     let matchedSeriesDay: number | null = null;
+    let matchedSeriesPart = 1;
     for (const lang of langs) {
       const file = readPostFile(slug, lang);
       if (!file) continue;
       post[lang] = { meta: file.meta };
       if (file.meta.series === seriesSlug && file.meta.seriesDay != null) {
         matchedSeriesDay = file.meta.seriesDay;
+        matchedSeriesPart = file.meta.seriesPart ?? 1;
       }
     }
-    if (matchedSeriesDay !== null) entries.push({ post, seriesDay: matchedSeriesDay });
+    if (matchedSeriesDay !== null) entries.push({ post, seriesDay: matchedSeriesDay, seriesPart: matchedSeriesPart });
   }
-  entries.sort((a, b) => a.seriesDay - b.seriesDay);
+  entries.sort((a, b) =>
+    a.seriesDay !== b.seriesDay ? a.seriesDay - b.seriesDay : a.seriesPart - b.seriesPart
+  );
   return entries.map(({ post }) => post);
 }
 

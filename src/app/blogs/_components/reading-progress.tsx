@@ -11,13 +11,14 @@ function calcProgress() {
 }
 
 export function ReadingProgress() {
-  const [progress, setProgress] = useState(calcProgress);
+  const [progress, setProgress] = useState(0);
 
   const onScroll = useCallback(() => {
     setProgress(calcProgress());
   }, []);
 
   useEffect(() => {
+    setProgress(calcProgress());
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, [onScroll]);

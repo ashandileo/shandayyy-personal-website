@@ -10,6 +10,7 @@ export interface PostMeta {
   readingMinutes: number;
   series?: string;
   seriesDay?: number;
+  seriesPart?: number;
 }
 
 export interface PostContent {

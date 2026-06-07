@@ -16,7 +16,7 @@ export function useSectionFade() {
           observer.unobserve(el);
         }
       },
-      { threshold: 0.15 },
+      { threshold: 0.01 },
     );
 
     observer.observe(el);

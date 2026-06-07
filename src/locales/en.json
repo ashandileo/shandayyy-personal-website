@@ -156,10 +156,13 @@
     "empty": "No posts yet.",
     "series": "Series",
     "seriesDay": "Day {{day}}",
+    "seriesDayPart": "Day {{day}} Pt. {{part}}",
     "seriesDays": "{{count}} days",
     "backToSeries": "Back to series",
     "prevDay": "← Day {{day}}",
-    "nextDay": "Day {{day}} →"
+    "prevDayPart": "← Day {{day}} Pt. {{part}}",
+    "nextDay": "Day {{day}} →",
+    "nextDayPart": "Day {{day}} Pt. {{part}} →"
   },
   "footer": {
     "builtWith": "Built with Next.js & Tailwind CSS."

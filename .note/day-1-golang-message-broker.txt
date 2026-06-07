@@ -1,0 +1,25 @@
+Day1: Message Broker
+
+Message Broker ?
+Adalah perangkat lunak yang memfasilitasi komunikasi antar aplikasi atau layanan dengan mengirim dan menerima pesan.
+
+Tujuannya apa dari Message Broker ini ?
+Memungkinkan aplikasi berkomunikasi tanpa harus terhubung satu sama lain, sehingga menciptakan sistem yang lebih fleksible dan terdesentralisasi.
+
+Macam macam Message Broker apa aja ?
+1. Apache Kafka
+2. RabbitMQ
+3. Amazon SQS
+4. ActiveMQ
+5. Azure Service Bus
+
+Sekarang apa itu Apache Kafka ?
+Platform stream-processing berbasis distribusi. Fungsinya Sebagai Message Broker
+
+Digunakan untuk integrasi antar sistem microservice. 
+Selain itu juga banyak digunakan untuk pemrosesan realtime.
+
+
+Diagram Arsitektur Apache Kafka
+￼
+/Users/ashandileonadi/Library/Containers/com.apple.Notes/Data/tmp/TemporaryItems/NSIRD_Notes_oDriYe/HardLinkURLTemp/5A11B0BD-0EB3-4B78-B807-F9EE597E80C7/1780729521/Apache Kafka Arsitektur.png

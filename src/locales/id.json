@@ -156,10 +156,13 @@
     "empty": "Belum ada tulisan.",
     "series": "Seri",
     "seriesDay": "Hari {{day}}",
+    "seriesDayPart": "Hari {{day}} Bg. {{part}}",
     "seriesDays": "{{count}} hari",
     "backToSeries": "Kembali ke seri",
     "prevDay": "← Hari {{day}}",
-    "nextDay": "Hari {{day}} →"
+    "prevDayPart": "← Hari {{day}} Bg. {{part}}",
+    "nextDay": "Hari {{day}} →",
+    "nextDayPart": "Hari {{day}} Bg. {{part}} →"
   },
   "footer": {
     "builtWith": "Dibangun dengan Next.js & Tailwind CSS."
