@@ -11,14 +11,13 @@ function calcProgress() {
 }
 
 export function ReadingProgress() {
-  const [progress, setProgress] = useState(0);
+  const [progress, setProgress] = useState(() => calcProgress());
 
   const onScroll = useCallback(() => {
     setProgress(calcProgress());
   }, []);
 
   useEffect(() => {
-    setProgress(calcProgress());
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, [onScroll]);
@@ -27,14 +26,11 @@ export function ReadingProgress() {
 
   return (
     <>
-      {/* Top progress bar — sits just below the fixed navbar (64px) */}
+      {/* Top progress bar — sits at very top of viewport, above navbar */}
       <div
         aria-hidden
-        className="fixed left-0 z-40 h-[3px] bg-primary transition-none"
-        style={{
-          top: "64px",
-          width: `${progress}%`,
-        }}
+        className="fixed left-0 top-0 z-50 h-[3px] bg-(--reading-progress) transition-none"
+        style={{ width: `${progress}%` }}
       />
 
       {/* Floating percentage badge */}
@@ -49,13 +45,13 @@ export function ReadingProgress() {
         {/* Mini bar inside badge */}
         <div className="relative h-[3px] w-10 bg-muted overflow-hidden">
           <div
-            className="absolute inset-y-0 left-0 bg-primary transition-none"
+            className="absolute inset-y-0 left-0 bg-(--reading-progress) transition-none"
             style={{ width: `${progress}%` }}
           />
         </div>
         <span className="font-mono text-[10px] font-bold tabular-nums text-muted-foreground">
           {String(progress).padStart(2, "0")}
-          <span className="text-primary">%</span>
+          <span className="text-(--reading-progress)">%</span>
         </span>
       </div>
     </>
